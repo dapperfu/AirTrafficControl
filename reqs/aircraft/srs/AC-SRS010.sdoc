@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-SRS010 Request pattern entry and landing, and read back runway and landing
+UID: DOC-AC-SRS010
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS010
+TITLE: Request pattern entry and landing, and read back runway and landing
+STATEMENT: >>>
+The aircraft shall request pattern entry for the configured pattern side and runway, and shall request landing with its current position. A runway assignment and a cleared-to-land clearance for this runway shall be read back with the runway and the call sign last. The aircraft shall not descend to the surface on final until a landing clearance or another landing-type clearance is accepted. Acceptance is the pattern-entry phrase from the ramp and the readback Cleared to land runway two seven followed by the call sign.
+<<<
+RATIONALE: >>>
+Landing is a separate acceptance from merely flying the pattern.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
+- TYPE: Parent
+  VALUE: AC-SSS002
