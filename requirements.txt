@@ -1,1 +1,2 @@
 strictdoc==0.31.0
+pytest==9.2.0
