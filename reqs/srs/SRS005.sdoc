@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS005 Select neighbors by communications distance
+UID: DOC-SRS005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS005
+TITLE: Select neighbors by communications distance
+STATEMENT: >>>
+The Tower CSCI shall compute the distance between this airport and each configured candidate and shall mark a candidate as a neighbor only when that distance is less than or equal to the configured communications distance. A candidate with no position shall not become a neighbor. Acceptance is a candidate one unit inside the distance that is selected and a candidate one unit outside that is not.
+<<<
+RATIONALE: >>>
+Neighbor selection is data, computed from the TOML positions and distance, not a hard-coded airport list in the clearance module.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: Distance is great-circle distance in nautical miles from the configured coordinates.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS003
