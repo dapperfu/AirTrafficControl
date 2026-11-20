@@ -1,0 +1,31 @@
+[GRAMMAR]
+ELEMENTS:
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: DAL
+    TYPE: SingleChoice(A, B, C, D, E)
+    REQUIRED: True
+  - TITLE: REQUIREMENT_LEVEL
+    TYPE: SingleChoice(System, High-Level, Low-Level, Derived, Interface, Operational, Plan)
+    REQUIRED: True
+  - TITLE: VERIFICATION
+    TYPE: SingleChoice(Test, Analysis, Review, Formal, Refinement, PropEr)
+    REQUIRED: True
+  - TITLE: ASSUMPTIONS
+    TYPE: String
+    REQUIRED: True
+  RELATIONS:
+  - TYPE: Parent
+  - TYPE: File
