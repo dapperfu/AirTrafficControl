@@ -1,4 +1,4 @@
-.PHONY: help clean build run test aircraft-test physics scenario-test \
+.PHONY: help clean build run serve frontend test aircraft-test physics scenario-test \
 	strictdoc-init strictdoc-generate strictdoc-validate strictdoc-export \
 	strictdoc-serve strictdoc-tree strictdoc-help tla-check install-hooks
 
@@ -14,6 +14,8 @@ help:
 	@echo "AirTrafficControl targets:"
 	@echo "  make build                 Compile the Erlang release"
 	@echo "  make run                   Load the example airport and halt"
+	@echo "  make serve                 Keep a tower listening on 127.0.0.1:7878"
+	@echo "  make frontend              Build the egui front end"
 	@echo "  make test                  Run Common Test and PropEr"
 	@echo "  make aircraft-test         Run the aircraft pytest suite"
 	@echo "  make scenario-test         Fly the pinned busy-flow scenario at max scale"
@@ -60,9 +62,18 @@ strictdoc-help: $(STRICTDOC)
 build:
 	$(REBAR) compile
 
+AIRPORT ?= $(ROOT)/config/example-airport.toml
+FRONT_PORT ?= 7878
+
 run: build
 	$(REBAR) as prod release
 	$(ROOT)/.tools/erlang/bin/erl -noshell $$(find $(ROOT)/_build/prod/rel/atc_tower/lib -type d -name ebin -printf '-pa %p ') -eval 'ok = atc_tower_cli:main(["$(ROOT)/config/example-airport.toml"]), halt(0).'
+
+serve: build
+	$(ROOT)/.tools/erlang/bin/erl -noshell $$(find $(ROOT)/_build/default/lib -type d -name ebin -printf '-pa %p ') -eval 'ok = atc_tower_cli:main(["serve", "$(abspath $(AIRPORT))", "$(FRONT_PORT)"]), halt(0).'
+
+frontend:
+	cargo build --manifest-path $(ROOT)/apps/atc_frontend/Cargo.toml
 
 test:
 	$(REBAR) as test ct
