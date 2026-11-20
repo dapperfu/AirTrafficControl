@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: AC-IDD001 In-memory transmission and link events, with encoding deferred
+UID: DOC-AC-IDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-IDD001
+TITLE: In-memory transmission and link events, with encoding deferred
+STATEMENT: >>>
+The concrete port shall be an in-memory object. send shall return sent, blocked, or down. A sent transmission shall appear on the outbound list. A blocked transmission shall not. The aircraft shall pass Transmission values and LinkEvent values for delivered, blocked, garbled, down, and up. No byte encoding shall be implemented. Acceptance is one blocked ATIS request that still results in a single outbound copy, and a second block pair that leaves the outbound list unchanged.
+<<<
+RATIONALE: >>>
+The in-memory port is the stand-in until a later plan selects a method.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-IRS001
+- TYPE: Parent
+  VALUE: AC-IRS002
+- TYPE: Parent
+  VALUE: AC-IRS004
