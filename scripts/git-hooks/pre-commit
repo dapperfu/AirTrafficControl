@@ -1,0 +1,12 @@
+#!/bin/sh
+# Regenerate StrictDoc HTML when requirement sources are staged.
+root=$(git rev-parse --show-toplevel) || exit 1
+cd "$root" || exit 1
+staged=$(git diff --cached --name-only --diff-filter=ACMR | grep '\.sdoc$' || true)
+grammar=$(git diff --cached --name-only --diff-filter=ACMR | grep '\.sgra$' || true)
+if [ -z "$staged" ] && [ -z "$grammar" ]; then
+    exit 0
+fi
+make strictdoc-generate || exit 1
+git add reqs/html
+exit 0
