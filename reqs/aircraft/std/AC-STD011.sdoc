@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD011 Unable cases
+UID: DOC-AC-STD011
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD011
+TITLE: Unable cases
+STATEMENT: >>>
+The test shall line the aircraft up on a runway whose length has been set to 800 feet and shall expect Unable cleared for takeoff runway two seven while the phase stays line up and the speed stays zero. It shall also send a takeoff clearance for N999ZZ and a landing clearance for runway 28 and expect no phrase and no Unable decision. Acceptance is that refusal and that silence. The test file is apps/aircraft/tests/test_aircraft.py.
+<<<
+RATIONALE: >>>
+This is the example test for Unable and for an ignored transmission.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS016
