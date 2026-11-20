@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD003 Group membership for one computer and for three
+UID: DOC-STD003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD003
+TITLE: Group membership for one computer and for three
+STATEMENT: >>>
+The test shall start a group with n equal to 1 and expect that member to be the authority, then start a group with n equal to 3 and expect a member that has not joined to refuse a clearance. Acceptance is authority on the single member and refusal from the unjoined member.
+<<<
+RATIONALE: >>>
+The rural case and the redundant case are both part of the same requirement.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS003
