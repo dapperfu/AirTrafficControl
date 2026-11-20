@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS018 On an addressed garble, say again and do not accept it
+UID: DOC-AC-SRS018
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS018
+TITLE: On an addressed garble, say again and do not accept it
+STATEMENT: >>>
+An addressed garbled event shall cause the phrase Say again followed by the full call sign and shall not change the phase. A garble that is not addressed to this aircraft shall produce no phrase. Acceptance is exactly one Say again phrase and a ramp phase that is unchanged.
+<<<
+RATIONALE: >>>
+An unreadable clearance is not a clearance.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS006
