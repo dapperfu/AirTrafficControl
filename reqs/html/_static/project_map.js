@@ -230,74 +230,54 @@ window.StrictDoc.project.map = {
   {"UID":"DOC-AC-SSS008","_LINK":"DOC-AC-SSS008" },
 
   {"UID":"AC-SSS008","_LINK":"AC-SSS008" }, ],
- "reqs/aircraft/std/AC-STD001.html": [
+ "reqs/aircraft/std/STD.html": [
 
+
+  {"UID":"DOC-AC-STD","_LINK":"DOC-AC-STD" },
 
   {"UID":"DOC-AC-STD001","_LINK":"DOC-AC-STD001" },
 
-  {"UID":"AC-STD001","_LINK":"AC-STD001" }, ],
- "reqs/aircraft/std/AC-STD002.html": [
-
+  {"UID":"AC-STD001","_LINK":"AC-STD001" },
 
   {"UID":"DOC-AC-STD002","_LINK":"DOC-AC-STD002" },
 
-  {"UID":"AC-STD002","_LINK":"AC-STD002" }, ],
- "reqs/aircraft/std/AC-STD003.html": [
-
+  {"UID":"AC-STD002","_LINK":"AC-STD002" },
 
   {"UID":"DOC-AC-STD003","_LINK":"DOC-AC-STD003" },
 
-  {"UID":"AC-STD003","_LINK":"AC-STD003" }, ],
- "reqs/aircraft/std/AC-STD004.html": [
-
+  {"UID":"AC-STD003","_LINK":"AC-STD003" },
 
   {"UID":"DOC-AC-STD004","_LINK":"DOC-AC-STD004" },
 
-  {"UID":"AC-STD004","_LINK":"AC-STD004" }, ],
- "reqs/aircraft/std/AC-STD005.html": [
-
+  {"UID":"AC-STD004","_LINK":"AC-STD004" },
 
   {"UID":"DOC-AC-STD005","_LINK":"DOC-AC-STD005" },
 
-  {"UID":"AC-STD005","_LINK":"AC-STD005" }, ],
- "reqs/aircraft/std/AC-STD006.html": [
-
+  {"UID":"AC-STD005","_LINK":"AC-STD005" },
 
   {"UID":"DOC-AC-STD006","_LINK":"DOC-AC-STD006" },
 
-  {"UID":"AC-STD006","_LINK":"AC-STD006" }, ],
- "reqs/aircraft/std/AC-STD007.html": [
-
+  {"UID":"AC-STD006","_LINK":"AC-STD006" },
 
   {"UID":"DOC-AC-STD007","_LINK":"DOC-AC-STD007" },
 
-  {"UID":"AC-STD007","_LINK":"AC-STD007" }, ],
- "reqs/aircraft/std/AC-STD008.html": [
-
+  {"UID":"AC-STD007","_LINK":"AC-STD007" },
 
   {"UID":"DOC-AC-STD008","_LINK":"DOC-AC-STD008" },
 
-  {"UID":"AC-STD008","_LINK":"AC-STD008" }, ],
- "reqs/aircraft/std/AC-STD009.html": [
-
+  {"UID":"AC-STD008","_LINK":"AC-STD008" },
 
   {"UID":"DOC-AC-STD009","_LINK":"DOC-AC-STD009" },
 
-  {"UID":"AC-STD009","_LINK":"AC-STD009" }, ],
- "reqs/aircraft/std/AC-STD010.html": [
-
+  {"UID":"AC-STD009","_LINK":"AC-STD009" },
 
   {"UID":"DOC-AC-STD010","_LINK":"DOC-AC-STD010" },
 
-  {"UID":"AC-STD010","_LINK":"AC-STD010" }, ],
- "reqs/aircraft/std/AC-STD011.html": [
-
+  {"UID":"AC-STD010","_LINK":"AC-STD010" },
 
   {"UID":"DOC-AC-STD011","_LINK":"DOC-AC-STD011" },
 
-  {"UID":"AC-STD011","_LINK":"AC-STD011" }, ],
- "reqs/aircraft/std/AC-STD012.html": [
-
+  {"UID":"AC-STD011","_LINK":"AC-STD011" },
 
   {"UID":"DOC-AC-STD012","_LINK":"DOC-AC-STD012" },
 
