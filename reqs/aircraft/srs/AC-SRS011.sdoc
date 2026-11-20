@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS011 Fly and say going around for a pilot or controller go-around
+UID: DOC-AC-SRS011
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS011
+TITLE: Fly and say going around for a pilot or controller go-around
+STATEMENT: >>>
+A pilot-initiated go-around while airborne shall be spoken as the facility, the call sign, and going around, and shall start the climb. A controller instruction Go around shall be read back as Going around and then the call sign, and shall start the same climb on runway heading toward pattern altitude and then the crosswind. The go-around shall cancel a landing clearance. Acceptance is both phrases and a go-around phase whose altitude does not decrease.
+<<<
+RATIONALE: >>>
+The pilot word is going around. The controller word is go around.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
