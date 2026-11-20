@@ -16,6 +16,7 @@ include_source_paths = [
   "specs/**",
   "config/**",
   "rebar.config",
+  "Makefile",
 ]
 exclude_source_paths = [
   ".venv/**",

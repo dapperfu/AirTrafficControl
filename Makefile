@@ -1,4 +1,4 @@
-.PHONY: help clean build run test \
+.PHONY: help clean build run test aircraft-test \
 	strictdoc-init strictdoc-generate strictdoc-validate strictdoc-export \
 	strictdoc-serve strictdoc-tree strictdoc-help tla-check install-hooks
 
@@ -15,6 +15,7 @@ help:
 	@echo "  make build                 Compile the Erlang release"
 	@echo "  make run                   Load the example airport and halt"
 	@echo "  make test                  Run Common Test and PropEr"
+	@echo "  make aircraft-test         Run the aircraft pytest suite"
 	@echo "  make clean                 Remove build output"
 	@echo "  make strictdoc-init        Create the StrictDoc virtualenv"
 	@echo "  make strictdoc-generate    Write HTML into reqs/html"
@@ -64,6 +65,10 @@ run: build
 
 test:
 	$(REBAR) as test ct
+
+# @relation(AC-SIP001, AC-STP001, scope=file)
+aircraft-test: $(STRICTDOC)
+	cd $(ROOT)/apps/aircraft && $(PYTHON) -m pytest -q
 
 tla-check:
 	java -XX:+UseParallelGC -jar $(TLC) -workers 2 -config specs/tla/AtcTower.cfg specs/tla/AtcTower.tla
