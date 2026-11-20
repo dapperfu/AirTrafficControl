@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SDP002 SIOM, SCOM, COM, CPM, and FSM tailored out, with reasons
+UID: DOC-AC-SDP002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SDP002
+TITLE: SIOM, SCOM, COM, CPM, and FSM tailored out, with reasons
+STATEMENT: >>>
+The aircraft plan shall tailor out the Software input/output manual (SIOM), the Software center operator manual (SCOM), the Computer operation manual (COM), the Computer programming manual (CPM), and the Firmware support manual (FSM). SIOM is absent because the only persistent input is the aircraft TOML file and the phrase log stays in memory. SCOM and COM are absent because there is no computer-center operator and no separate computer operations procedure. CPM is absent because the design description and the Python sources are the programming record. FSM is absent because the aircraft has no firmware. Acceptance is this record of those five exclusions and no other DID removed from the set.
+<<<
+RATIONALE: >>>
+MIL-STD-498 expects the contract to say which descriptions were not ordered.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
