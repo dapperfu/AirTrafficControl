@@ -1,0 +1,4650 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+  <meta charset="UTF-8"/>
+  <meta name="keywords" content="strictdoc, documentation, documentation-tool, requirements-management, requirements, documentation-generator, requirement-specifications, requirements-engineering, technical-documentation, requirements-specification"/>
+  <meta name="description" content="strictdoc. Software for technical documentation and requirements management."/>
+  <meta name="strictdoc-export-type" content="static">
+  <meta name="strictdoc-document-level" content="3">
+
+  <link rel="shortcut icon" href="../../../../_static/favicon.svg" type="image/svg+xml" />
+
+  
+  
+  <link rel="stylesheet" href="../../../../_static/base.css"/>
+  <link rel="stylesheet" href="../../../../_static/layout.css"/>
+  <link rel="stylesheet" href="../../../../_static/content.css"/>
+  <link rel="stylesheet" href="../../../../_static/node.css"/>
+  <link rel="stylesheet" href="../../../../_static/node_content.css"/>
+  <link rel="stylesheet" href="../../../../_static/element.css"/>
+  <link rel="stylesheet" href="../../../../_static/form.css"/>
+  <link rel="stylesheet" href="../../../../_static/autocomplete.css"/>
+  <link rel="stylesheet" href="../../../../_static/requirement__temporary.css"/>
+  <link rel="stylesheet" href="../../../../_static/autogen.css"/>
+  <link rel="stylesheet" href="../../../../_static/pygments.css"/>
+  
+  <link rel="stylesheet" href="../../../../_static/source_file_screen.css" />
+  <link rel="stylesheet" href="../../../../_static/requirement-tree.css"/>
+
+
+  
+  
+  
+  
+
+  
+  <script src="../../../../_static/source_file_screen.js"></script>
+  
+  
+  
+
+
+  <title>
+  apps/atc_tower/test/atc_config_SUITE.erl - Source file coverage
+</title>
+
+  
+
+  <style>
+    /* Lexer: Erlang */
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #F00 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #04D } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #00F; font-weight: bold } /* Name.Class */
+.highlight .no { color: #800 } /* Name.Constant */
+.highlight .nd { color: #A2F } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #00F } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #00F; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666 } /* Literal.Number.Float */
+.highlight .mh { color: #666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #00F } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666 } /* Literal.Number.Integer.Long */
+  </style>
+
+</head>
+
+<body data-viewtype="source-file" data-turbo="false">
+
+<div class="mars">
+  
+</div>
+
+  <div class="layout" id="layout">
+
+    <nav class="layout_nav">
+      
+  <div class="nav">
+
+
+
+  <a
+    data-link="index"
+    class="nav_button"
+    href="../../../../index.html"
+    title="Project index"
+    data-testid="project-tree-link-project-index"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <line x1="9" y1="4" x2="7" y2="4"></line>
+  <line x1="12" y1="9" x2="12" y2="7"></line>
+  <line x1="6" y1="10" x2="10" y2="6"></line>
+  <circle cx="4" cy="12" r="2.25"></circle>
+  <circle cx="12" cy="4" r="2.25"></circle>
+  <circle cx="4" cy="4" r="2.25"></circle>
+  <circle cx="12" cy="12" r="2.25"></circle>
+</svg>
+  </a><a
+    data-link="project_information"
+    class="nav_button"
+    href="../../../../project_statistics.html"
+    title="Project statistics"
+    data-testid="project-tree-link-project-statistics"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3,11.5 C3.82842712,11.5 4.5,12.1715729 4.5,13 C4.5,13.8284271 3.82842712,14.5 3,14.5 C2.17157288,14.5 1.5,13.8284271 1.5,13 C1.5,12.1715729 2.17157288,11.5 3,11.5 Z" />
+  <path d="M8,7.5 C8.82842712,7.5 9.5,8.17157288 9.5,9 L9.5,13 C9.5,13.8284271 8.82842712,14.5 8,14.5 C7.17157288,14.5 6.5,13.8284271 6.5,13 L6.5,9 C6.5,8.17157288 7.17157288,7.5 8,7.5 Z" />
+  <path d="M13,1.5 C13.8284271,1.5 14.5,2.17157288 14.5,3 L14.5,13 C14.5,13.8284271 13.8284271,14.5 13,14.5 C12.1715729,14.5 11.5,13.8284271 11.5,13 L11.5,3 C11.5,2.17157288 12.1715729,1.5 13,1.5 Z" />
+</svg>
+  </a><a
+    data-link="traceability-matrix"
+    class="nav_button"
+    href="../../../../traceability_matrix.html"
+    title="Traceability matrix"
+    data-testid="project-tree-link-requirements-coverage"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <line x1="2" y1="11" x2="14" y2="11"></line>
+  <line x1="10" y1="8" x2="14" y2="8"></line>
+  <line x1="2" y1="14" x2="14" y2="14"></line>
+  <polyline points="2 6 4.5 8 9.5 2"></polyline>
+</svg>
+  </a><a
+    data-link="source_coverage"
+    class="nav_button"
+    href="../../../../source_coverage.html"
+    title="Source coverage"
+    data-testid="project-tree-link-source-coverage"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6,2 C5.5,2 5,2 5,2 C4.5,2 4,2.5 4,3 C4,5 4,6 4,6 C4,6.5 3.5,7.5 2,8 C3.5,8.5 4,9.5 4,10 C4,10 4,11 4,13 C4,13.5 4.5,14 5,14 C5,14 5.5,14 6,14"></path>
+  <line x1="8" y1="8" x2="14" y2="8"></line>
+  <line x1="10" y1="4" x2="14" y2="4"></line>
+  <line x1="10" y1="12" x2="14" y2="12"></line>
+</svg>
+  </a></div>
+
+    </nav>
+
+    <aside class="layout_tree">
+      
+  <div class="source-file__aside">
+  <sdoc-tabs class="in_aside_panel">
+    <sdoc-tab data-testid="source-file-tab-Nodes" active="" style="order: 0;">Nodes</sdoc-tab>
+    <sdoc-tab data-testid="source-file-tab-Ranges" style="order: 1;">Ranges</sdoc-tab>
+  </sdoc-tabs>
+
+  <div class="source-file__refer" id="referContainer">
+  <sdoc-tab-content id="Nodes" active>
+    <div class="source-file__toc"><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:SRS001"
+  class="source-file__requirement"
+  data-reqid="SRS001"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS001.html#SRS001"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS001</div>
+        Reject invalid TOML and do not control traffic
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="12"
+            data-end="13"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#12#13"
+            title="lines 12-13 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 12-13 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="22"
+            data-end="23"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#22#23"
+            title="lines 22-23 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 22-23 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="47"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_tower_cli.erl.html#SRS001#1#47"
+            title="lines 1-47 in file apps/atc_tower/src/atc_tower_cli.erl"
+          >
+            
+            <b>[ 1-47 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_tower_cli.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="12"
+            data-end="13"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_tower_cli.erl.html#SRS001#12#13"
+            title="lines 12-13 in file apps/atc_tower/src/atc_tower_cli.erl"
+          >
+            
+            <b>[ 12-13 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_tower_cli.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS001#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:SRS002"
+  class="source-file__requirement"
+  data-reqid="SRS002"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS002.html#SRS002"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS002</div>
+        Use runway designation and independence when assigning a runway
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS002#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS002#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS002#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS002#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:SRS005"
+  class="source-file__requirement"
+  data-reqid="SRS005"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS005.html#SRS005"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS005</div>
+        Select neighbors by communications distance
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="50"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#1#50"
+            title="lines 1-50 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 1-50 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="50"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#1#50"
+            title="lines 1-50 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 1-50 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="15"
+            data-end="16"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#15#16"
+            title="lines 15-16 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 15-16 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="20"
+            data-end="21"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#20#21"
+            title="lines 20-21 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 20-21 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS005#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS005#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:SRS014"
+  class="source-file__requirement"
+  data-reqid="SRS014"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS014.html#SRS014"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS014</div>
+        Refuse operation outside the performance assumptions and the checked envelope
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="47"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#1#47"
+            title="lines 1-47 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 1-47 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="47"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#1#47"
+            title="lines 1-47 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 1-47 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="15"
+            data-end="16"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#15#16"
+            title="lines 15-16 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 15-16 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="24"
+            data-end="25"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#24#25"
+            title="lines 24-25 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 24-25 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS014#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS014#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:STD001"
+  class="source-file__requirement"
+  data-reqid="STD001"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/std/STD001.html#STD001"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STD001</div>
+        TOML accept and reject cases
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD001#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:STD005"
+  class="source-file__requirement"
+  data-reqid="STD005"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/std/STD005.html#STD005"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STD005</div>
+        Neighbor distance selection
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD005#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:STD011"
+  class="source-file__requirement"
+  data-reqid="STD011"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/std/STD011.html#STD011"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STD011</div>
+        Bounds refusal
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#STD011#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD011#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div><div class="source-file__toc-node">
+            
+
+
+<div
+  id="requirement:STR001"
+  class="source-file__requirement"
+  data-reqid="STR001"
+  
+>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/str/STR001.html#STR001"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STR001</div>
+        Record of the TLC run and the Common Test run
+    </div>
+  </div>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#STR001#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="139"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_cluster_SUITE.erl.html#STR001#1#139"
+            title="lines 1-139 in file apps/atc_tower/test/atc_cluster_SUITE.erl"
+          >
+            
+            <b>[ 1-139 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_cluster_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STR001#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="127"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/prop_clearance.erl.html#STR001#1#127"
+            title="lines 1-127 in file apps/atc_tower/test/prop_clearance.erl"
+          >
+            
+            <b>[ 1-127 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/prop_clearance.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="176"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/specs/tla/AtcTower.tla.html#STR001#1#176"
+            title="lines 1-176 in file specs/tla/AtcTower.tla"
+          >
+            
+            <b>[ 1-176 ]</b>
+            <span class="source__range-pointer_description">specs/tla/AtcTower.tla, entire file</span>
+            
+          </a></div>
+
+  
+</div>
+          </div></div>
+  </sdoc-tab-content>
+  <sdoc-tab-content id="Ranges">
+    <div class="source-file__toc"><div class="source-file__toc-range">
+            <div class="source-file__toc-range-header">
+
+<a
+  class="source__range-pointer action_button"
+  data-begin="1"
+  data-end="71"
+  href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html##1#71"
+  title="Click to toggle range (Ctrl/Cmd + Click with focus)"
+><span class="source__range-definition">1 - 71 | entire file</span></a></div>
+            
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:SRS001"
+  class="source-file__requirement"
+  data-reqid="SRS001"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS001.html#SRS001"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS001</div>
+        Reject invalid TOML and do not control traffic
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="12"
+            data-end="13"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#12#13"
+            title="lines 12-13 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 12-13 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="22"
+            data-end="23"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#22#23"
+            title="lines 22-23 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 22-23 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="47"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_tower_cli.erl.html#SRS001#1#47"
+            title="lines 1-47 in file apps/atc_tower/src/atc_tower_cli.erl"
+          >
+            
+            <b>[ 1-47 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_tower_cli.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="12"
+            data-end="13"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_tower_cli.erl.html#SRS001#12#13"
+            title="lines 12-13 in file apps/atc_tower/src/atc_tower_cli.erl"
+          >
+            
+            <b>[ 12-13 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_tower_cli.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS001#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:SRS002"
+  class="source-file__requirement"
+  data-reqid="SRS002"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS002.html#SRS002"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS002</div>
+        Use runway designation and independence when assigning a runway
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS002#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="187"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS002#1#187"
+            title="lines 1-187 in file apps/atc_tower/src/atc_config.erl"
+          >
+            
+            <b>[ 1-187 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_config.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS002#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS002#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:SRS005"
+  class="source-file__requirement"
+  data-reqid="SRS005"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS005.html#SRS005"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS005</div>
+        Select neighbors by communications distance
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="50"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#1#50"
+            title="lines 1-50 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 1-50 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="50"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#1#50"
+            title="lines 1-50 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 1-50 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="15"
+            data-end="16"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#15#16"
+            title="lines 15-16 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 15-16 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="20"
+            data-end="21"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#20#21"
+            title="lines 20-21 in file apps/atc_tower/src/atc_neighbors.erl"
+          >
+            
+            <b>[ 20-21 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_neighbors.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS005#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS005#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:SRS014"
+  class="source-file__requirement"
+  data-reqid="SRS014"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/srs/SRS014.html#SRS014"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">SRS014</div>
+        Refuse operation outside the performance assumptions and the checked envelope
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="47"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#1#47"
+            title="lines 1-47 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 1-47 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="47"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#1#47"
+            title="lines 1-47 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 1-47 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="15"
+            data-end="16"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#15#16"
+            title="lines 15-16 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 15-16 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="24"
+            data-end="25"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#24#25"
+            title="lines 24-25 in file apps/atc_tower/src/atc_bounds.erl"
+          >
+            
+            <b>[ 24-25 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/src/atc_bounds.erl, line</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS014#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS014#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+            
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:STD001"
+  class="source-file__requirement"
+  data-reqid="STD001"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/std/STD001.html#STD001"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STD001</div>
+        TOML accept and reject cases
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD001#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+            
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:STD005"
+  class="source-file__requirement"
+  data-reqid="STD005"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/std/STD005.html#STD005"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STD005</div>
+        Neighbor distance selection
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD005#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+            
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:STD011"
+  class="source-file__requirement"
+  data-reqid="STD011"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/std/STD011.html#STD011"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STD011</div>
+        Bounds refusal
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#STD011#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD011#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+            
+              
+                <div class="source-file__toc-range-node">
+                
+
+  
+
+
+<div
+  id="requirement:STR001"
+  class="source-file__requirement"
+  data-reqid="STR001"
+  
+    data-begin="1"
+    data-end="71"
+  
+>
+  
+  <details>
+    <summary>
+  
+  <div class="source-file__requirement-header">
+    <a
+      class="action_icon secondary"
+      href="../../../../reqs/str/STR001.html#STR001"
+      title="Go to requirement in document"
+    ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M13,8 C13,7.5 12.5,7 12,7 L9,7 C8.5,7 8,6.5 8,6 L8,3 C8,2.5 7.5,2 7,2 L4,2 C3.5,2 3,2.5 3,3 L3,13 C3,13.5 3.5,14 4,14 L6,14" />
+  <line x1="8" y1="12" x2="14" y2="12" stroke-linecap="round"></line>
+  <polyline stroke-linecap="round" points="10 9.5 7.5 12 10 14.5"></polyline>
+  <path d="M13,9 C13,7 13,7 12.5,6.5 C11.5,5.5 10.8,4.8 10.3,4.3 C9.9,3.9 9.3,3.3 8.5,2.5 C8,2 7.5,2 7,2 L6,2" />
+</svg></a>
+    <div class="source-file__requirement-info">
+      <div class="source-file__requirement-uid">STR001</div>
+        Record of the TLC run and the Common Test run
+    </div>
+  </div>
+  
+    </summary>
+  
+
+ <div class="source-file__requirement-links">
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="112"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#STR001#1#112"
+            title="lines 1-112 in file apps/atc_tower/test/atc_clearance_SUITE.erl"
+          >
+            
+            <b>[ 1-112 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_clearance_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="139"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_cluster_SUITE.erl.html#STR001#1#139"
+            title="lines 1-139 in file apps/atc_tower/test/atc_cluster_SUITE.erl"
+          >
+            
+            <b>[ 1-139 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_cluster_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="71"
+            data-traceability-file-type="this_file"
+            href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STR001#1#71"
+            title="lines 1-71 in file apps/atc_tower/test/atc_config_SUITE.erl"
+          >
+            
+            <b>[ 1-71 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/atc_config_SUITE.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="127"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/apps/atc_tower/test/prop_clearance.erl.html#STR001#1#127"
+            title="lines 1-127 in file apps/atc_tower/test/prop_clearance.erl"
+          >
+            
+            <b>[ 1-127 ]</b>
+            <span class="source__range-pointer_description">apps/atc_tower/test/prop_clearance.erl, entire file</span>
+            
+          </a>
+
+          <a
+            class="source__range-pointer"
+            data-begin="1"
+            data-end="176"
+            data-traceability-file-type="other_file"
+            href="../../../../_source_files/specs/tla/AtcTower.tla.html#STR001#1#176"
+            title="lines 1-176 in file specs/tla/AtcTower.tla"
+          >
+            
+            <b>[ 1-176 ]</b>
+            <span class="source__range-pointer_description">specs/tla/AtcTower.tla, entire file</span>
+            
+          </a></div>
+
+  
+  </details>
+  
+</div>
+                </div>
+              
+            
+          </div></div>
+  </sdoc-tab-content>
+  </div>
+
+</div>
+
+    </aside><aside
+        data-position="right"
+        class="layout_toc"
+      >
+        
+      </aside><header class="layout_header">
+      <div class="header">
+
+  
+  <div
+    class="header__project_name"
+    id="header-project-name"
+    title="AirTrafficControl"
+  >AirTrafficControl
+  </div>
+
+  
+      <svg
+  class="svg_icon"
+  viewBox="0 0 20 20"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  >
+  <path d="M12.5 4.5l-5 11"></path>
+</svg>
+      <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <line x1="10" y1="3" x2="6" y2="13"></line>
+  <path d="M3.5,5 C2.5,6 1.5,7 1.5,7 C0.5,8 0.5,8 1.5,9 C1.5,9 2.5,10 3.5,11"/>
+  <path d="M12.5,5 C14,6.5 14.5,7 14.5,7 C15.5,8 15.5,8 14.5,9 C14.5,9 14,9.5 12.5,11"/>
+</svg>
+<div class="header__document_title"
+  title="apps/atc_tower/test/atc_config_SUITE.erl">
+  apps/atc_tower/test/atc_config_SUITE.erl
+</div>
+    <svg
+  class="svg_icon"
+  viewBox="0 0 20 20"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  >
+  <path d="M12.5 4.5l-5 11"></path>
+</svg>
+    <div class="pagetype">Source file coverage</div>
+  <div class="header__placeholder" data-testid="header-placeholder" id="header-placeholder"></div>
+
+  <div class="actions_group">
+  <div id="sourceCodeCoverageSwitch" class="source-file__toggle-switch"></div>
+</div><template id="template-switch">
+  <label class="switch">
+    <span class="switch__label-text"></span>
+    <input type="checkbox" class="switch__input">
+    <span class="switch__slider"></span>
+  </label>
+</template></div>
+    </header>
+
+    <main class="layout_main">
+      
+  <div class="main">
+
+<div id="sourceContainer" class="source-file__source">
+
+  <div class="sdoc-table_key_value">
+  
+  <div class="sdoc-table_key_value-key">Path:</div>
+  <div class="sdoc-table_key_value-value">apps/atc_tower/test/atc_config_SUITE.erl</div>
+  <div class="sdoc-table_key_value-key">Lines:</div>
+  <div class="sdoc-table_key_value-value">71</div>
+  <div class="sdoc-table_key_value-key">Non-empty lines:</div>
+  <div class="sdoc-table_key_value-value">60</div>
+  <div class="sdoc-table_key_value-key">Non-empty lines covered with requirements:</div>
+  <div class="sdoc-table_key_value-value">60 / 60 (100.0%)</div>
+  <div class="sdoc-table_key_value-key">Functions:</div>
+  <div class="sdoc-table_key_value-value">0</div>
+  <div class="sdoc-table_key_value-key">Functions covered by requirements:</div>
+  <div class="sdoc-table_key_value-value">0 / 0 (0.0%)</div>
+</div><div id="source" class="source"><div
+          class="source__range collapsed"
+          data-begin="1"
+          data-end="71"
+        >
+          <div class="source__range-header">
+
+<a
+  class="source__range-pointer action_button"
+  data-begin="1"
+  data-end="71"
+  href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html##1#71"
+  title="Click to toggle range (Ctrl/Cmd + Click with focus)"
+><span class="source__range-definition">1 - 71 | entire file</span></a></div>
+          <div class="source__range-cell">
+            <div
+              class="source__range-handler"
+              data-begin="1"
+              data-end="71"
+            ><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8.25,8 L7.75,8 M2.25,8 L1.75,8 M14.25,8 L13.75,8 M11.25,8 L10.75,8 M5.25,8 L4.75,8"></path>
+  <g class="expanded">
+    <g class="arrow_top">
+      <polyline points="10.5 13.5 8 11 5.5 13.5"></polyline>
+      <line x1="8" y1="11" x2="8" y2="15"></line>
+    </g>
+    <g class="arrow_bottom">
+      <polyline points="10.5 2.5 8 5 5.5 2.5"></polyline>
+      <line x1="8" y1="5" x2="8" y2="1"></line>
+    </g>
+  </g>
+  <g class="collapsed">
+    <g class="arrow_top_coll">
+      <polyline points="10.5 3.5 8 1 5.5 3.5"></polyline>
+      <line x1="8" y1="1" x2="8" y2="5"></line>
+    </g>
+    <g class="arrow_bottom_coll">
+      <polyline points="10.5 12.5 8 15 5.5 12.5"></polyline>
+      <line x1="8" y1="15" x2="8" y2="11"></line>
+    </g>
+  </g>
+</svg></div>
+          </div>
+          <div class="source__range-cell">
+            <ul class="source__range-titles-list"><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from source file to document node"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 6.5 8 4 5.5 6.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "1.1. Reject invalid TOML and do not control traffic" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from source file to document node"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 6.5 8 4 5.5 6.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "2.1. Use runway designation and independence when assigning a runway" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from source file to document node"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 6.5 8 4 5.5 6.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "5.1. Select neighbors by communications distance" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from source file to document node"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 6.5 8 4 5.5 6.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "14.1. Refuse operation outside the performance assumptions and the checked envelope" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from document node to source file"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 9.5 8 12 5.5 9.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "1.1. TOML accept and reject cases" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from document node to source file"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 9.5 8 12 5.5 9.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "5.1. Neighbor distance selection" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from document node to source file"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 9.5 8 12 5.5 9.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "11.1. Bounds refusal" (REQUIREMENT)
+
+                </li><li>
+                  
+
+
+<span class="source__range-title-icon" title="Relation from document node to source file"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <g class="svg_source_pointer_brackets">
+    <path d="M3.5,8 C2,9.5 1.5,10 1.5,10 C0.5,11 0.5,11 1.5,12 C1.5,12 2,12.5 3.5,14" id="lb"></path>
+    <path d="M12.5,8 C14,9.5 14.5,10 14.5,10 C15.5,11 15.5,11 14.5,12 C14.5,12 14,12.5 12.5,14" id="rb"></path>
+  </g>
+  <g class="svg_source_pointer_arrow">
+    <line x1="8" y1="12" x2="8" y2="4" id="arr0"></line>
+    <polyline points="10.5 9.5 8 12 5.5 9.5" id="arr"></polyline>
+  </g>
+</svg></span>
+  "1.1. Record of the TLC run and the Common Test run" (REQUIREMENT)
+
+                </li></ul>
+            <div class="source__range-banner source__range-start">
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="SRS001"
+  data-anchor="SRS001"
+  node-role="requirement"
+  data-uid="SRS001"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="SRS001"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">SRS001</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="1.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="1.1"
+  >
+    <sdoc-autogen>1.1.&nbsp;Reject invalid TOML and do not control traffic</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>SRS001</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>High-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/sss/SSS.html#SSS006">
+            <span class="requirement__parent-uid">SSS006</span>
+            Runways and their designations shall come from one TOML file per airport
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+    <sdoc-node-field-label>RELATIONS (Child):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="child relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-child" href="reqs/std/STD.html#STD001">
+            <span class="requirement__child-uid">STD001</span>
+            TOML accept and reject cases
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#1#187">
+                  apps/atc_tower/src/atc_config.erl, <i>lines: 1-187</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#1#187">
+                  apps/atc_tower/src/atc_config.erl, <i>lines: 1-187</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#12#13">
+                  apps/atc_tower/src/atc_config.erl, <i>lines: 12-13</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS001#22#23">
+                  apps/atc_tower/src/atc_config.erl, <i>lines: 22-23</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_tower_cli.erl.html#SRS001#1#47">
+                  apps/atc_tower/src/atc_tower_cli.erl, <i>lines: 1-47</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_tower_cli.erl.html#SRS001#12#13">
+                  apps/atc_tower/src/atc_tower_cli.erl, <i>lines: 12-13</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS001#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>Before the Tower CSCI controls traffic it shall read the airport TOML file and shall refuse to start control when the file is missing, unreadable, or lacks a required airport identity, position, communications distance, computer count, or runway list. A runway entry that lacks an identifier or a designation shall also prevent control. Acceptance is an empty file and a file with a runway and no designation, both of which leave the node with no authority to issue a clearance.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>A bad configuration is not a safe airport, so the node must not become a clearance authority.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>The file is TOML. Unknown keys may be ignored. Missing required keys are errors.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="SRS002"
+  data-anchor="SRS002"
+  node-role="requirement"
+  data-uid="SRS002"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="SRS002"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">SRS002</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="2.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="2.1"
+  >
+    <sdoc-autogen>2.1.&nbsp;Use runway designation and independence when assigning a runway</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>SRS002</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>High-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/sss/SSS.html#SSS005">
+            <span class="requirement__parent-uid">SSS005</span>
+            The tower shall give runway assignment, sequence, landing, takeoff, hold short, line up and wait, and go-around
+            
+          </a>
+        </li>
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/sss/SSS.html#SSS006">
+            <span class="requirement__parent-uid">SSS006</span>
+            Runways and their designations shall come from one TOML file per airport
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+    <sdoc-node-field-label>RELATIONS (Child):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="child relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-child" href="reqs/std/STD.html#STD002">
+            <span class="requirement__child-uid">STD002</span>
+            Runway designation selection cases
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS002#1#187">
+                  apps/atc_tower/src/atc_config.erl, <i>lines: 1-187</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_config.erl.html#SRS002#1#187">
+                  apps/atc_tower/src/atc_config.erl, <i>lines: 1-187</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS002#1#112">
+                  apps/atc_tower/test/atc_clearance_SUITE.erl, <i>lines: 1-112</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS002#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The Tower CSCI shall assign a runway only when its designation allows the intended operation: arrival for landing, departure for takeoff, both for either, and closed for neither. A runway marked not independent shall conflict with every other runway that is not independent, and a runway listed as intersecting another shall conflict with that runway. Acceptance is a closed runway that cannot be assigned, a departure-only runway that rejects a landing, and two non-independent runways that cannot be occupied together.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>Designation is the policy in the TOML file. The clearance code must not invent a use the file does not allow.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="SRS005"
+  data-anchor="SRS005"
+  node-role="requirement"
+  data-uid="SRS005"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="SRS005"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">SRS005</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="5.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="5.1"
+  >
+    <sdoc-autogen>5.1.&nbsp;Select neighbors by communications distance</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>SRS005</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>High-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/sss/SSS.html#SSS003">
+            <span class="requirement__parent-uid">SSS003</span>
+            Airports inside communications distance shall exchange the state a handoff requires
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+    <sdoc-node-field-label>RELATIONS (Child):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="child relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-child" href="reqs/std/STD.html#STD005">
+            <span class="requirement__child-uid">STD005</span>
+            Neighbor distance selection
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#1#50">
+                  apps/atc_tower/src/atc_neighbors.erl, <i>lines: 1-50</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#1#50">
+                  apps/atc_tower/src/atc_neighbors.erl, <i>lines: 1-50</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#15#16">
+                  apps/atc_tower/src/atc_neighbors.erl, <i>lines: 15-16</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_neighbors.erl.html#SRS005#20#21">
+                  apps/atc_tower/src/atc_neighbors.erl, <i>lines: 20-21</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS005#1#112">
+                  apps/atc_tower/test/atc_clearance_SUITE.erl, <i>lines: 1-112</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS005#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The Tower CSCI shall compute the distance between this airport and each configured candidate and shall mark a candidate as a neighbor only when that distance is less than or equal to the configured communications distance. A candidate with no position shall not become a neighbor. Acceptance is a candidate one unit inside the distance that is selected and a candidate one unit outside that is not.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>Neighbor selection is data, computed from the TOML positions and distance, not a hard-coded airport list in the clearance module.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>Distance is great-circle distance in nautical miles from the configured coordinates.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="SRS014"
+  data-anchor="SRS014"
+  node-role="requirement"
+  data-uid="SRS014"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="SRS014"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">SRS014</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="14.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="14.1"
+  >
+    <sdoc-autogen>14.1.&nbsp;Refuse operation outside the performance assumptions and the checked envelope</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>SRS014</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>High-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/sss/SSS.html#SSS007">
+            <span class="requirement__parent-uid">SSS007</span>
+            Separation shall be demonstrated by a TLA+ model under stated assumptions and bounds
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+    <sdoc-node-field-label>RELATIONS (Child):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="child relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-child" href="reqs/std/STD.html#STD011">
+            <span class="requirement__child-uid">STD011</span>
+            Bounds refusal
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#1#47">
+                  apps/atc_tower/src/atc_bounds.erl, <i>lines: 1-47</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#1#47">
+                  apps/atc_tower/src/atc_bounds.erl, <i>lines: 1-47</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#15#16">
+                  apps/atc_tower/src/atc_bounds.erl, <i>lines: 15-16</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/src/atc_bounds.erl.html#SRS014#24#25">
+                  apps/atc_tower/src/atc_bounds.erl, <i>lines: 24-25</i>, line
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#SRS014#1#112">
+                  apps/atc_tower/test/atc_clearance_SUITE.erl, <i>lines: 1-112</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#SRS014#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The Tower CSCI shall read the configured maximum runways, aircraft, and neighbors and shall refuse to start control when any of those limits exceeds 4 runways, 8 aircraft, or 2 neighbors, or when the loaded picture already exceeds the limit. It shall also refuse a new aircraft that would exceed the aircraft limit. Acceptance is a TOML file with 5 runways that does not start, and an airport at the aircraft limit that refuses one more aircraft.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>The TLC check is finite. The software must not be operated as if the proof were unbounded.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="STD001"
+  data-anchor="STD001"
+  node-role="requirement"
+  data-uid="STD001"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="STD001"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">STD001</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="1.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="1.1"
+  >
+    <sdoc-autogen>1.1.&nbsp;TOML accept and reject cases</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>STD001</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>Low-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/stp/STP.html#STP001">
+            <span class="requirement__parent-uid">STP001</span>
+            Which SRS items are discharged by TLC, by refinement review, by PropEr, and by example tests
+            
+          </a>
+        </li>
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/srs/SRS.html#SRS001">
+            <span class="requirement__parent-uid">SRS001</span>
+            Reject invalid TOML and do not control traffic
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD001#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The test shall load the example airport TOML and expect a parsed airport with its runways, then load an empty file and a runway without a designation and expect both to be rejected before any clearance is issued. Acceptance is those three results, with the valid file producing a runway list and the two invalid files producing an error and no authority.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>This is the example test for the configuration requirement.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>The example file is config/example-airport.toml.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="STD005"
+  data-anchor="STD005"
+  node-role="requirement"
+  data-uid="STD005"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="STD005"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">STD005</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="5.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="5.1"
+  >
+    <sdoc-autogen>5.1.&nbsp;Neighbor distance selection</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>STD005</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>Low-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/stp/STP.html#STP001">
+            <span class="requirement__parent-uid">STP001</span>
+            Which SRS items are discharged by TLC, by refinement review, by PropEr, and by example tests
+            
+          </a>
+        </li>
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/srs/SRS.html#SRS005">
+            <span class="requirement__parent-uid">SRS005</span>
+            Select neighbors by communications distance
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD005#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The test shall place one candidate inside the communications distance and one outside it and expect only the inside candidate to be selected as a neighbor. Acceptance is a neighbor set of size one containing the inside airport.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>The boundary is the configured distance, so the test uses positions on either side of it.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>Distance is computed in nautical miles.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="STD011"
+  data-anchor="STD011"
+  node-role="requirement"
+  data-uid="STD011"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="STD011"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">STD011</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="11.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="11.1"
+  >
+    <sdoc-autogen>11.1.&nbsp;Bounds refusal</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>STD011</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>A</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>Low-Level</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/stp/STP.html#STP001">
+            <span class="requirement__parent-uid">STP001</span>
+            Which SRS items are discharged by TLC, by refinement review, by PropEr, and by example tests
+            
+          </a>
+        </li>
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/srs/SRS.html#SRS014">
+            <span class="requirement__parent-uid">SRS014</span>
+            Refuse operation outside the performance assumptions and the checked envelope
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#STD011#1#112">
+                  apps/atc_tower/test/atc_clearance_SUITE.erl, <i>lines: 1-112</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STD011#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The test shall reject a configuration with 5 runways, reject a configuration that allows more than 8 aircraft, and reject the ninth aircraft at an airport already holding 8. Acceptance is those three refusals and no issued clearance in the first two cases.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>The envelope is an operational limit, so the test sits just outside it.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node>
+
+
+
+  <sdoc-node
+    class=""
+    node-style="readonly"
+    node-role="requirement"
+      node-type="REQUIREMENT"
+      show-node-type-name="REQUIREMENT"
+    
+    node-view="narrative"
+    data-testid="node-requirement"
+  >
+
+    <sdoc-anchor
+  id="STR001"
+  data-anchor="STR001"
+  node-role="requirement"
+  data-uid="STR001"
+  
+  
+>
+  
+  <div class="anchor_block" data-testid="anchor_hover_button">
+    
+      
+<div
+  class="anchor_button"
+  title="Click to copy"
+  data-testid="section-anchor-button"
+  data-copy-clipboard-target="button"
+  data-anchor-id="STR001"
+>
+  <span
+    class="anchor_base_icon"
+    style="display: contents; line-height: 0.1;"
+    data-copy-clipboard-target="copyIcon"
+  >
+    <span class="svg_icon_not_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="8" cy="3" r="1"></circle>
+  <line x1="8" y1="4" x2="8" y2="14.5"></line>
+  <path d="M5.5,6 C5.5,6 7,6 10.5,6 C10.5,6 5.5,6 5.5,6 Z"/>
+  <path d="M2,11 C3,10 3.5,9.5 3.5,9.5 C3.5,12 5,13 8,13 C11,13 12.5,12 12.5,9.5 C12.5,9.5 13,10 14,11"/>
+</svg></span>
+    <span class="svg_icon_hover_visible"><svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M8,2 L12,2 C13,2 14,3 14,4 L14,8 C14,9 13,10 12,10 L8,10 C7,10 6,9 6,8 L6,4 C6,3 7,2 8,2 Z"/>
+  <path d="M10,12 C10,13 9,14 8,14 L4,14 C3,14 2,13 2,12 L2,8 C2,7 3,6 4,6"/>
+</svg></span>
+  </span>
+  <span
+    class="anchor_check_icon"
+    style="display: none; line-height: 0.1;"
+    data-copy-clipboard-target="doneIcon"
+  >
+    <svg
+  class="svg_icon"
+  viewBox="0 0 16 16"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M2.5,8.5 C2.5,8.5 3.5,9.5 6,12 C11,7 13.5,4.5 13.5,4.5" />
+</svg>
+  </span>
+  <div class="copy_to_clipboard-cover" data-copy-clipboard-target="cover"></div>
+  <span class="anchor_button_text">STR001</span>
+</div>
+    </div></sdoc-anchor>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<sdoc-node-content
+  node-view="table"
+  data-level="1.1"
+  show-node-type-name="REQUIREMENT"
+  data-testid="requirement-style-table"
+>
+  
+  
+  
+  <sdoc-node-title
+    data-level="1.1"
+  >
+    <sdoc-autogen>1.1.&nbsp;Record of the TLC run and the Common Test run</sdoc-autogen>
+  </sdoc-node-title>
+
+
+
+  
+    
+    <sdoc-scope class="node_fields_group-secondary">
+      
+    <sdoc-node-field-label>UID:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="UID"
+    ><sdoc-autogen>STR001</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>DAL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="DAL"
+    ><sdoc-autogen>C</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>REQUIREMENT_LEVEL:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="REQUIREMENT_LEVEL"
+    ><sdoc-autogen>Plan</sdoc-autogen></sdoc-node-field>
+    
+  
+    <sdoc-node-field-label>VERIFICATION:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-type="singleline"
+      data-field-label="VERIFICATION"
+    ><sdoc-autogen>Test</sdoc-autogen></sdoc-node-field>
+    
+  
+      
+    <sdoc-node-field-label>RELATIONS (Parent):</sdoc-node-field-label>
+    <sdoc-node-field data-field-label="parent relations">
+      <ul class="requirement__link">
+        <li>
+          <a data-turbo="false" class="requirement__link-parent" href="reqs/stp/STP.html#STP001">
+            <span class="requirement__parent-uid">STP001</span>
+            Which SRS items are discharged by TLC, by refinement review, by PropEr, and by example tests
+            
+          </a>
+        </li>
+      </ul>
+    </sdoc-node-field>
+      
+      <sdoc-node-field-label>RELATIONS (File):</sdoc-node-field-label>
+      <sdoc-node-field data-field-label="file relations">
+        <ul class="requirement__link">
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_clearance_SUITE.erl.html#STR001#1#112">
+                  apps/atc_tower/test/atc_clearance_SUITE.erl, <i>lines: 1-112</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_cluster_SUITE.erl.html#STR001#1#139">
+                  apps/atc_tower/test/atc_cluster_SUITE.erl, <i>lines: 1-139</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html#STR001#1#71">
+                  apps/atc_tower/test/atc_config_SUITE.erl, <i>lines: 1-71</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/apps/atc_tower/test/prop_clearance.erl.html#STR001#1#127">
+                  apps/atc_tower/test/prop_clearance.erl, <i>lines: 1-127</i>, entire file
+                </a>
+              </li>
+              <li>
+                <a data-turbo="false" class="requirement__link-file" href="../../_source_files/specs/tla/AtcTower.tla.html#STR001#1#176">
+                  specs/tla/AtcTower.tla, <i>lines: 1-176</i>, entire file
+                </a>
+              </li></ul>
+      </sdoc-node-field>
+    </sdoc-scope>
+    
+    <sdoc-scope class="node_fields_group-primary">
+      
+    <sdoc-node-field-label>STATEMENT:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="statement"
+    ><sdoc-autogen>The test report shall record the commands that were actually run and the results they printed. On 2026-11-20, from the repository root, rebar3 as test ct reported All 15 tests passed, covering atc_config_SUITE, atc_clearance_SUITE, and atc_cluster_SUITE, and the last of those calls prop_clearance:quickcheck/0 with 40 cases. make tla-check reported no error on AtcTower, with 414 distinct states and depth 8. make run printed airport KEXAMPLE ready on 1 computers. The PropEr result is conformance evidence and is not a proof. Acceptance is this record matching those commands and results.<br/>
+</sdoc-autogen></sdoc-node-field>
+    
+      <sdoc-node-field-label>RATIONALE:</sdoc-node-field-label>
+  <sdoc-node-field
+    data-field-label="rationale"
+  ><sdoc-autogen>The report is written after the run, so the numbers are observations rather than a plan.<br/>
+</sdoc-autogen></sdoc-node-field>
+  
+      
+
+
+
+  
+      
+
+
+
+  
+    <sdoc-node-field-label>ASSUMPTIONS:</sdoc-node-field-label>
+    <sdoc-node-field
+      data-field-label="ASSUMPTIONS"
+    ><sdoc-autogen>TLC covers the finite instance only. PropEr samples the Erlang state machine and does not prove refinement. No certification authority approval is claimed.</sdoc-autogen></sdoc-node-field>
+    
+    </sdoc-scope>
+    
+  
+
+</sdoc-node-content>
+
+
+  </sdoc-node></div>
+          </div>
+        </div>
+      
+
+      <div data-line="1" class="source__line">
+        <div data-line="1" id="line-1" class="source__line-number"><pre>1</pre></div>
+        <div data-line="1" class="source__line-content">
+            <pre class="highlight"><span></span><span class="c">%%%-------------------------------------------------------------------</span></pre></div>
+      </div>
+
+      <div data-line="2" class="source__line">
+        <div data-line="2" id="line-2" class="source__line-number"><pre>2</pre></div>
+        <div data-line="2" class="source__line-content">
+            <pre class="highlight"><span class="c">%%% Verifies: SRS001, SRS002, SRS005, SRS014</span></pre></div>
+      </div>
+
+      <div data-line="3" class="source__line">
+        <div data-line="3" id="line-3" class="source__line-number"><pre>3</pre></div>
+        <div data-line="3" class="source__line-content">
+            <pre class="highlight"><span class="c">%%% @relation(SRS001, SRS002, SRS005, SRS014, scope=file)</span></pre></div>
+      </div>
+
+      <div data-line="4" class="source__line">
+        <div data-line="4" id="line-4" class="source__line-number"><pre>4</pre></div>
+        <div data-line="4" class="source__line-content">
+            <pre class="highlight"><span class="c">%%%-------------------------------------------------------------------</span></pre></div>
+      </div>
+
+      <div data-line="5" class="source__line">
+        <div data-line="5" id="line-5" class="source__line-number"><pre>5</pre></div>
+        <div data-line="5" class="source__line-content">
+            <pre class="highlight"><span class="p">-</span><span class="ni">module</span><span class="p">(</span><span class="n">atc_config_SUITE</span><span class="p">).</span></pre></div>
+      </div>
+
+      <div data-line="6" class="source__line">
+        <div data-line="6" id="line-6" class="source__line-number"><pre>6</pre></div>
+        <div data-line="6" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="7" class="source__line">
+        <div data-line="7" id="line-7" class="source__line-number"><pre>7</pre></div>
+        <div data-line="7" class="source__line-content">
+            <pre class="highlight"><span class="p">-</span><span class="ni">export</span><span class="p">([</span><span class="n">all</span><span class="o">/</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">example_airport</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">invalid_toml_does_not_control</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">neighbors</span><span class="o">/</span><span class="mi">1</span><span class="p">]).</span></pre></div>
+      </div>
+
+      <div data-line="8" class="source__line">
+        <div data-line="8" id="line-8" class="source__line-number"><pre>8</pre></div>
+        <div data-line="8" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="9" class="source__line">
+        <div data-line="9" id="line-9" class="source__line-number"><pre>9</pre></div>
+        <div data-line="9" class="source__line-content">
+            <pre class="highlight"><span class="nf">all</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="10" class="source__line">
+        <div data-line="10" id="line-10" class="source__line-number"><pre>10</pre></div>
+        <div data-line="10" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">[</span><span class="n">example_airport</span><span class="p">,</span><span class="w"> </span><span class="n">invalid_toml_does_not_control</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">,</span><span class="w"> </span><span class="n">neighbors</span><span class="p">].</span></pre></div>
+      </div>
+
+      <div data-line="11" class="source__line">
+        <div data-line="11" id="line-11" class="source__line-number"><pre>11</pre></div>
+        <div data-line="11" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="12" class="source__line">
+        <div data-line="12" id="line-12" class="source__line-number"><pre>12</pre></div>
+        <div data-line="12" class="source__line-content">
+            <pre class="highlight"><span class="nf">example_airport</span><span class="p">(_</span><span class="nv">Config</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="13" class="source__line">
+        <div data-line="13" id="line-13" class="source__line-number"><pre>13</pre></div>
+        <div data-line="13" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">Config</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">load</span><span class="p">(</span><span class="n">example_path</span><span class="p">()),</span></pre></div>
+      </div>
+
+      <div data-line="14" class="source__line">
+        <div data-line="14" id="line-14" class="source__line-number"><pre>14</pre></div>
+        <div data-line="14" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="o">&lt;&lt;</span><span class="s">"KEXAMPLE"</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">icao</span><span class="p">,</span><span class="w"> </span><span class="nv">Config</span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="15" class="source__line">
+        <div data-line="15" id="line-15" class="source__line-number"><pre>15</pre></div>
+        <div data-line="15" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">computers</span><span class="p">,</span><span class="w"> </span><span class="nv">Config</span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="16" class="source__line">
+        <div data-line="16" id="line-16" class="source__line-number"><pre>16</pre></div>
+        <div data-line="16" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="n">both</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">designation</span><span class="p">,</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="s">"27"</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">runways</span><span class="p">,</span><span class="w"> </span><span class="nv">Config</span><span class="p">))),</span></pre></div>
+      </div>
+
+      <div data-line="17" class="source__line">
+        <div data-line="17" id="line-17" class="source__line-number"><pre>17</pre></div>
+        <div data-line="17" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="n">arrival</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">designation</span><span class="p">,</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="s">"09"</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">runways</span><span class="p">,</span><span class="w"> </span><span class="nv">Config</span><span class="p">))),</span></pre></div>
+      </div>
+
+      <div data-line="18" class="source__line">
+        <div data-line="18" id="line-18" class="source__line-number"><pre>18</pre></div>
+        <div data-line="18" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">[</span><span class="nv">Near</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_neighbors</span><span class="p">:</span><span class="nf">selected</span><span class="p">(</span><span class="nv">Config</span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="19" class="source__line">
+        <div data-line="19" id="line-19" class="source__line-number"><pre>19</pre></div>
+        <div data-line="19" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="o">&lt;&lt;</span><span class="s">"KNEAR"</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">maps</span><span class="p">:</span><span class="nb">get</span><span class="p">(</span><span class="n">icao</span><span class="p">,</span><span class="w"> </span><span class="nv">Near</span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="20" class="source__line">
+        <div data-line="20" id="line-20" class="source__line-number"><pre>20</pre></div>
+        <div data-line="20" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="n">true</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_neighbors</span><span class="p">:</span><span class="nf">distance_nm</span><span class="p">(</span><span class="nv">Config</span><span class="p">,</span><span class="w"> </span><span class="nv">Near</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">30</span><span class="p">.</span></pre></div>
+      </div>
+
+      <div data-line="21" class="source__line">
+        <div data-line="21" id="line-21" class="source__line-number"><pre>21</pre></div>
+        <div data-line="21" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="22" class="source__line">
+        <div data-line="22" id="line-22" class="source__line-number"><pre>22</pre></div>
+        <div data-line="22" class="source__line-content">
+            <pre class="highlight"><span class="nf">invalid_toml_does_not_control</span><span class="p">(_</span><span class="nv">Config</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="23" class="source__line">
+        <div data-line="23" id="line-23" class="source__line-number"><pre>23</pre></div>
+        <div data-line="23" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">invalid_toml</span><span class="p">,</span><span class="w"> </span><span class="p">_}}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">from_binary</span><span class="p">(</span><span class="s">""</span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="24" class="source__line">
+        <div data-line="24" id="line-24" class="source__line-number"><pre>24</pre></div>
+        <div data-line="24" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">invalid_toml</span><span class="p">,</span><span class="w"> </span><span class="p">_}}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">from_binary</span><span class="p">(</span><span class="s">"this is not toml"</span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="25" class="source__line">
+        <div data-line="25" id="line-25" class="source__line-number"><pre>25</pre></div>
+        <div data-line="25" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">invalid_toml</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">"designation"</span><span class="o">&gt;&gt;</span><span class="p">}}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">from_binary</span><span class="p">(</span><span class="n">runway_without_designation</span><span class="p">()),</span></pre></div>
+      </div>
+
+      <div data-line="26" class="source__line">
+        <div data-line="26" id="line-26" class="source__line-number"><pre>26</pre></div>
+        <div data-line="26" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">invalid_toml</span><span class="p">,</span><span class="w"> </span><span class="p">_}}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">from_binary</span><span class="p">(</span></pre></div>
+      </div>
+
+      <div data-line="27" class="source__line">
+        <div data-line="27" id="line-27" class="source__line-number"><pre>27</pre></div>
+        <div data-line="27" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"[airport]</span><span class="se">\n</span><span class="s">icao = </span><span class="se">\"</span><span class="s">K</span><span class="se">\"\n</span><span class="s">latitude = 1</span><span class="se">\n</span><span class="s">longitude = 1</span><span class="se">\n</span><span class="s">"</span></pre></div>
+      </div>
+
+      <div data-line="28" class="source__line">
+        <div data-line="28" id="line-28" class="source__line-number"><pre>28</pre></div>
+        <div data-line="28" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"communications_distance_nm = 10</span><span class="se">\n</span><span class="s">computers = 0</span><span class="se">\n</span><span class="s">"</span></pre></div>
+      </div>
+
+      <div data-line="29" class="source__line">
+        <div data-line="29" id="line-29" class="source__line-number"><pre>29</pre></div>
+        <div data-line="29" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"max_runways = 4</span><span class="se">\n</span><span class="s">max_aircraft = 8</span><span class="se">\n</span><span class="s">max_neighbors = 2</span><span class="se">\n</span><span class="s">"</span></pre></div>
+      </div>
+
+      <div data-line="30" class="source__line">
+        <div data-line="30" id="line-30" class="source__line-number"><pre>30</pre></div>
+        <div data-line="30" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">),</span></pre></div>
+      </div>
+
+      <div data-line="31" class="source__line">
+        <div data-line="31" id="line-31" class="source__line-number"><pre>31</pre></div>
+        <div data-line="31" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">invalid_designation</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">"sideways"</span><span class="o">&gt;&gt;</span><span class="p">}}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">from_binary</span><span class="p">(</span><span class="n">airport_with_runway</span><span class="p">(</span><span class="s">"sideways"</span><span class="p">)).</span></pre></div>
+      </div>
+
+      <div data-line="32" class="source__line">
+        <div data-line="32" id="line-32" class="source__line-number"><pre>32</pre></div>
+        <div data-line="32" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="33" class="source__line">
+        <div data-line="33" id="line-33" class="source__line-number"><pre>33</pre></div>
+        <div data-line="33" class="source__line-content">
+            <pre class="highlight"><span class="nf">envelope</span><span class="p">(_</span><span class="nv">Config</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="34" class="source__line">
+        <div data-line="34" id="line-34" class="source__line-number"><pre>34</pre></div>
+        <div data-line="34" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="n">envelope</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">from_binary</span><span class="p">(</span><span class="n">wide_airport</span><span class="p">()),</span></pre></div>
+      </div>
+
+      <div data-line="35" class="source__line">
+        <div data-line="35" id="line-35" class="source__line-number"><pre>35</pre></div>
+        <div data-line="35" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">invalid_toml</span><span class="p">,</span><span class="w"> </span><span class="p">_}}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">load</span><span class="p">(</span><span class="s">"/tmp/atc-missing-airport.toml"</span><span class="p">).</span></pre></div>
+      </div>
+
+      <div data-line="36" class="source__line">
+        <div data-line="36" id="line-36" class="source__line-number"><pre>36</pre></div>
+        <div data-line="36" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="37" class="source__line">
+        <div data-line="37" id="line-37" class="source__line-number"><pre>37</pre></div>
+        <div data-line="37" class="source__line-content">
+            <pre class="highlight"><span class="nf">neighbors</span><span class="p">(_</span><span class="nv">Config</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="38" class="source__line">
+        <div data-line="38" id="line-38" class="source__line-number"><pre>38</pre></div>
+        <div data-line="38" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">{</span><span class="n">ok</span><span class="p">,</span><span class="w"> </span><span class="nv">Config</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_config</span><span class="p">:</span><span class="nf">load</span><span class="p">(</span><span class="n">example_path</span><span class="p">()),</span></pre></div>
+      </div>
+
+      <div data-line="39" class="source__line">
+        <div data-line="39" id="line-39" class="source__line-number"><pre>39</pre></div>
+        <div data-line="39" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="nv">Far</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">#{</span><span class="n">icao</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">"KFAR"</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="mi">75</span><span class="p">.</span><span class="mi">0</span><span class="p">},</span></pre></div>
+      </div>
+
+      <div data-line="40" class="source__line">
+        <div data-line="40" id="line-40" class="source__line-number"><pre>40</pre></div>
+        <div data-line="40" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="n">false</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">atc_neighbors</span><span class="p">:</span><span class="nf">within</span><span class="p">(</span><span class="nv">Config</span><span class="p">,</span><span class="w"> </span><span class="nv">Far</span><span class="p">).</span></pre></div>
+      </div>
+
+      <div data-line="41" class="source__line">
+        <div data-line="41" id="line-41" class="source__line-number"><pre>41</pre></div>
+        <div data-line="41" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="42" class="source__line">
+        <div data-line="42" id="line-42" class="source__line-number"><pre>42</pre></div>
+        <div data-line="42" class="source__line-content">
+            <pre class="highlight"><span class="nf">example_path</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="43" class="source__line">
+        <div data-line="43" id="line-43" class="source__line-number"><pre>43</pre></div>
+        <div data-line="43" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="nn">filename</span><span class="p">:</span><span class="nf">join</span><span class="p">(</span><span class="n">project_root</span><span class="p">(),</span><span class="w"> </span><span class="s">"config/example-airport.toml"</span><span class="p">).</span></pre></div>
+      </div>
+
+      <div data-line="44" class="source__line">
+        <div data-line="44" id="line-44" class="source__line-number"><pre>44</pre></div>
+        <div data-line="44" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="45" class="source__line">
+        <div data-line="45" id="line-45" class="source__line-number"><pre>45</pre></div>
+        <div data-line="45" class="source__line-content">
+            <pre class="highlight"><span class="nf">project_root</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="46" class="source__line">
+        <div data-line="46" id="line-46" class="source__line-number"><pre>46</pre></div>
+        <div data-line="46" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="nn">filename</span><span class="p">:</span><span class="nf">join</span><span class="p">([</span><span class="nn">code</span><span class="p">:</span><span class="nf">lib_dir</span><span class="p">(</span><span class="n">atc_tower</span><span class="p">),</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">,</span><span class="w"> </span><span class="s">".."</span><span class="p">]).</span></pre></div>
+      </div>
+
+      <div data-line="47" class="source__line">
+        <div data-line="47" id="line-47" class="source__line-number"><pre>47</pre></div>
+        <div data-line="47" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="48" class="source__line">
+        <div data-line="48" id="line-48" class="source__line-number"><pre>48</pre></div>
+        <div data-line="48" class="source__line-content">
+            <pre class="highlight"><span class="nf">runway_without_designation</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="49" class="source__line">
+        <div data-line="49" id="line-49" class="source__line-number"><pre>49</pre></div>
+        <div data-line="49" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">[</span></pre></div>
+      </div>
+
+      <div data-line="50" class="source__line">
+        <div data-line="50" id="line-50" class="source__line-number"><pre>50</pre></div>
+        <div data-line="50" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"[airport]</span><span class="se">\n</span><span class="s">icao = </span><span class="se">\"</span><span class="s">K</span><span class="se">\"\n</span><span class="s">latitude = 1.0</span><span class="se">\n</span><span class="s">longitude = 1.0</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="51" class="source__line">
+        <div data-line="51" id="line-51" class="source__line-number"><pre>51</pre></div>
+        <div data-line="51" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"communications_distance_nm = 10.0</span><span class="se">\n</span><span class="s">computers = 1</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="52" class="source__line">
+        <div data-line="52" id="line-52" class="source__line-number"><pre>52</pre></div>
+        <div data-line="52" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"max_runways = 4</span><span class="se">\n</span><span class="s">max_aircraft = 8</span><span class="se">\n</span><span class="s">max_neighbors = 2</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="53" class="source__line">
+        <div data-line="53" id="line-53" class="source__line-number"><pre>53</pre></div>
+        <div data-line="53" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"[[runway]]</span><span class="se">\n</span><span class="s">id = </span><span class="se">\"</span><span class="s">27</span><span class="se">\"\n</span><span class="s">independent = true</span><span class="se">\n</span><span class="s">intersects = []</span><span class="se">\n</span><span class="s">"</span></pre></div>
+      </div>
+
+      <div data-line="54" class="source__line">
+        <div data-line="54" id="line-54" class="source__line-number"><pre>54</pre></div>
+        <div data-line="54" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">].</span></pre></div>
+      </div>
+
+      <div data-line="55" class="source__line">
+        <div data-line="55" id="line-55" class="source__line-number"><pre>55</pre></div>
+        <div data-line="55" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="56" class="source__line">
+        <div data-line="56" id="line-56" class="source__line-number"><pre>56</pre></div>
+        <div data-line="56" class="source__line-content">
+            <pre class="highlight"><span class="nf">airport_with_runway</span><span class="p">(</span><span class="nv">Designation</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="57" class="source__line">
+        <div data-line="57" id="line-57" class="source__line-number"><pre>57</pre></div>
+        <div data-line="57" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">[</span></pre></div>
+      </div>
+
+      <div data-line="58" class="source__line">
+        <div data-line="58" id="line-58" class="source__line-number"><pre>58</pre></div>
+        <div data-line="58" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"[airport]</span><span class="se">\n</span><span class="s">icao = </span><span class="se">\"</span><span class="s">K</span><span class="se">\"\n</span><span class="s">latitude = 1.0</span><span class="se">\n</span><span class="s">longitude = 1.0</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="59" class="source__line">
+        <div data-line="59" id="line-59" class="source__line-number"><pre>59</pre></div>
+        <div data-line="59" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"communications_distance_nm = 10.0</span><span class="se">\n</span><span class="s">computers = 1</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="60" class="source__line">
+        <div data-line="60" id="line-60" class="source__line-number"><pre>60</pre></div>
+        <div data-line="60" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"max_runways = 4</span><span class="se">\n</span><span class="s">max_aircraft = 8</span><span class="se">\n</span><span class="s">max_neighbors = 2</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="61" class="source__line">
+        <div data-line="61" id="line-61" class="source__line-number"><pre>61</pre></div>
+        <div data-line="61" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"[[runway]]</span><span class="se">\n</span><span class="s">id = </span><span class="se">\"</span><span class="s">27</span><span class="se">\"\n</span><span class="s">designation = </span><span class="se">\"</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="62" class="source__line">
+        <div data-line="62" id="line-62" class="source__line-number"><pre>62</pre></div>
+        <div data-line="62" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="nv">Designation</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="63" class="source__line">
+        <div data-line="63" id="line-63" class="source__line-number"><pre>63</pre></div>
+        <div data-line="63" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"</span><span class="se">\"\n</span><span class="s">independent = true</span><span class="se">\n</span><span class="s">intersects = []</span><span class="se">\n</span><span class="s">"</span></pre></div>
+      </div>
+
+      <div data-line="64" class="source__line">
+        <div data-line="64" id="line-64" class="source__line-number"><pre>64</pre></div>
+        <div data-line="64" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">].</span></pre></div>
+      </div>
+
+      <div data-line="65" class="source__line">
+        <div data-line="65" id="line-65" class="source__line-number"><pre>65</pre></div>
+        <div data-line="65" class="source__line-content"><pre data-state="empty" style="user-select: none">&nbsp;</pre></div>
+      </div>
+
+      <div data-line="66" class="source__line">
+        <div data-line="66" id="line-66" class="source__line-number"><pre>66</pre></div>
+        <div data-line="66" class="source__line-content">
+            <pre class="highlight"><span class="nf">wide_airport</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span></pre></div>
+      </div>
+
+      <div data-line="67" class="source__line">
+        <div data-line="67" id="line-67" class="source__line-number"><pre>67</pre></div>
+        <div data-line="67" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">[</span></pre></div>
+      </div>
+
+      <div data-line="68" class="source__line">
+        <div data-line="68" id="line-68" class="source__line-number"><pre>68</pre></div>
+        <div data-line="68" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"[airport]</span><span class="se">\n</span><span class="s">icao = </span><span class="se">\"</span><span class="s">K</span><span class="se">\"\n</span><span class="s">latitude = 1.0</span><span class="se">\n</span><span class="s">longitude = 1.0</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="69" class="source__line">
+        <div data-line="69" id="line-69" class="source__line-number"><pre>69</pre></div>
+        <div data-line="69" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"communications_distance_nm = 10.0</span><span class="se">\n</span><span class="s">computers = 1</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span></pre></div>
+      </div>
+
+      <div data-line="70" class="source__line">
+        <div data-line="70" id="line-70" class="source__line-number"><pre>70</pre></div>
+        <div data-line="70" class="source__line-content">
+            <pre class="highlight"><span class="w">        </span><span class="s">"max_runways = 5</span><span class="se">\n</span><span class="s">max_aircraft = 8</span><span class="se">\n</span><span class="s">max_neighbors = 2</span><span class="se">\n</span><span class="s">"</span></pre></div>
+      </div>
+
+      <div data-line="71" class="source__line">
+        <div data-line="71" id="line-71" class="source__line-number"><pre>71</pre></div>
+        <div data-line="71" class="source__line-content">
+            <pre class="highlight"><span class="w">    </span><span class="p">].</span></pre></div>
+      </div>
+        <div
+          class="source__range-closer"
+          data-end="71"
+        >
+          <div class="source__range-closer-label">
+
+<a
+  class="source__range-pointer action_button"
+  data-begin="1"
+  data-end="71"
+  href="../../../../_source_files/apps/atc_tower/test/atc_config_SUITE.erl.html##1#71"
+  title="Click to toggle range (Ctrl/Cmd + Click with focus)"
+><span class="source__range-definition">1 - 71 | entire file</span></a></div>
+        </div>
+      </div></div>
+</div>
+
+    </main>
+
+    <footer class="layout_footer">
+      <div class="footer">
+        Built with
+        <a
+          class="strictdoc__link"
+          href="https://github.com/strictdoc-project/strictdoc"
+          target="_blank"
+        ><svg
+  height="16px"
+  width="16px"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .line {
+      fill: none;
+      stroke-width: 6;
+      stroke: currentColor;
+    }
+    .node {
+      fill: currentColor;
+      stroke: none;
+    }
+  </style>
+
+  <path
+    class="line"
+    d="M 76,35 50,20 24,35 76,65 50,80 24,65"/>
+
+  <circle id="sdoc_n_7" class="node" cx="24" cy="65" r="9.0"/>
+  <circle id="sdoc_n_6" class="node" cx="50" cy="80" r="9.0"/>
+  <circle id="sdoc_n_5" class="node" cx="76" cy="65" r="9.0"/>
+  <circle id="sdoc_n_4" class="node" cx="50" cy="50" r="9.0"/>
+  <circle id="sdoc_n_3" class="node" cx="24" cy="35" r="9.0"/>
+  <circle id="sdoc_n_2" class="node" cx="50" cy="20" r="9.0"/>
+  <circle id="sdoc_n_1" class="node" cx="76" cy="35" r="9.0"/>
+</svg>StrictDoc</a>
+        <a
+          class="strictdoc__version"
+          href="https://github.com/strictdoc-project/strictdoc/releases/tag/0.31.0"
+          target="_blank"
+        >
+          <svg height="16" viewBox="0 0 16 16" version="1.1" width="16" >
+            <path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"/>
+          </svg>
+          0.31.0
+        </a>
+      </div>
+    </footer>
+
+    <aside class="layout_aside">
+      
+    </aside>
+
+  </div>
+  
+  <div id="modal"></div>
+  <div id="confirm"></div>
+  
+
+</body>
+</html>
