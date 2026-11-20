@@ -24,3 +24,5 @@ ASSUMPTIONS: The in-trail gap is the predecessor leaving the protected volume. N
 RELATIONS:
 - TYPE: Parent
   VALUE: SSS005
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_clearance.erl

@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: SSS005
 - TYPE: Parent
   VALUE: SSS010
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_clearance.erl
