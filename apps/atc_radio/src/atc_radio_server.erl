@@ -17,7 +17,7 @@ init(Options) ->
     {ok, Address} = inet:parse_address(maps:get(bind, Options)),
     Services = parse_freqs(maps:get(freqs, Options)),
     Sockets = bind_services(Address, Services),
-    Tower = open_tower(Mode, maps:get(config, Options)),
+    {Tower, World} = open_tower(Mode, maps:get(config, Options)),
     LogDir = maps:get(log_dir, Options),
     ok = filelib:ensure_dir(filename:join(LogDir, "marker")),
     Schedulers = erlang:system_info(schedulers_online),
@@ -29,6 +29,7 @@ init(Options) ->
         mode => Mode,
         sockets => Sockets,
         service => Tower,
+        world => World,
         log_dir => LogDir,
         clock => 0
     }}.
@@ -55,6 +56,8 @@ handle_packet(Socket, Host, RemotePort, Packet, State) ->
     case atc_radio_phrase:decode(Packet) of
         {clock, Time} ->
             State#{clock => Time};
+        {track, Rest} ->
+            note_track(State, Rest);
         {flight, Uuid, Chapter, Callsign, English} ->
             case safe_flight(Uuid, Callsign) of
                 false ->
@@ -71,25 +74,106 @@ exchange(Socket, Host, RemotePort, Uuid, Chapter, Callsign, English, State) ->
     {Mhz, Facility} = facility(English, Services),
     Line1 = <<"flight ", Uuid/binary, " ", Chapter/binary, " ", Callsign/binary>>,
     log_line(State, Uuid, Chapter, Callsign, Mhz, Port, Facility, <<"in">>, Line1, English),
-    {ReplyKind, ReplyArg} = decide(State, Callsign, English),
+    {ReplyKind, ReplyArg, Next} = decide(State, Callsign, English),
     Reply = atc_radio_phrase:reply(ReplyKind, ReplyArg),
     Out = <<Line1/binary, "\n", Reply/binary, "\n">>,
     gen_udp:send(Socket, Host, RemotePort, Out),
-    log_line(State, Uuid, Chapter, Callsign, Mhz, Port, Facility, <<"out">>, Line1, Reply),
+    log_line(Next, Uuid, Chapter, Callsign, Mhz, Port, Facility, <<"out">>, Line1, Reply),
+    publish_world(Next).
+
+decide(#{mode := enroute} = State, _Callsign, English) ->
+    {scripted, English, State};
+decide(#{mode := tower} = State, Callsign, English) ->
+    case atc_radio_phrase:interpret(Callsign, English) of
+        scripted ->
+            {scripted, English, State};
+        {command, Command} ->
+            consider(State, Command);
+        {routine, Request} ->
+            consider(State, Request)
+    end.
+
+%% The guard is the only writer. A proposal that is not safe becomes an exception.
+consider(#{service := Service, world := World} = State, Request) when is_map(World) ->
+    Sep = current_sep(),
+    case atc_policy:propose(Sep, World, Request) of
+        {issue, Command} ->
+            commit_proposal(State, Service, World, Command);
+        {refuse, Command, _Reason} ->
+            commit_proposal(State, Service, World, Command);
+        {defer, Package} ->
+            {standby, Package, State#{world => atc_world:push_exception(World, Package)}};
+        {cab, Strip} ->
+            Phrase = atc_cab:ifr_phrase(Strip),
+            {flight_data, Phrase, State#{world => atc_world:put_strip(World, Strip)}}
+    end;
+consider(State, _Request) ->
+    {scripted, <<"roger">>, State}.
+
+commit_proposal(State, Service, World, Command) ->
+    case submit(Service, Command) of
+        {ok, _Rec} ->
+            Sep = current_sep(),
+            {{command, Command}, ok, State#{world => atc_world:note_issued(World, Sep, Command)}};
+        {error, Reason} ->
+            Package = atc_exception:package(
+                atc_policy:aircraft_of(Command),
+                Reason,
+                Command,
+                [],
+                maps:get(last_clearance, World, none)
+            ),
+            {{command, Command}, {error, Reason}, State#{world => atc_world:push_exception(World, Package)}}
+    end.
+
+current_sep() ->
+    case atc_service:state() of
+        {ok, Sep} -> Sep;
+        _ -> atc_separation:new(#{})
+    end.
+
+publish_world(#{world := World} = State) when is_map(World) ->
+    persistent_term:put(atc_world_overlay, atc_world:picture(World)),
+    State;
+publish_world(State) ->
     State.
 
-decide(#{mode := enroute}, _Callsign, English) ->
-    {scripted, English};
-decide(#{mode := tower, service := Service}, Callsign, English) ->
-    case atc_radio_phrase:classify(Callsign, English) of
-        scripted ->
-            {scripted, English};
-        {command, Command} ->
-            case submit(Service, Command) of
-                {ok, _} ->
-                    {{command, Command}, ok};
-                {error, Reason} ->
-                    {{command, Command}, {error, Reason}}
+note_track(#{world := World} = State, Rest) when is_map(World) ->
+    case track_fields(Rest) of
+        error ->
+            State;
+        Track ->
+            publish_world(State#{world => atc_world:publish_track(World, Track)})
+    end;
+note_track(State, _Rest) ->
+    State.
+
+track_fields(Rest) ->
+    Parts = binary:split(Rest, <<" ">>, [global, trim_all]),
+    case Parts of
+        [Id, Time, X, Y, Alt, Vx, Vy, Wake, Runway] ->
+            #{
+                id => Id,
+                time_s => number_text(Time),
+                x_ft => number_text(X),
+                y_ft => number_text(Y),
+                alt_ft => number_text(Alt),
+                vx_fps => number_text(Vx),
+                vy_fps => number_text(Vy),
+                wake => Wake,
+                runway => Runway
+            };
+        _ ->
+            error
+    end.
+
+number_text(Text) ->
+    case string:to_float(binary_to_list(Text)) of
+        {Value, _} when is_float(Value) -> Value;
+        {error, no_float} ->
+            case string:to_integer(binary_to_list(Text)) of
+                {Value, _} when is_integer(Value) -> Value;
+                _ -> 0
             end
     end.
 
@@ -127,11 +211,13 @@ log_line(State, Uuid, Chapter, Callsign, Mhz, Port, Facility, Direction, Line1, 
     }).
 
 open_tower(enroute, _Config) ->
-    none;
+    {none, none};
 open_tower(tower, Config) ->
     {ok, Loaded} = atc_config:load(Config),
     {ok, Service} = atc_service:open(Loaded),
-    Service.
+    World = atc_world:new(#{runways => maps:get(runways, Loaded)}),
+    persistent_term:put(atc_world_overlay, atc_world:picture(World)),
+    {Service, World}.
 
 parse_freqs(Text) when is_list(Text) ->
     parse_freqs(list_to_binary(Text));
