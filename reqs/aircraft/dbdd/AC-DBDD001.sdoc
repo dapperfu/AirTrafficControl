@@ -28,3 +28,5 @@ RELATIONS:
   VALUE: AC-SRS022
 - TYPE: File
   PATH: apps/aircraft/src/aircraft/config.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_config.py

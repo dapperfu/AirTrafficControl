@@ -28,3 +28,5 @@ RELATIONS:
   PATH: apps/aircraft/src/aircraft/config.py
 - TYPE: File
   PATH: config/n123ab.toml
+- TYPE: File
+  PATH: apps/aircraft/tests/test_config.py

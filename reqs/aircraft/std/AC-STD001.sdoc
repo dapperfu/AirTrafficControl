@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-STP001
 - TYPE: Parent
   VALUE: AC-SRS001
+- TYPE: File
+  PATH: apps/aircraft/tests/test_config.py
