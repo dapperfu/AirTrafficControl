@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: IRS001 Pilot clearance content: aircraft identity, runway, sequence, clearance kind, and wind when the clearance needs it
+UID: DOC-IRS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: IRS001
+TITLE: Pilot clearance content: aircraft identity, runway, sequence, clearance kind, and wind when the clearance needs it
+STATEMENT: >>>
+The pilot-facing interface shall carry aircraft identity, runway, sequence position when the aircraft is queued, clearance kind, and wind when the airport configuration supplies wind for a takeoff or landing. The readable phrase shall state those same facts in tower wording for runway assignment, sequence, hold short, line up and wait, takeoff, landing, and go-around. Acceptance is a landing clearance whose fields and phrase agree on the aircraft and the runway, and a takeoff clearance that includes the configured wind.
+<<<
+RATIONALE: >>>
+FAA JO 7110.65 supplies the information content. The interface carries that content without pasting the order.
+<<<
+DAL: B
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: Wind is optional in the TOML file. When it is absent, a takeoff phrase omits wind rather than inventing it.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS005
