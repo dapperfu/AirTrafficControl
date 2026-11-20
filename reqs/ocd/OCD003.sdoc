@@ -1,0 +1,23 @@
+[DOCUMENT]
+TITLE: OCD003 A rural airport keeps working when the outside link is down
+UID: DOC-OCD003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: OCD003
+TITLE: A rural airport keeps working when the outside link is down
+STATEMENT: >>>
+An airport that loses communication with every neighbor shall keep providing local tower service for aircraft already inside its protected volume, including an airport configured with one computer and no reachable neighbor. It shall not invent a clearance that depends on neighbor state it cannot confirm. Acceptance is a link cut after which a local arrival still receives a runway and a sequence, and a handoff out of the local volume is refused.
+<<<
+RATIONALE: >>>
+Rural fields must fail smart rather than stop the local tower or pretend the neighbor sky is empty.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
