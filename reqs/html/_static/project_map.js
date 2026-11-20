@@ -2,6 +2,12 @@
 window.StrictDoc = window.StrictDoc || {};
 window.StrictDoc.project = window.StrictDoc.project || {};
 window.StrictDoc.project.map = {
+ "reqs/aircraft/sdp/AC-SDP001.html": [
+
+
+  {"UID":"DOC-AC-SDP001","_LINK":"DOC-AC-SDP001" },
+
+  {"UID":"AC-SDP001","_LINK":"AC-SDP001" }, ],
  "reqs/dbdd/DBDD.html": [
 
 

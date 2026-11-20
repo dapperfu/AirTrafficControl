@@ -1,0 +1,23 @@
+[DOCUMENT]
+TITLE: AC-SDP001 Lifecycle, DID set, DAL E, Python, deferred transport, and trace rules
+UID: DOC-AC-SDP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SDP001
+TITLE: Lifecycle, DID set, DAL E, Python, deferred transport, and trace rules
+STATEMENT: >>>
+The Aircraft CSCI software development plan shall record lifecycle data with the Software development plan (SDP), Software installation plan (SIP), Software transition plan (STrP), Operational concept description (OCD), System/subsystem specification (SSS), Software requirements specification (SRS), Interface requirements specification (IRS), System/subsystem design description (SSDD), Software design description (SDD), Database design description (DBDD), Interface design description (IDD), Software test plan (STP), Software test description (STD), Software test report (STR), Software user manual (SUM), Software product specification (SPS), and Software version description (SVD). Every aircraft requirement shall be DAL E. The implementation language shall be Python. The method that carries phraseology to the tower shall remain unselected. Each fragment shall name its parents, and each implementing source file shall name the requirement UID in a comment and in the commit that adds it. Acceptance is this record, with no claim of certification authority approval.
+<<<
+RATIONALE: >>>
+The plan is the contract for which descriptions exist and how a change points back at a requirement.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: Phraseology names the AIM and JO 7110.65 and does not copy their tables. The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
