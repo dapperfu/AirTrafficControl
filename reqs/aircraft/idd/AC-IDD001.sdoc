@@ -28,3 +28,5 @@ RELATIONS:
   VALUE: AC-IRS002
 - TYPE: Parent
   VALUE: AC-IRS004
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/link.py

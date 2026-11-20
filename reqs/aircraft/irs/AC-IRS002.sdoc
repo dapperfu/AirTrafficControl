@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-SSS005
 - TYPE: Parent
   VALUE: AC-SSS006
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/link.py
