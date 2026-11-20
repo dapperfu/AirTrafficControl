@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS023 Remember clearance delivery, ground, local, flight data, and weather
+UID: DOC-SRS023
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS023
+TITLE: Remember clearance delivery, ground, local, flight data, and weather
+STATEMENT: >>>
+The Tower CSCI shall treat clearance delivery, ground, local, and flight data as distinct frequencies. It shall record a routine IFR clearance only when the route is present in the navigation data. It shall propose handoff and release with an approach neighbor through the separation guard. Weather state shall gate routine issuance, and the software shall not choose the runway configuration. Vehicles shall be part of the surface picture. A strip shall remember the plan, the ATIS letter, and the readback flag. Acceptance is an unknown route that is not cleared, a weather state that blocks routine issuance, and a vehicle that remains on the picture.
+<<<
+RATIONALE: >>>
+The cab's memory is the frequencies, the strip, the weather gate, and the vehicles, not only the local queue.
+<<<
+DAL: B
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: Full approach vectoring and enroute separation are outside this increment. The approach neighbor can accept a handoff and a release. The controller chooses the configuration.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS013
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_cab.erl
