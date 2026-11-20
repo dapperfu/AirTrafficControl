@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD002 Full call sign cases
+UID: DOC-AC-STD002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD002
+TITLE: Full call sign cases
+STATEMENT: >>>
+The test shall expect November one two three alpha bravo for N123AB and November niner zero zulu for N90Z, and shall reject N0123, N123I, and n123ab. Acceptance is those spoken forms and those three rejections. The test file is apps/aircraft/tests/test_callsign.py.
+<<<
+RATIONALE: >>>
+This is the example test for the spoken registration.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS002
