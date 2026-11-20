@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-DBDD001 TOML is the only persistent store
+UID: DOC-AC-DBDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-DBDD001
+TITLE: TOML is the only persistent store
+STATEMENT: >>>
+The CSCI shall read the aircraft TOML file at startup and shall not write it. The kinematic state, the phase, the phrase log, and the decision log shall exist only in memory and shall be discarded when the process stops. Acceptance is a loaded example file that the running aircraft does not modify, and a decision log that is an attribute of the aircraft object.
+<<<
+RATIONALE: >>>
+There is no operational database. The database description records that fact.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SRS001
+- TYPE: Parent
+  VALUE: AC-SRS022
