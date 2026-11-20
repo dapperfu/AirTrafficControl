@@ -1,0 +1,32 @@
+[DOCUMENT]
+TITLE: SRS025 Freeze conflicting routine clearances at a peak larger than the checked cap
+UID: DOC-SRS025
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS025
+TITLE: Freeze conflicting routine clearances at a peak larger than the checked cap
+STATEMENT: >>>
+The Tower CSCI shall freeze routine clearances that conflict with an emergency or a closed weather gate, and shall still issue other routine clearances that the probe and the guard accept. It shall audit routine phrases against the project grammar. A training peak shall control more than 8 aircraft without widening the checked envelope. Acceptance is nine training aircraft with the checked aircraft limit still 8, and a routine phrase that passes the audit.
+<<<
+RATIONALE: >>>
+Peak training is where a frozen conflict must not become a clearance, and where the small proof must stay intact.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Full approach control, enroute separation, LAHSO, PRM, visual-separation judgment, a live NAS connection, and certification remain outside the software.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS014
+- TYPE: Parent
+  VALUE: SSS015
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_training.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_phrase_audit.erl
