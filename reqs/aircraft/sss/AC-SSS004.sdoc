@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS004 A clearance outside performance or legal phase shall be refused
+UID: DOC-AC-SSS004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS004
+TITLE: A clearance outside performance or legal phase shall be refused
+STATEMENT: >>>
+When a clearance is addressed to this aircraft and this runway but the runway is shorter than the configured takeoff or landing distance, or the current phase cannot legally accept that clearance, the aircraft shall say Unable and shall keep the previous maneuver. A transmission for another call sign or another runway shall be ignored and shall not produce Unable. Acceptance is a takeoff clearance on an 800 foot runway, after line up and wait, that is refused while the aircraft remains lined up and stopped.
+<<<
+RATIONALE: >>>
+The mock must refuse what its performance and phase cannot fly.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD001
