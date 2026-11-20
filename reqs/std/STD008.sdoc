@@ -1,0 +1,36 @@
+[DOCUMENT]
+TITLE: STD008 Queue, landing, takeoff, and runway assignment path
+UID: DOC-STD008
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD008
+TITLE: Queue, landing, takeoff, and runway assignment path
+STATEMENT: >>>
+The test shall assign a both-use runway, sequence two aircraft, hold the second short, line the first up, clear the first for takeoff, and then clear the second to land only after the first is airborne. A landing attempted while the first still occupies the runway shall be refused. Acceptance is that ordered path and the one refusal.
+<<<
+RATIONALE: >>>
+One path covers assignment, sequence, hold short, line up and wait, takeoff, and landing together.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS008
+- TYPE: Parent
+  VALUE: SRS009
+- TYPE: Parent
+  VALUE: SRS010
+- TYPE: Parent
+  VALUE: SRS011
+- TYPE: Parent
+  VALUE: SRS012
