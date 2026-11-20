@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-OCD004 A blocked, garbled, or lost link does not create a clearance
+UID: DOC-AC-OCD004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-OCD004
+TITLE: A blocked, garbled, or lost link does not create a clearance
+STATEMENT: >>>
+A lost link, a blocked transmission, or a garbled transmission shall not by itself give the aircraft a new clearance. The aircraft shall keep flying the last clearance it had already accepted, and it shall ask for a repeat or repeat its own call only when the link can still carry speech. Acceptance is a concept in which a fault leaves the last accepted maneuver in force and adds no new runway clearance.
+<<<
+RATIONALE: >>>
+The mock must not treat silence or noise as a clearance.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
