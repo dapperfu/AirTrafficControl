@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS005 The tower shall give runway assignment, sequence, landing, takeoff, hold short, line up and wait, and go-around
+UID: DOC-SSS005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS005
+TITLE: The tower shall give runway assignment, sequence, landing, takeoff, hold short, line up and wait, and go-around
+STATEMENT: >>>
+The tower shall offer runway assignment, sequence position, hold short, line up and wait, takeoff clearance, landing clearance, and go-around, and no other clearance kind. Each offer shall name the aircraft and the runway, and a sequenced aircraft shall also receive its position. Acceptance is one aircraft that can be assigned, queued, held short, lined up, cleared for takeoff or landing, and sent around, with any other kind refused.
+<<<
+RATIONALE: >>>
+Hold short, line up and wait, and go-around are required to keep the runway exclusive. The set is the tower subset of FAA JO 7110.65 used here.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD004
