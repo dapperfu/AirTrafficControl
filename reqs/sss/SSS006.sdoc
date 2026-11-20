@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS006 Runways and their designations shall come from one TOML file per airport
+UID: DOC-SSS006
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS006
+TITLE: Runways and their designations shall come from one TOML file per airport
+STATEMENT: >>>
+Each airport shall be configured by one TOML file that names the airport, its position, communications distance, computer count, envelope bounds, and every runway. Each runway shall have an identifier, a designation of arrival, departure, both, or closed, and a flag stating whether it is independent of the other runways. The system shall not control traffic from a missing or invalid file. Acceptance is a file edit that closes a runway and a following assignment to that runway being refused.
+<<<
+RATIONALE: >>>
+The airport is meant to be retargeted by editing data, not by editing the clearance code.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
