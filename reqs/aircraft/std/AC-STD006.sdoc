@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: AC-STD006 Taxi and hold-short cases
+UID: DOC-AC-STD006
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD006
+TITLE: Taxi and hold-short cases
+STATEMENT: >>>
+The test shall accept Taxi to runway two seven, hold short runway two seven, expect that readback, observe that position is unchanged before the first step, and then step until the aircraft is holding short and stopped. It shall also expect the holding-short report. Acceptance is that readback, that report, and the hold-short phase. The test file is apps/aircraft/tests/test_aircraft.py.
+<<<
+RATIONALE: >>>
+This is the example test for taxi and hold short.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS006
+- TYPE: Parent
+  VALUE: AC-SRS007
