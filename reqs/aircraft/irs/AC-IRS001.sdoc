@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-SSS002
 - TYPE: Parent
   VALUE: AC-SSS008
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/transmission.py
