@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD004 One clearance authority under a crash
+UID: DOC-STD004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD004
+TITLE: One clearance authority under a crash
+STATEMENT: >>>
+The test shall start three log members, commit one clearance, stop one member, and expect the surviving majority to accept one further clearance while the stopped member accepts none. It shall also partition the three into a side of one and a side of two and expect only the side of two to accept a clearance. Acceptance is one committed clearance after the crash and a refusal from the minority side.
+<<<
+RATIONALE: >>>
+This is the example of a single authority after a local failure.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS004
