@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS007 Separation shall be demonstrated by a TLA+ model under stated assumptions and bounds
+UID: DOC-SSS007
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS007
+TITLE: Separation shall be demonstrated by a TLA+ model under stated assumptions and bounds
+STATEMENT: >>>
+The separation invariant and the admissible clearance transitions shall be specified in TLA+ and checked with TLC on a finite model of at most 4 runways, 8 aircraft, and 2 neighbor airports. Every admissible transition in that model shall preserve exclusive protected volume, dependent-runway exclusion, and queue order, and shall refuse a neighbor-dependent clearance while the neighbor link is down. The software shall refuse to control a traffic picture outside that envelope. Acceptance is a TLC run that reports success on the checked model and a startup rejection above the envelope.
+<<<
+RATIONALE: >>>
+A finite model check is the formal evidence this increment can actually produce. Operation outside it is refused rather than implied to be proved.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Formal
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment. Aircraft performance is occupancy of one protected region at a time, with runway occupancy held until takeoff completes or the runway is vacated.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
