@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: IRS003 TOML airport and runway schema
+UID: DOC-IRS003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: IRS003
+TITLE: TOML airport and runway schema
+STATEMENT: >>>
+The configuration interface shall be one TOML document with an airport table containing identity, latitude, longitude, communications distance, computer count, and envelope limits, plus one runway table per runway containing identifier, designation, and independence. A runway may list the identifiers it intersects. Acceptance is the example airport file, which this schema accepts, and the same file with the designation removed, which it rejects.
+<<<
+RATIONALE: >>>
+One file is the operator interface for retargeting an airport.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: Designation is one of arrival, departure, both, or closed.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS006
