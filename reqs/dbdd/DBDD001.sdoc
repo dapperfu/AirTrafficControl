@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: SRS004
 - TYPE: Parent
   VALUE: SRS016
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_ra_machine.erl
