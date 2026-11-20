@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD010 Option, touch-and-go, stop-and-go, and low-approach cases
+UID: DOC-AC-STD010
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD010
+TITLE: Option, touch-and-go, stop-and-go, and low-approach cases
+STATEMENT: >>>
+The test shall fly to the downwind, accept touch-and-go, and observe a later takeoff roll after the altitude has been below 80 feet. It shall accept stop-and-go and observe a rollout slower than 5 knots followed by another takeoff roll. It shall accept the option with the low-approach choice and stay at or above 150 feet before climbing. Acceptance is those three outcomes. The test file is apps/aircraft/tests/test_aircraft.py.
+<<<
+RATIONALE: >>>
+This is the example test for the option family.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS015
