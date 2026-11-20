@@ -8,6 +8,8 @@ The tower and the aircraft do not talk to each other. The tower's phrase set is 
 
 `apps/atc_frontend` is a third program. It is an egui window that attaches to a running tower and submits the tower's clearance commands.
 
+`apps/plane_frontend` is a fourth program. It is an egui instrument panel for one aircraft file. It flies that file's pattern on its own and keeps the radio transcript. It does not attach to the tower.
+
 ## What you can run
 
 From the repository root:
@@ -17,7 +19,8 @@ From the repository root:
 | `make build` | Compiles the Erlang tower with rebar3. |
 | `make run` | Builds a production release, loads `config/example-airport.toml`, prints readiness, and exits. |
 | `make serve` | Loads an airport and keeps a tower listening on `127.0.0.1:7878` for a front end. |
-| `make frontend` | Builds the egui front end in `apps/atc_frontend`. |
+| `make frontend` | Builds the egui tower front in `apps/atc_frontend`. |
+| `make plane` | Builds the aircraft instrument window in `apps/plane_frontend`. |
 | `make test` | Runs the tower Common Test suites. The cluster suite also runs a short PropEr check. |
 | `make aircraft-test` | Creates the Python virtualenv if needed and runs the aircraft pytest suite. |
 | `make tla-check` | Model-checks `specs/tla/AtcTower.tla` with TLC. |
@@ -49,6 +52,7 @@ TLC needs a Java runtime. `make tla-check` runs two TLC workers.
 ```text
 apps/atc_tower/     Erlang tower application, Ra machine, and tests
 apps/atc_frontend/  egui window that attaches to a running tower
+apps/plane_frontend/ egui instrument panel and radio transcript for one aircraft file
 apps/aircraft/      Python aircraft package and pytest suite
 config/             Airport files and the example aircraft file
 reqs/               StrictDoc sources for both CSCIs, plus generated HTML
@@ -347,6 +351,29 @@ The runway table sets the identifier, the centerline heading, the length, `left`
 ### Geometry the example flies
 
 Runway 27 points west. The hold-short point is 200 feet before the threshold. Line up and wait stops 100 feet past the threshold, aligned with the runway, until a takeoff clearance. The crosswind corner is 7000 feet upwind and 5000 feet to the left. The aircraft then flies downwind, base, and final. On a full stop it rolls out and stops. Touch-and-go becomes another takeoff roll after the surface. Stop-and-go slows and then rolls. A controller or pilot go-around climbs on runway heading toward pattern altitude and then turns crosswind.
+
+## Plane
+
+`apps/plane_frontend` is a standalone instrument window for one aircraft file. It does not attach to `atc_tower` or to the radio server. It loads the same TOML schema as `config/n123ab.toml`, steps the same point-mass pattern, and draws airspeed, attitude, altitude, turn rate, heading, and vertical speed from that state. Airspeed is ground speed. The model has no wind.
+
+The radio is a local transcript. Four channels stand in for the airport named in the file:
+
+| Channel | Frequency | What answers |
+| --- | --- | --- |
+| ATIS | 127.075 | The information letter. The letter is A. |
+| Ground | 121.900 | Taxi, and a hold-short report. |
+| Tower | 118.700 | Pattern entry, ready, takeoff, landing, the option, go around, and the frequency change. |
+| Departure | `next_frequency_mhz` | Position reports. The example file uses 124.5. |
+
+The tower and ground channels are fixed for this window. The departure channel is the frequency in the aircraft file. Tune a channel, then send a request with a button or the text line. A frequency number in that line tunes the radio. The transcript shows the pilot call, the facility reply, and the readback. Takeoff sends the ready call. Once the aircraft is lined up on the tower frequency, the facility clears the takeoff. A call on a frequency that does not answer is logged with no clearance.
+
+The window starts at 1x. The rate buttons run the same flight at 5x, 10x, or 20x. Reset starts the file again.
+
+```bash
+cargo run --manifest-path apps/plane_frontend/Cargo.toml -- config/n123ab.toml
+```
+
+`make plane` builds that window and does not open it.
 
 ## Requirements
 
