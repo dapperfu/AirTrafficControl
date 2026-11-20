@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD001 TOML accept and reject cases
+UID: DOC-STD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD001
+TITLE: TOML accept and reject cases
+STATEMENT: >>>
+The test shall load the example airport TOML and expect a parsed airport with its runways, then load an empty file and a runway without a designation and expect both to be rejected before any clearance is issued. Acceptance is those three results, with the valid file producing a runway list and the two invalid files producing an error and no authority.
+<<<
+RATIONALE: >>>
+This is the example test for the configuration requirement.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The example file is config/example-airport.toml.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS001
