@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS011 Issue or refuse landing clearance
+UID: DOC-SRS011
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS011
+TITLE: Issue or refuse landing clearance
+STATEMENT: >>>
+The Tower CSCI shall issue a landing clearance only when the aircraft is at the head of an arrival-capable runway sequence and the guard accepts exclusive occupancy of that runway and its conflicts. Otherwise it shall refuse. The issued clearance shall name the aircraft, the runway, and the sequence position. Acceptance is a head arrival cleared to land on an empty arrival runway, and a refusal while that runway is occupied.
+<<<
+RATIONALE: >>>
+Landing clearance is the arrival half of the same exclusive-volume rule.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS005
+- TYPE: Parent
+  VALUE: SSS010
