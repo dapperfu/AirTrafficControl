@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SSS015 The training picture shall not widen the checked envelope
+UID: DOC-SSS015
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS015
+TITLE: The training picture shall not widen the checked envelope
+STATEMENT: >>>
+The checked profile shall remain 4 runways, 8 aircraft, and 2 neighbor airports for checked startup and for the TLA+ model. A training profile may run a larger picture and shall not change those checked limits. Acceptance is a checked configuration that refuses a ninth aircraft, and a training picture of more than 8 aircraft that leaves the checked limits at 4, 8, and 2.
+<<<
+RATIONALE: >>>
+The finite model check stays meaningful only if a busy training day does not pretend to be the proved envelope.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Raft is assumed to deliver one ordered log and is not re-proved. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside the checked model.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS007
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_profile.erl
