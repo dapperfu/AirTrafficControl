@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SDD004 Consensus assumption: the Raft log is a single ordered history and Raft is not re-proved
+UID: DOC-SDD004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDD004
+TITLE: Consensus assumption: the Raft log is a single ordered history and Raft is not re-proved
+STATEMENT: >>>
+The local group shall use Ra as the Raft log. The design shall treat a committed Ra index as the single ordered history and shall not include a proof of Raft. Commands shall be submitted only by the current Ra leader. Acceptance is a three-member Ra cluster in one Erlang node that commits one clearance and rejects a command from a follower that is not the leader.
+<<<
+RATIONALE: >>>
+Re-proving Raft is out of scope. Using a known library keeps the assumption explicit.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SRS004
