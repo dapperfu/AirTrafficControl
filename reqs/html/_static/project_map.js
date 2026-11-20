@@ -110,12 +110,6 @@ window.StrictDoc.project.map = {
   {"UID":"DOC-AC-SPS001","_LINK":"DOC-AC-SPS001" },
 
   {"UID":"AC-SPS001","_LINK":"AC-SPS001" }, ],
- "reqs/aircraft/srs/AC-SRS023.html": [
-
-
-  {"UID":"DOC-AC-SRS023","_LINK":"DOC-AC-SRS023" },
-
-  {"UID":"AC-SRS023","_LINK":"AC-SRS023" }, ],
  "reqs/aircraft/srs/AC-SRS024.html": [
 
 
@@ -213,7 +207,11 @@ window.StrictDoc.project.map = {
 
   {"UID":"DOC-AC-SRS022","_LINK":"DOC-AC-SRS022" },
 
-  {"UID":"AC-SRS022","_LINK":"AC-SRS022" }, ],
+  {"UID":"AC-SRS022","_LINK":"AC-SRS022" },
+
+  {"UID":"DOC-AC-SRS023","_LINK":"DOC-AC-SRS023" },
+
+  {"UID":"AC-SRS023","_LINK":"AC-SRS023" }, ],
  "reqs/aircraft/ssdd/SSDD.html": [
 
 

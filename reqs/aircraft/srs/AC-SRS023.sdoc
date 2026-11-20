@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: AC-SRS023 Hand the pattern to enroute as one continuous track
+UID: DOC-AC-SRS023
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS023
+TITLE: Hand the pattern to enroute as one continuous track
+STATEMENT: >>>
+The aircraft shall hand the pattern position, altitude, and heading to the enroute step without a position jump, and shall publish a truth track for that continuous motion. More than one aircraft shall be able to publish a track in the same step. Acceptance is a pattern position whose first enroute latitude, longitude, and altitude match the pattern state.
+<<<
+RATIONALE: >>>
+The pattern and the great-circle leg are one flight. A jump would invent a track the tower never saw.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this track does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SRS021
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/continuity.py
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/fleet.py
