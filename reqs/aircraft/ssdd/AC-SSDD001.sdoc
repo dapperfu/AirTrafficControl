@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-SSDD001 The aircraft, one runway, and the tower as an external system
+UID: DOC-AC-SSDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSDD001
+TITLE: The aircraft, one runway, and the tower as an external system
+STATEMENT: >>>
+The system design shall contain one aircraft, one runway, the ramp, and the pattern geometry, and shall treat the tower as an external peer. The only failure domain inside this CSCI shall be the phraseology link. A down, blocked, or garbled link shall not be described as a failure of the tower computers. Acceptance is a design trace that names the link events and does not assign tower failover behavior to this CSCI.
+<<<
+RATIONALE: >>>
+This CSCI does not operate the tower and does not share its computers.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS005
+- TYPE: Parent
+  VALUE: AC-SSS008
