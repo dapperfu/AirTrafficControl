@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: AC-STD007 Line-up and takeoff cases
+UID: DOC-AC-STD007
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD007
+TITLE: Line-up and takeoff cases
+STATEMENT: >>>
+The test shall read back line up and wait, step until the aircraft is aligned and stopped, refuse to treat that state as airborne, then read back a takeoff clearance that contained wind and step until the climb. North offset on runway 27 shall stay inside 5 feet during the roll. Acceptance is the two readbacks and the climb phase. The test file is apps/aircraft/tests/test_aircraft.py.
+<<<
+RATIONALE: >>>
+This is the example test for line up and takeoff.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS008
+- TYPE: Parent
+  VALUE: AC-SRS009
