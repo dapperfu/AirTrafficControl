@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD011 Bounds refusal
+UID: DOC-STD011
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD011
+TITLE: Bounds refusal
+STATEMENT: >>>
+The test shall reject a configuration with 5 runways, reject a configuration that allows more than 8 aircraft, and reject the ninth aircraft at an airport already holding 8. Acceptance is those three refusals and no issued clearance in the first two cases.
+<<<
+RATIONALE: >>>
+The envelope is an operational limit, so the test sits just outside it.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS014
