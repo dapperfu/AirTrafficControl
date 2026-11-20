@@ -1,0 +1,23 @@
+[DOCUMENT]
+TITLE: OCD001 Local tower service replaces the manned tower for one configured airport
+UID: DOC-OCD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: OCD001
+TITLE: Local tower service replaces the manned tower for one configured airport
+STATEMENT: >>>
+The AirTrafficControl system shall perform the local tower function for one airport described by that airport configuration. The service shall accept pilot requests for runway assignment, sequence position, landing, takeoff, hold short, line up and wait, and go-around, and it shall answer each request with a clearance or a refusal. Acceptance is a configured airport that issues a runway and a sequence to an aircraft inside its protected volume, and that refuses a request the separation guard rejects.
+<<<
+RATIONALE: >>>
+A tower replacement is useful only if the same airport can serve ordinary clearances and refuse an unsafe one.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Review
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
