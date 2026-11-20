@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS016 Say Unable and keep the previous maneuver
+UID: DOC-AC-SRS016
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS016
+TITLE: Say Unable and keep the previous maneuver
+STATEMENT: >>>
+The aircraft shall say Unable, the refused clearance in lowercase operative words, and the full call sign, when a takeoff runway is shorter than takeoff_distance_ft, a landing-type runway is shorter than landing_distance_ft, or the phase does not allow the clearance. It shall not change phase or speed because of that refusal. Another call sign or another runway shall produce no phrase and no Unable decision. Acceptance is Unable cleared for takeoff runway two seven on an 800 foot runway while the aircraft stays lined up and stopped, and silence for N999ZZ and for runway 28.
+<<<
+RATIONALE: >>>
+Unable is the speech. The previous maneuver is what continues.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS004
