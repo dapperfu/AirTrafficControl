@@ -51,3 +51,4 @@ logs/
 apps/physics/*.so
 apps/physics/*.o
 docker/scenario-compose.yml
+docker/scenario-compose.addresses.json
