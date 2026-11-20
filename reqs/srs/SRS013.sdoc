@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS013 Apply the separation guard before any clearance that changes occupancy
+UID: DOC-SRS013
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS013
+TITLE: Apply the separation guard before any clearance that changes occupancy
+STATEMENT: >>>
+Before committing a sequence, assignment, hold short, line up and wait, takeoff, landing, or go-around, the Tower CSCI shall evaluate the pure separation transition for that command. Only a transition that returns an accepted next state may be appended to the log. The guard shall be a pure function of the current occupancy, the runway relation, and the link state. Acceptance is a command set on which every accepted command preserves the exclusive-volume invariant and every rejected command leaves the state unchanged.
+<<<
+RATIONALE: >>>
+The guard is the executable counterpart of the TLA+ next-state relation.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Formal
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment. Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS001
+- TYPE: Parent
+  VALUE: SSS010
