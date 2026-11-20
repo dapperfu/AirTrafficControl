@@ -8,7 +8,8 @@
 %%% Implements: SRS011
 %%% Implements: SRS012
 %%% Implements: SRS013
-%%% @relation(SRS006, SRS007, SRS008, SRS009, SRS010, SRS011, SRS012, SRS013, scope=file)
+%%% Implements: SRS018
+%%% @relation(SRS006, SRS007, SRS008, SRS009, SRS010, SRS011, SRS012, SRS013, SRS018, scope=file)
 %%%-------------------------------------------------------------------
 -module(atc_separation).
 
@@ -21,7 +22,8 @@
     audit/1,
     stale/2,
     picture/1,
-    command_view/1
+    command_view/1,
+    runway_conflict/3
 ]).
 
 %% Implements: SRS013
@@ -261,6 +263,15 @@ occupied(State, Runway) ->
         false,
         maps:get(aircraft, State)
     ).
+
+%% Implements: SRS018
+%% @relation(SRS018, scope=line)
+runway_conflict(State, Left, Right) ->
+    Known = maps:is_key(Left, runways(State)) andalso maps:is_key(Right, runways(State)),
+    case Known of
+        true -> conflicts(State, Left, Right);
+        false -> Left =:= Right andalso Left =/= none
+    end.
 
 conflicts(_State, Runway, Runway) ->
     true;
