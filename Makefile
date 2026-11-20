@@ -1,4 +1,4 @@
-.PHONY: help clean build run test aircraft-test \
+.PHONY: help clean build run test aircraft-test physics scenario-test \
 	strictdoc-init strictdoc-generate strictdoc-validate strictdoc-export \
 	strictdoc-serve strictdoc-tree strictdoc-help tla-check install-hooks
 
@@ -16,6 +16,7 @@ help:
 	@echo "  make run                   Load the example airport and halt"
 	@echo "  make test                  Run Common Test and PropEr"
 	@echo "  make aircraft-test         Run the aircraft pytest suite"
+	@echo "  make scenario-test         Fly the pinned busy-flow scenario at max scale"
 	@echo "  make clean                 Remove build output"
 	@echo "  make strictdoc-init        Create the StrictDoc virtualenv"
 	@echo "  make strictdoc-generate    Write HTML into reqs/html"
@@ -66,9 +67,20 @@ run: build
 test:
 	$(REBAR) as test ct
 
+apps/physics/libphysics.so: apps/physics/physics.c apps/physics/physics.h
+	mkdir -p $(ROOT)/.tools/tmp
+	TMPDIR=$(ROOT)/.tools/tmp gcc -std=c11 -Wall -Wextra -shared -fPIC -O2 -o $@ apps/physics/physics.c -lm
+
+physics: apps/physics/libphysics.so
+
 # @relation(AC-SIP001, AC-STP001, scope=file)
-aircraft-test: $(STRICTDOC)
+aircraft-test: $(STRICTDOC) apps/physics/libphysics.so
 	cd $(ROOT)/apps/aircraft && $(PYTHON) -m pytest -q
+
+scenario-test: build physics $(STRICTDOC)
+	$(PYTHON) tools/navdata/import_navdata.py --download $(ROOT)/data/raw --out $(ROOT)/data/catalog
+	$(PYTHON) -m pytest -q tools/navdata/test_import.py tools/traffic/test_compose.py
+	$(PYTHON) tools/traffic/run_scenario.py --scenario $(ROOT)/data/catalog/scenario.json --scale max --log $(ROOT)/logs/scenario --root $(ROOT) --compose $(ROOT)/docker/scenario-compose.yml
 
 tla-check:
 	java -XX:+UseParallelGC -jar $(TLC) -workers 2 -config specs/tla/AtcTower.cfg specs/tla/AtcTower.tla
