@@ -1,0 +1,9 @@
+{application, atc_radio, [
+    {description, "UDP radio and one flight log"},
+    {vsn, "0.1.0"},
+    {registered, [atc_radio_sup]},
+    {mod, {atc_radio_app, []}},
+    {applications, [kernel, stdlib, atc_tower]},
+    {env, []},
+    {modules, []}
+]}.
