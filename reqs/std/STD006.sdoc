@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD006 Handoff while the neighbor link is up
+UID: DOC-STD006
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD006
+TITLE: Handoff while the neighbor link is up
+STATEMENT: >>>
+The test shall send a handoff to a neighbor whose link is up, accept it, and expect the aircraft to leave local control. A second handoff that the neighbor rejects shall leave the aircraft in local control. Acceptance is those two outcomes.
+<<<
+RATIONALE: >>>
+Accept and reject are the two answers the interface allows.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS006
