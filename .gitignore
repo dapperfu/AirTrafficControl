@@ -1,0 +1,38 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.pdf
+*.dvi
+*.ps
+*.eps
+*.figlist
+*.makefile
+*.auxlock
+
+# Python virtual environment
+.venv/
+
+# Local toolchain (OTP, rebar3, TLC)
+.tools/
+
+# Erlang / Rebar3
+_build/
+erl_crash.dump
+*.beam
+
+# TLC scratch
+states/
+*.toolbox
+*.dot
+
+# Editor and OS
+*.swp
+*~
+.DS_Store
