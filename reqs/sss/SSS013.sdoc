@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SSS013 Routine clearances shall be issued only when the probe and the guard agree
+UID: DOC-SSS013
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS013
+TITLE: Routine clearances shall be issued only when the probe and the guard agree
+STATEMENT: >>>
+The system shall propose a routine taxi, hold-short, line-up, takeoff, landing, vacate, or handoff only when the conflict probe reports the case safe and the separation guard would accept that same command. The separation guard shall remain the only writer of an issued clearance. A scripted radio sentence shall not record an issued clearance. Acceptance is a routine takeoff that appears on the guard log only after both checks agree, and a conflicting request that does not appear as issued.
+<<<
+RATIONALE: >>>
+The occupancy guard is the clearance authority. Prediction and phraseology may only offer a command that authority can accept.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Phraseology is a project-owned grammar. FAA order tables are not copied into the software.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS010
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_policy.erl
