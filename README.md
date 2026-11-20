@@ -4,7 +4,9 @@ This repository holds two simulation programs and the requirements that describe
 
 The tower is an Erlang/OTP service. It loads one airport from a TOML file, starts a small Raft group with Ra, and accepts or refuses clearances. The aircraft is a Python package. It speaks a closed set of FAA pattern phrases and flies a deterministic point-mass pattern. Both are mock software. Neither is connected to a real aircraft, a live tower, or a radio. Nothing in this repository is a certification claim.
 
-The two programs do not talk to each other. The tower's phrase set is the clearance log used by its separation rules. The aircraft's phrase set is the pilot side of a local pattern, and its tests answer that speech with a Python script rather than with `atc_tower`.
+The tower and the aircraft do not talk to each other. The tower's phrase set is the clearance log used by its separation rules. The aircraft's phrase set is the pilot side of a local pattern, and its tests answer that speech with a Python script rather than with `atc_tower`.
+
+`apps/atc_frontend` is a third program. It is an egui window that attaches to a running tower and submits the tower's clearance commands.
 
 ## What you can run
 
@@ -14,6 +16,8 @@ From the repository root:
 | --- | --- |
 | `make build` | Compiles the Erlang tower with rebar3. |
 | `make run` | Builds a production release, loads `config/example-airport.toml`, prints readiness, and exits. |
+| `make serve` | Loads an airport and keeps a tower listening on `127.0.0.1:7878` for a front end. |
+| `make frontend` | Builds the egui front end in `apps/atc_frontend`. |
 | `make test` | Runs the tower Common Test suites. The cluster suite also runs a short PropEr check. |
 | `make aircraft-test` | Creates the Python virtualenv if needed and runs the aircraft pytest suite. |
 | `make tla-check` | Model-checks `specs/tla/AtcTower.tla` with TLC. |
@@ -44,6 +48,7 @@ TLC needs a Java runtime. `make tla-check` runs two TLC workers.
 
 ```text
 apps/atc_tower/     Erlang tower application, Ra machine, and tests
+apps/atc_frontend/  egui window that attaches to a running tower
 apps/aircraft/      Python aircraft package and pytest suite
 config/             Airport files and the example aircraft file
 reqs/               StrictDoc sources for both CSCIs, plus generated HTML
@@ -142,6 +147,29 @@ q().
 ```
 
 `close/1` force-deletes the Ra servers for that airport group. `q()` stops the shell. `make run` needs no separate stop. Its node has already halted.
+
+### Front end
+
+`make serve` loads an airport, leaves the Erlang node running, and listens on `127.0.0.1:7878`. The socket is local. The egui window attaches to it and shows the runway strips, the clearance buttons, the neighbor links, and the issued and refused log.
+
+From the repository root, in two shells:
+
+```bash
+make serve
+cargo run --manifest-path apps/atc_frontend/Cargo.toml
+```
+
+`make frontend` only builds that window. `make serve AIRPORT=config/mock-metro.toml FRONT_PORT=7879` loads another file and port. The window takes the same host and port:
+
+```bash
+cargo run --manifest-path apps/atc_frontend/Cargo.toml -- 127.0.0.1 7879
+```
+
+The default airport is `config/example-airport.toml`. The window starts with call sign `N123AB` and runway 27.
+
+A client reads one JSON object per line. The tower writes `hello` as soon as the TCP connection is accepted. The client then sends either `{"op":"snapshot"}` or `{"op":"submit","command":...}`. The command `kind` is one of `assign`, `hold_short`, `line_up`, `takeoff`, `land`, `go_around`, `vacate`, `handoff`, or `link`. An `assign` command also carries `aircraft`, `runway`, and `intent` (`departure` or `arrival`). A `handoff` carries `aircraft`, `neighbor`, and `accept`. A `link` carries `neighbor` and `up`. Aircraft, runway, and neighbor identifiers are letters and digits, at most 16 characters. The front finds the current Ra leader and submits there.
+
+The log line names that command. `atc_phraseology` still renders the tower's own paraphrase inside the clearance record used by the separation rules. The window talks to the tower only. Closing the window leaves the tower running. The next `make serve` starts a new Ra group.
 
 ### Airport file
 
