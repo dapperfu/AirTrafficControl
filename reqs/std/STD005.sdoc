@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD005 Neighbor distance selection
+UID: DOC-STD005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD005
+TITLE: Neighbor distance selection
+STATEMENT: >>>
+The test shall place one candidate inside the communications distance and one outside it and expect only the inside candidate to be selected as a neighbor. Acceptance is a neighbor set of size one containing the inside airport.
+<<<
+RATIONALE: >>>
+The boundary is the configured distance, so the test uses positions on either side of it.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Distance is computed in nautical miles.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS005
