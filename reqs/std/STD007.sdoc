@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD007 Partition fail-smart case
+UID: DOC-STD007
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD007
+TITLE: Partition fail-smart case
+STATEMENT: >>>
+The test shall bring a neighbor link down, mark the neighbor picture stale, grant a local landing that the local guard allows, and refuse a handoff. It shall also show that the stale picture is not used to permit a second aircraft into a locally occupied volume. Acceptance is the granted local landing, the refused handoff, and the refused double occupancy.
+<<<
+RATIONALE: >>>
+Fail smart is continued local service plus refusal of dependent clearances.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS007
