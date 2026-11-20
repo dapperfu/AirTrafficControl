@@ -8,7 +8,7 @@
 %%%-------------------------------------------------------------------
 -module(atc_service).
 
--export([open/1, submit/3, issued/0, picture/0, close/1]).
+-export([open/1, submit/3, issued/0, picture/0, state/0, close/1]).
 
 %% Implements: SRS003
 %% @relation(SRS003, scope=line)
@@ -55,6 +55,20 @@ issued() ->
                     Log;
                 _ ->
                     []
+            end
+    end.
+
+%% Read the separation state. Callers use it to propose. They do not write it.
+state() ->
+    case persistent_term:get(atc_service_current, undefined) of
+        undefined ->
+            {error, closed};
+        #{ids := [ServerId | _]} ->
+            case ra:local_query(ServerId, fun(Sep) -> Sep end) of
+                {ok, {_Index, Sep}, _Leader} when is_map(Sep) ->
+                    {ok, Sep};
+                Other ->
+                    {error, Other}
             end
     end.
 
