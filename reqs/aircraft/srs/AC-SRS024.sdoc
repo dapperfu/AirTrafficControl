@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-SRS024 Send routine phrases to the tower radio
+UID: DOC-AC-SRS024
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS024
+TITLE: Send routine phrases to the tower radio
+STATEMENT: >>>
+The aircraft shall send a routine phrase to the tower radio and shall apply a clearance only from a tower reply. A stand-by reply shall not change the clearance state. A scripted sentence that did not come from the separation guard shall not be treated as an issued clearance. Acceptance is a taxi phrase exchanged with the tower radio whose stand-by or clearance reply is applied only through the aircraft receive path.
+<<<
+RATIONALE: >>>
+The aircraft and the tower have to share one radio path. The pilot model is not a second clearance authority.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. The radio is the project UDP phrase port. There is no live radio and no SDR.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-IRS002
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/tower_radio.py
