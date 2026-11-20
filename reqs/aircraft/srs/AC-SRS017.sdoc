@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS017 On link down, send nothing and continue the last maneuver
+UID: DOC-AC-SRS017
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS017
+TITLE: On link down, send nothing and continue the last maneuver
+STATEMENT: >>>
+When the link reports down, further requests, readbacks, repeats, and emergency declarations shall not be sent. A taxi already accepted shall continue on later time steps. A clearance delivered while the link is down shall not be accepted. Acceptance is a down event during taxi after which the phrase log does not grow, an emergency call adds no phrase, and the aircraft is still taxiing farther along the path.
+<<<
+RATIONALE: >>>
+The last accepted clearance remains the only maneuver.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS005
