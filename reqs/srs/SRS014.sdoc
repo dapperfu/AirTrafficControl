@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS014 Refuse operation outside the performance assumptions and the checked envelope
+UID: DOC-SRS014
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS014
+TITLE: Refuse operation outside the performance assumptions and the checked envelope
+STATEMENT: >>>
+The Tower CSCI shall read the configured maximum runways, aircraft, and neighbors and shall refuse to start control when any of those limits exceeds 4 runways, 8 aircraft, or 2 neighbors, or when the loaded picture already exceeds the limit. It shall also refuse a new aircraft that would exceed the aircraft limit. Acceptance is a TOML file with 5 runways that does not start, and an airport at the aircraft limit that refuses one more aircraft.
+<<<
+RATIONALE: >>>
+The TLC check is finite. The software must not be operated as if the proof were unbounded.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS007
