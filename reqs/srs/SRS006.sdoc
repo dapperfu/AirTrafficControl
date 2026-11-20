@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS006 Complete a handoff only with a reachable neighbor
+UID: DOC-SRS006
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS006
+TITLE: Complete a handoff only with a reachable neighbor
+STATEMENT: >>>
+The Tower CSCI shall send a handoff only to a neighbor whose link is up, and it shall remove the aircraft from local control only after that neighbor accepts. A reject or a missing answer shall leave the aircraft under local control. Acceptance is an accepted handoff that drops local control, and a rejected handoff that keeps the aircraft in the local sequence.
+<<<
+RATIONALE: >>>
+The sender must not drop an aircraft the receiver has not taken.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS003
