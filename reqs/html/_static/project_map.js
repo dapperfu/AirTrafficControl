@@ -529,9 +529,7 @@ window.StrictDoc.project.map = {
 
   {"UID":"DOC-SRS017","_LINK":"DOC-SRS017" },
 
-  {"UID":"SRS017","_LINK":"SRS017" }, ],
- "reqs/srs/SRS018.html": [
-
+  {"UID":"SRS017","_LINK":"SRS017" },
 
   {"UID":"DOC-SRS018","_LINK":"DOC-SRS018" },
 

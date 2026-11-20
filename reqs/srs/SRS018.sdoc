@@ -1,0 +1,34 @@
+[DOCUMENT]
+TITLE: SRS018 Probe taxi, wake, time, and non-routine runway use
+UID: DOC-SRS018
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS018
+TITLE: Probe taxi, wake, time, and non-routine runway use
+STATEMENT: >>>
+The Tower CSCI shall evaluate a proposed surface or runway command against a synthetic taxi graph, runway incursion, classic wake minima for heavy, B757, large, and small, and a time window for runway use. The result shall be safe, conflict, or defer. LAHSO, visual separation, opposite direction, and intersection departure shall be deferred and shall not be auto-issued. Acceptance is a vehicle on a runway whose line-up is a conflict, and an intersection departure that is deferred.
+<<<
+RATIONALE: >>>
+The occupancy flag cannot see a vehicle, a wake interval, or a future arrival on the same pavement.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The synthetic graph for each tower used in tests is one runway, one parallel taxiway, and connectors. Wake RECAT is outside this increment. The probe does not write an issued clearance.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS012
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_probe.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_taxi.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_wake.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_separation.erl
