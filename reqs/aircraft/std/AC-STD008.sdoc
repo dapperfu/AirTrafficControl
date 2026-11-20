@@ -30,3 +30,5 @@ RELATIONS:
   VALUE: AC-SRS011
 - TYPE: Parent
   VALUE: AC-SRS012
+- TYPE: File
+  PATH: apps/aircraft/tests/test_aircraft.py

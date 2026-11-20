@@ -28,3 +28,5 @@ RELATIONS:
   PATH: apps/aircraft/src/aircraft/aircraft.py
 - TYPE: File
   PATH: apps/aircraft/tests/test_faults.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_aircraft.py

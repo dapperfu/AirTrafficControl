@@ -28,3 +28,5 @@ RELATIONS:
   VALUE: AC-SSS002
 - TYPE: File
   PATH: apps/aircraft/src/aircraft/aircraft.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_aircraft.py
