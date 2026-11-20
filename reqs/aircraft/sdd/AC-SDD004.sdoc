@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-SDD004 One renderer and one parser for the closed phrase set
+UID: DOC-AC-SDD004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SDD004
+TITLE: One renderer and one parser for the closed phrase set
+STATEMENT: >>>
+Phrase rendering and parsing shall live in one module. The parser shall accept the renderer output and the tower clearances for taxi with hold short, hold short, line up and wait, takeoff, landing, go-around, sequence, runway assignment, frequency change, the option, touch-and-go, stop-and-go, and an information letter. It shall strip a wind clause and an altimeter clause before matching. Acceptance is a round trip of the ATIS request, the pattern-entry request, the landing request, and the takeoff readback, each returning the same kind and registration.
+<<<
+RATIONALE: >>>
+A second copy of the phrase set would drift.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SRS003
+- TYPE: Parent
+  VALUE: AC-SRS004
