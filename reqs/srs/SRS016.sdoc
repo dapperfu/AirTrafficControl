@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS016 Record each decision with the requirement UID it carried out
+UID: DOC-SRS016
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS016
+TITLE: Record each decision with the requirement UID it carried out
+STATEMENT: >>>
+The Tower CSCI shall append an audit record for every issued clearance and every refusal. The record shall contain the aircraft identity, the clearance kind, the runway when one was named, the decision, and the requirement UID of the software requirement that authorized that kind of decision. Acceptance is a landing grant whose audit line contains SRS011, and a refusal whose audit line contains the UID of the guard requirement SRS013.
+<<<
+RATIONALE: >>>
+The audit log is how an operator and a later reader tie a decision back to the requirement.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: Audit loss is not itself a separation failure. The record is still required for traceability.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
