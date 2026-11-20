@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: SRS024 Train a towered airport from airline and general-aviation demand
+UID: DOC-SRS024
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS024
+TITLE: Train a towered airport from airline and general-aviation demand
+STATEMENT: >>>
+The Tower CSCI shall build airline and general-aviation demand for a towered airport, run that demand as a shard of one airport, a region, or a national set, record and replay the decisions, accept instructor injects for emergency, NORDO, vehicle, deviation, and weather, and score separation losses, incursions, deferred clearances, and radio time. Acceptance is a replay that matches the record and a score that counts one deferred clearance.
+<<<
+RATIONALE: >>>
+A national training run is many airports of the same software, scored after the fact, not a live facility feed.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: Tests use fixtures and do not require a live download. One machine is not required to fly every busy tower in realtime. Bulk historical tracks stay out of the repository. This is not a certification claim and not a live NAS connection.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS011
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_training.erl
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/national.py
