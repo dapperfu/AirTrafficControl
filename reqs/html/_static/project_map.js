@@ -38,50 +38,38 @@ window.StrictDoc.project.map = {
   {"UID":"DOC-AC-SDP002","_LINK":"DOC-AC-SDP002" },
 
   {"UID":"AC-SDP002","_LINK":"AC-SDP002" }, ],
- "reqs/aircraft/sss/AC-SSS001.html": [
+ "reqs/aircraft/sss/SSS.html": [
 
+
+  {"UID":"DOC-AC-SSS","_LINK":"DOC-AC-SSS" },
 
   {"UID":"DOC-AC-SSS001","_LINK":"DOC-AC-SSS001" },
 
-  {"UID":"AC-SSS001","_LINK":"AC-SSS001" }, ],
- "reqs/aircraft/sss/AC-SSS002.html": [
-
+  {"UID":"AC-SSS001","_LINK":"AC-SSS001" },
 
   {"UID":"DOC-AC-SSS002","_LINK":"DOC-AC-SSS002" },
 
-  {"UID":"AC-SSS002","_LINK":"AC-SSS002" }, ],
- "reqs/aircraft/sss/AC-SSS003.html": [
-
+  {"UID":"AC-SSS002","_LINK":"AC-SSS002" },
 
   {"UID":"DOC-AC-SSS003","_LINK":"DOC-AC-SSS003" },
 
-  {"UID":"AC-SSS003","_LINK":"AC-SSS003" }, ],
- "reqs/aircraft/sss/AC-SSS004.html": [
-
+  {"UID":"AC-SSS003","_LINK":"AC-SSS003" },
 
   {"UID":"DOC-AC-SSS004","_LINK":"DOC-AC-SSS004" },
 
-  {"UID":"AC-SSS004","_LINK":"AC-SSS004" }, ],
- "reqs/aircraft/sss/AC-SSS005.html": [
-
+  {"UID":"AC-SSS004","_LINK":"AC-SSS004" },
 
   {"UID":"DOC-AC-SSS005","_LINK":"DOC-AC-SSS005" },
 
-  {"UID":"AC-SSS005","_LINK":"AC-SSS005" }, ],
- "reqs/aircraft/sss/AC-SSS006.html": [
-
+  {"UID":"AC-SSS005","_LINK":"AC-SSS005" },
 
   {"UID":"DOC-AC-SSS006","_LINK":"DOC-AC-SSS006" },
 
-  {"UID":"AC-SSS006","_LINK":"AC-SSS006" }, ],
- "reqs/aircraft/sss/AC-SSS007.html": [
-
+  {"UID":"AC-SSS006","_LINK":"AC-SSS006" },
 
   {"UID":"DOC-AC-SSS007","_LINK":"DOC-AC-SSS007" },
 
-  {"UID":"AC-SSS007","_LINK":"AC-SSS007" }, ],
- "reqs/aircraft/sss/AC-SSS008.html": [
-
+  {"UID":"AC-SSS007","_LINK":"AC-SSS007" },
 
   {"UID":"DOC-AC-SSS008","_LINK":"DOC-AC-SSS008" },
 
