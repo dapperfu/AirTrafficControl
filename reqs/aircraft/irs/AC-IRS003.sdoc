@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-IRS003 Aircraft and airport TOML schema
+UID: DOC-AC-IRS003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-IRS003
+TITLE: Aircraft and airport TOML schema
+STATEMENT: >>>
+The configuration file shall contain exactly the tables aircraft, performance, airport, runway, ramp, and option. aircraft shall carry n_number, facility, next_facility, and next_frequency_mhz in the range 118.000 to 136.975. performance shall carry taxi, rotation, and pattern speeds in increasing order, pattern altitude, takeoff and landing distances, turn rate, acceleration, vertical speed, and a low-approach height below pattern altitude. runway shall carry an identifier from 01 through 36 with optional L, C, or R, a heading from 0 through 359, length, left or right pattern, hold-short distance, pattern offset, and an upwind distance beyond the departure end. option.choice shall be full_stop, touch_and_go, stop_and_go, or low_approach. Extra keys and missing keys shall be errors. Acceptance is config/n123ab.toml loading and an empty file, a bad pattern, and a frequency of 100.0 being rejected.
+<<<
+RATIONALE: >>>
+One closed schema keeps a misspelled key from looking like a valid aircraft.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS008
