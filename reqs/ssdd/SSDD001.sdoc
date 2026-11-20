@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SSDD001 Airport, local computers, and neighbor topology, with the two failure domains
+UID: DOC-SSDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSDD001
+TITLE: Airport, local computers, and neighbor topology, with the two failure domains
+STATEMENT: >>>
+The system design shall separate two failure domains. Inside an airport, n computers share one ordered log and lose the authority only when they lose a majority. Between airports, a link failure isolates the airports and each continues with local service under the fail-smart rule. A local computer failure shall not be treated as a neighbor-link failure, and a neighbor-link failure shall not by itself remove a local majority. Acceptance is a design trace that names both domains and a test in which a down neighbor leaves the local majority able to clear a local aircraft.
+<<<
+RATIONALE: >>>
+The two domains fail differently. Mixing them would either stop a healthy local tower or keep using a dead neighbor.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Review
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment. Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS002
+- TYPE: Parent
+  VALUE: SSS003
