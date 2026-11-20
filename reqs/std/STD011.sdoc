@@ -26,3 +26,7 @@ RELATIONS:
   VALUE: STP001
 - TYPE: Parent
   VALUE: SRS014
+- TYPE: File
+  PATH: apps/atc_tower/test/atc_config_SUITE.erl
+- TYPE: File
+  PATH: apps/atc_tower/test/atc_clearance_SUITE.erl
