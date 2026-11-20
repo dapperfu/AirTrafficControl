@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS002 Each airport shall run on n ATC computers for integer n greater than 0
+UID: DOC-SSS002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS002
+TITLE: Each airport shall run on n ATC computers for integer n greater than 0
+STATEMENT: >>>
+Each airport shall be configured with an integer computer count n greater than 0 and shall start a local clearance group of that size. A configuration of one computer is a valid rural airport and shall still apply the separation guard. Acceptance is a startup with n equal to 1 that serves local traffic, and a startup that rejects n less than 1.
+<<<
+RATIONALE: >>>
+Redundancy is configured per airport. One computer must remain a legal and safe configuration.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
