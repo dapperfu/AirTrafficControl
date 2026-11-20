@@ -1,0 +1,42 @@
+[DOCUMENT]
+TITLE: AC-STR001 Record of the aircraft pytest run
+UID: DOC-AC-STR001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STR001
+TITLE: Record of the aircraft pytest run
+STATEMENT: >>>
+The test report shall record the command that was actually run and the result it printed. On 2026-11-20, from the repository root, make aircraft-test ran /projects/AirTrafficControl/.venv/bin/python -m pytest -q in apps/aircraft and printed 22 passed in 0.05s. Acceptance is this record matching that command and that result.
+<<<
+RATIONALE: >>>
+The report is written after the run, so the count is an observation rather than a plan.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: File
+  PATH: Makefile
+- TYPE: File
+  PATH: apps/aircraft/tests/test_callsign.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_config.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_phrasebook.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_dynamics.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_faults.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_aircraft.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_mission.py
