@@ -1,0 +1,32 @@
+[DOCUMENT]
+TITLE: SRS020 Hold a non-routine case on the exception queue
+UID: DOC-SRS020
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS020
+TITLE: Hold a non-routine case on the exception queue
+STATEMENT: >>>
+The Tower CSCI shall append an exception package when a proposal is deferred or when the guard would refuse it. The package shall name the reason, the command, the last clearance, and the affected identities. The package shall be readable by the controller station. Acceptance is a deferred landing present on the queue and absent from the issued log.
+<<<
+RATIONALE: >>>
+The human still needs the strip, the conflict, and who else is involved.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The controller station is the existing tower window. A second client is not required.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS014
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_exception.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_front.erl
+- TYPE: File
+  PATH: apps/atc_frontend/src/main.rs
