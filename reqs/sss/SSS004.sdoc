@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS004 Loss of the outside link shall fail smart and preserve local separation
+UID: DOC-SSS004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS004
+TITLE: Loss of the outside link shall fail smart and preserve local separation
+STATEMENT: >>>
+When an airport can no longer exchange traffic state with a neighbor inside the configured communications distance, the local computers shall keep runway assignment, sequencing, landing, and takeoff service for aircraft already inside that airport's protected volume. The airport shall not issue a handoff or any other clearance that depends on neighbor state it cannot confirm. Last-known neighbor data shall stay marked stale and shall not reduce local separation. Coordinated handoffs shall resume only after the neighbor link is revalidated. This shall hold for a rural airport with one computer and no reachable neighbor.
+<<<
+RATIONALE: >>>
+Fail smart means the local tower continues and unconfirmed neighbor state cannot make a local clearance look safer.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD003
