@@ -30,3 +30,5 @@ RELATIONS:
   VALUE: SRS013
 - TYPE: Parent
   VALUE: SRS015
+- TYPE: File
+  PATH: apps/atc_tower/test/prop_clearance.erl
