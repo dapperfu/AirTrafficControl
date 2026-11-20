@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS001 Reject invalid TOML and do not fly
+UID: DOC-AC-SRS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS001
+TITLE: Reject invalid TOML and do not fly
+STATEMENT: >>>
+Before an aircraft flies, the CSCI shall read its TOML file and shall refuse to construct the aircraft when the file is missing, unreadable, or fails the AC-IRS003 schema. Acceptance is the example file producing an aircraft for N123AB, and an empty file, a missing registration, a pattern value outside left or right, and a frequency of 100.0 each raising a configuration error with no aircraft object.
+<<<
+RATIONALE: >>>
+A bad file is not a flyable aircraft.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS008
