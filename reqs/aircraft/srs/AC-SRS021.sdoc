@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS021 Advance motion only through a deterministic step
+UID: DOC-AC-SRS021
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS021
+TITLE: Advance motion only through a deterministic step
+STATEMENT: >>>
+Aircraft.step shall be the only aircraft operation that moves the point mass. Inside a step the model shall turn toward the target heading or the waypoint, change speed toward the target speed, set vertical speed toward the target altitude within the configured limit, and then integrate position. A non-positive time step shall be rejected and shall not change state. The same inputs shall produce the same next state. Automatic captures, including arrival at hold short, rotation, and pattern-leg changes, shall occur inside step. Acceptance is an unchanged state after a zero time step and matching states after one one-second step on two copies of the model.
+<<<
+RATIONALE: >>>
+Deterministic time is what makes the flight repeatable.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
