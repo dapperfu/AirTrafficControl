@@ -1,0 +1,34 @@
+[DOCUMENT]
+TITLE: SPS001 Delivered tower sources, model, and requirements
+UID: DOC-SPS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SPS001
+TITLE: Delivered tower sources, model, and requirements
+STATEMENT: >>>
+The product specification shall list the Tower CSCI artifacts delivered in this version: the Erlang modules and tests under apps/atc_tower, the example airport file config/example-airport.toml, the TLA+ specification specs/tla/AtcTower.tla with specs/tla/AtcTower.cfg, the refinement mapping specs/refinement/Mapping.md, and the StrictDoc sources under reqs. The mapping's open obligations remain open. Acceptance is a reader finding each of those paths in the version that this specification describes.
+<<<
+RATIONALE: >>>
+The product specification is the inventory of what the version contains after the build and the model exist.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: Generated HTML is listed by the version description. Open proof obligations are not closed by this inventory.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_separation.erl
+- TYPE: File
+  PATH: specs/tla/AtcTower.tla
+- TYPE: File
+  PATH: specs/refinement/Mapping.md
+- TYPE: File
+  PATH: config/example-airport.toml

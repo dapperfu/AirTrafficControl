@@ -1,0 +1,14 @@
+[DOCUMENT]
+TITLE: Software product specification
+UID: DOC-SPS
+VERSION: 0.1
+DATE: 2026-11-20
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[DOCUMENT_FROM_FILE]
+FILE: SPS001.sdoc
