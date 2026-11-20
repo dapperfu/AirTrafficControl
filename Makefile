@@ -1,4 +1,4 @@
-.PHONY: help clean build run serve frontend test aircraft-test physics scenario-test \
+.PHONY: help clean build run serve frontend plane test aircraft-test physics scenario-test \
 	strictdoc-init strictdoc-generate strictdoc-validate strictdoc-export \
 	strictdoc-serve strictdoc-tree strictdoc-help tla-check install-hooks
 
@@ -15,7 +15,8 @@ help:
 	@echo "  make build                 Compile the Erlang release"
 	@echo "  make run                   Load the example airport and halt"
 	@echo "  make serve                 Keep a tower listening on 127.0.0.1:7878"
-	@echo "  make frontend              Build the egui front end"
+	@echo "  make frontend              Build the egui tower front"
+	@echo "  make plane                 Build the aircraft instrument window"
 	@echo "  make test                  Run Common Test and PropEr"
 	@echo "  make aircraft-test         Run the aircraft pytest suite"
 	@echo "  make scenario-test         Fly the pinned busy-flow scenario at max scale"
@@ -74,6 +75,9 @@ serve: build
 
 frontend:
 	cargo build --manifest-path $(ROOT)/apps/atc_frontend/Cargo.toml
+
+plane:
+	cargo build --manifest-path $(ROOT)/apps/plane_frontend/Cargo.toml
 
 test:
 	$(REBAR) as test ct
