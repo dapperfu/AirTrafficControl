@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD012 Audit trace contains the requirement UID
+UID: DOC-STD012
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD012
+TITLE: Audit trace contains the requirement UID
+STATEMENT: >>>
+The test shall issue a landing and refuse an unsafe line-up, then read the audit. The landing record shall contain SRS011 and the refusal shall contain SRS013, along with the aircraft identity and the decision. Acceptance is both records present and no issued record for the refused line-up.
+<<<
+RATIONALE: >>>
+The audit is the product-side link from a decision back to the requirement.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Audit records are operational, not debug prints.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS016
