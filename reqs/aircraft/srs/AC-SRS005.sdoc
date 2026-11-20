@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS005 Request ATIS or include the information letter
+UID: DOC-AC-SRS005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS005
+TITLE: Request ATIS or include the information letter
+STATEMENT: >>>
+The aircraft shall be able to request ATIS. When a peer answers with an information letter, the aircraft shall store that letter and a following pattern-entry call shall include it in phonetic form. The information transmission itself shall not be read back and shall not move the aircraft. Acceptance is an ATIS request, storage of letter A from Information alpha, and a pattern-entry phrase that says with information alpha.
+<<<
+RATIONALE: >>>
+The initial call carries the letter the pilot has already received.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
