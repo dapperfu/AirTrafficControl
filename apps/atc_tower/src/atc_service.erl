@@ -8,7 +8,7 @@
 %%%-------------------------------------------------------------------
 -module(atc_service).
 
--export([open/1, submit/3, issued/0, close/1]).
+-export([open/1, submit/3, issued/0, picture/0, close/1]).
 
 %% Implements: SRS003
 %% @relation(SRS003, scope=line)
@@ -56,6 +56,35 @@ issued() ->
                 _ ->
                     []
             end
+    end.
+
+%% The attached front reads this view. It prefers the current leader.
+picture() ->
+    case persistent_term:get(atc_service_current, undefined) of
+        undefined ->
+            {error, closed};
+        #{ids := Ids} ->
+            read_picture(leader_first(Ids))
+    end.
+
+leader_first([ServerId | _] = Ids) ->
+    case ra:members(ServerId) of
+        {ok, _Members, Leader} ->
+            [Leader | Ids];
+        _ ->
+            Ids
+    end;
+leader_first([]) ->
+    [].
+
+read_picture([]) ->
+    {error, no_picture};
+read_picture([ServerId | Rest]) ->
+    case ra:local_query(ServerId, fun atc_separation:picture/1) of
+        {ok, {_Index, Picture}, _} when is_map(Picture) ->
+            {ok, Picture};
+        _ ->
+            read_picture(Rest)
     end.
 
 close(#{ids := Ids}) ->
