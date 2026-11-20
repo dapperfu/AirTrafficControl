@@ -1,0 +1,10 @@
+# @relation(AC-SDP001, AC-SDP002, AC-STrP001, scope=file)
+[project]
+name = "aircraft"
+version = "0.1.0"
+description = "Mock aircraft CSCI for FAA pattern phraseology"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

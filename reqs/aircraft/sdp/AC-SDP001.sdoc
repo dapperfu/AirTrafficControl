@@ -21,3 +21,6 @@ DAL: E
 REQUIREMENT_LEVEL: Plan
 VERIFICATION: Review
 ASSUMPTIONS: Phraseology names the AIM and JO 7110.65 and does not copy their tables. The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: File
+  PATH: apps/aircraft/pyproject.toml
