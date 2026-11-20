@@ -2,26 +2,22 @@
 window.StrictDoc = window.StrictDoc || {};
 window.StrictDoc.project = window.StrictDoc.project || {};
 window.StrictDoc.project.map = {
- "reqs/aircraft/irs/AC-IRS001.html": [
+ "reqs/aircraft/irs/IRS.html": [
 
+
+  {"UID":"DOC-AC-IRS","_LINK":"DOC-AC-IRS" },
 
   {"UID":"DOC-AC-IRS001","_LINK":"DOC-AC-IRS001" },
 
-  {"UID":"AC-IRS001","_LINK":"AC-IRS001" }, ],
- "reqs/aircraft/irs/AC-IRS002.html": [
-
+  {"UID":"AC-IRS001","_LINK":"AC-IRS001" },
 
   {"UID":"DOC-AC-IRS002","_LINK":"DOC-AC-IRS002" },
 
-  {"UID":"AC-IRS002","_LINK":"AC-IRS002" }, ],
- "reqs/aircraft/irs/AC-IRS003.html": [
-
+  {"UID":"AC-IRS002","_LINK":"AC-IRS002" },
 
   {"UID":"DOC-AC-IRS003","_LINK":"DOC-AC-IRS003" },
 
-  {"UID":"AC-IRS003","_LINK":"AC-IRS003" }, ],
- "reqs/aircraft/irs/AC-IRS004.html": [
-
+  {"UID":"AC-IRS003","_LINK":"AC-IRS003" },
 
   {"UID":"DOC-AC-IRS004","_LINK":"DOC-AC-IRS004" },
 
