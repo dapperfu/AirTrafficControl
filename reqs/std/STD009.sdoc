@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD009 The guard refuses an unsafe clearance
+UID: DOC-STD009
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD009
+TITLE: The guard refuses an unsafe clearance
+STATEMENT: >>>
+The test shall submit a line-up for a second aircraft while the first occupies the runway and expect a refusal with the state unchanged. It shall then go around or complete the takeoff and expect the second line-up to be accepted. Acceptance is the refusal with an unchanged log prefix and the later acceptance.
+<<<
+RATIONALE: >>>
+The guard requirement is checked here by example, and by TLC and PropEr under the other descriptions.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS013
