@@ -1,0 +1,32 @@
+[DOCUMENT]
+TITLE: SVD001 Version 0.1.0 of the tower CSCI
+UID: DOC-SVD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SVD001
+TITLE: Version 0.1.0 of the tower CSCI
+STATEMENT: >>>
+The version description shall identify atc_tower 0.1.0, dated 2026-11-20, as the rebar3 release of the Tower CSCI together with AtcTower.tla, the refinement mapping, the StrictDoc sources, and the HTML generated under reqs/html. It shall record the TLC result of 414 distinct states with no invariant error and the Common Test result of 15 passing tests. Acceptance is a version record that names those artifacts and results and does not claim certification authority approval.
+<<<
+RATIONALE: >>>
+The version description freezes the evidence that belongs to release 0.1.0.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: reqs/html is produced by make strictdoc-generate from the StrictDoc sources. PropEr remains conformance evidence.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
+- TYPE: File
+  PATH: rebar.config
+- TYPE: File
+  PATH: specs/tla/AtcTower.tla
+- TYPE: File
+  PATH: specs/refinement/Mapping.md
