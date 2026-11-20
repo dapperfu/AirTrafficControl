@@ -1,0 +1,36 @@
+[DOCUMENT]
+TITLE: STR001 Record of the TLC run and the Common Test run
+UID: DOC-STR001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STR001
+TITLE: Record of the TLC run and the Common Test run
+STATEMENT: >>>
+The test report shall record the commands that were actually run and the results they printed. On 2026-11-20, from the repository root, rebar3 as test ct reported All 15 tests passed, covering atc_config_SUITE, atc_clearance_SUITE, and atc_cluster_SUITE, and the last of those calls prop_clearance:quickcheck/0 with 40 cases. make tla-check reported no error on AtcTower, with 414 distinct states and depth 8. make run printed airport KEXAMPLE ready on 1 computers. The PropEr result is conformance evidence and is not a proof. Acceptance is this record matching those commands and results.
+<<<
+RATIONALE: >>>
+The report is written after the run, so the numbers are observations rather than a plan.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Test
+ASSUMPTIONS: TLC covers the finite instance only. PropEr samples the Erlang state machine and does not prove refinement. No certification authority approval is claimed.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: File
+  PATH: apps/atc_tower/test/atc_config_SUITE.erl
+- TYPE: File
+  PATH: apps/atc_tower/test/atc_clearance_SUITE.erl
+- TYPE: File
+  PATH: apps/atc_tower/test/atc_cluster_SUITE.erl
+- TYPE: File
+  PATH: apps/atc_tower/test/prop_clearance.erl
+- TYPE: File
+  PATH: specs/tla/AtcTower.tla
