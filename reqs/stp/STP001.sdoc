@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: STP001 Which SRS items are discharged by TLC, by refinement review, by PropEr, and by example tests
+UID: DOC-STP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STP001
+TITLE: Which SRS items are discharged by TLC, by refinement review, by PropEr, and by example tests
+STATEMENT: >>>
+The test plan shall discharge SRS013 and SSS007 by TLC on AtcTower, SRS013 and SSS008 by review of the refinement mapping, SRS004 and SRS015 by PropEr state-machine tests, and the remaining software requirements by Common Test examples named in the software test description. A PropEr failure shall fail the build and shall not be rewritten as formal proof. Acceptance is a trace from each SRS item to one of those four methods, and a test run whose failing property stops the suite.
+<<<
+RATIONALE: >>>
+DO-178C wants the verification method named before the tests are treated as evidence.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: TLC covers the finite model only. PropEr samples the implementation and does not prove it.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
