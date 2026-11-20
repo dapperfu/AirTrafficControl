@@ -1,0 +1,38 @@
+[DOCUMENT]
+TITLE: AC-STD012 Link, emergency, step, and decision-log cases
+UID: DOC-AC-STD012
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD012
+TITLE: Link, emergency, step, and decision-log cases
+STATEMENT: >>>
+The fault test shall take the link down during taxi and expect no new phrase, continued motion, and no emergency record. It shall expect one Say again for an addressed garble and silence for an unaddressed garble. It shall expect one delivered repeat after one block and no delivery after two blocks. It shall expect a Mayday and a Pan-Pan that leave the aircraft on the ramp. The dynamics test shall reject a zero time step and match two copies after one step. The aircraft test shall find AC-SRS021 and AC-SRS016 in the decision log. Acceptance is those results. The test files are apps/aircraft/tests/test_faults.py, apps/aircraft/tests/test_dynamics.py, and apps/aircraft/tests/test_aircraft.py.
+<<<
+RATIONALE: >>>
+These cases close the remaining software requirements.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS017
+- TYPE: Parent
+  VALUE: AC-SRS018
+- TYPE: Parent
+  VALUE: AC-SRS019
+- TYPE: Parent
+  VALUE: AC-SRS020
+- TYPE: Parent
+  VALUE: AC-SRS021
+- TYPE: Parent
+  VALUE: AC-SRS022
