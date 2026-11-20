@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS010 A clearance the separation guard rejects shall not be issued
+UID: DOC-SSS010
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS010
+TITLE: A clearance the separation guard rejects shall not be issued
+STATEMENT: >>>
+The system shall apply the separation guard before it commits any clearance that changes runway occupancy, and it shall not put a rejected clearance on the ordered log as an issued clearance. The pilot-facing answer to a rejected request shall be a refusal that names the aircraft and the reason class. Acceptance is a request that would double-occupy a runway, with the log unchanged and the caller receiving a refusal.
+<<<
+RATIONALE: >>>
+The guard is useful only if a rejected transition never becomes the issued history.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
