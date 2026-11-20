@@ -56,16 +56,13 @@ build:
 
 run: build
 	$(REBAR) as prod release
-	$(ROOT)/_build/prod/rel/atc_tower/bin/atc_tower start
-	$(ROOT)/_build/prod/rel/atc_tower/bin/atc_tower eval 'atc_tower_cli:main(["config/example-airport.toml"]).'
-	$(ROOT)/_build/prod/rel/atc_tower/bin/atc_tower stop
+	$(ROOT)/.tools/erlang/bin/erl -noshell $$(find $(ROOT)/_build/prod/rel/atc_tower/lib -type d -name ebin -printf '-pa %p ') -eval 'ok = atc_tower_cli:main(["$(ROOT)/config/example-airport.toml"]), halt(0).'
 
-test: build
+test:
 	$(REBAR) as test ct
-	$(REBAR) as test eunit
 
 tla-check:
-	java -XX:+IgnoreUnrecognizedVMOptions -Dtlc2.tool.fp.FPSet.impl=tlc2.tool.fp.OffHeapDiskFPSet -jar $(TLC) -workers 2 -deadlock -config specs/tla/AtcTower.cfg specs/tla/AtcTower.tla
+	java -XX:+UseParallelGC -jar $(TLC) -workers 2 -config specs/tla/AtcTower.cfg specs/tla/AtcTower.tla
 
 clean:
 	$(REBAR) clean || true
