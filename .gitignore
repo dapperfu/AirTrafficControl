@@ -43,3 +43,11 @@ states/
 *.swp
 *~
 .DS_Store
+
+# National radio simulation inputs and generated output
+data/raw/
+data/catalog/
+logs/
+apps/physics/*.so
+apps/physics/*.o
+docker/scenario-compose.yml
