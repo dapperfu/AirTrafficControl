@@ -1,0 +1,9 @@
+"id","airport_ref","airport_ident","type","description","frequency_mhz"
+1,1,"KSFO","TWR","San Francisco Tower",120.5
+2,1,"KSFO","GND","San Francisco Ground",121.8
+3,2,"KORD","TWR","O'Hare Tower",126.9
+4,3,"KATL","TWR","Atlanta Tower",119.3
+5,4,"KLAX","TWR","Los Angeles Tower",120.95
+6,5,"KSTS","TWR","Santa Rosa Tower",118.5
+7,6,"KMOD","TWR","Modesto Tower",118.35
+8,7,"EGLL","TWR","Heathrow Tower",118.5

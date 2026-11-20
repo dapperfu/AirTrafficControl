@@ -1,0 +1,8 @@
+"id","ident","type","name","latitude_deg","longitude_deg","elevation_ft","continent","iso_country","iso_region","municipality","scheduled_service","icao_code","iata_code","gps_code","local_code","home_link","wikipedia_link","keywords"
+1,"KSFO","large_airport","San Francisco International Airport",37.619806,-122.374821,13,"NA","US","US-CA","San Francisco","yes","KSFO","SFO","KSFO",,,"",""
+2,"KORD","large_airport","Chicago O'Hare International Airport",41.9786,-87.9048,680,"NA","US","US-IL","Chicago","yes","KORD","ORD","KORD",,,"",""
+3,"KATL","large_airport","Hartsfield Jackson Atlanta International Airport",33.6367,-84.4281,1026,"NA","US","US-GA","Atlanta","yes","KATL","ATL","KATL",,,"",""
+4,"KLAX","large_airport","Los Angeles International Airport",33.9425,-118.4081,128,"NA","US","US-CA","Los Angeles","yes","KLAX","LAX","KLAX",,,"",""
+5,"KSTS","small_airport","Charles M Schulz Sonoma County Airport",38.509,-122.813,128,"NA","US","US-CA","Santa Rosa","yes","KSTS","STS","KSTS",,,"",""
+6,"KMOD","small_airport","Modesto City County Airport",37.6258,-120.954,97,"NA","US","US-CA","Modesto","yes","KMOD","MOD","KMOD",,,"",""
+7,"EGLL","large_airport","London Heathrow",51.47,-0.4543,83,"EU","GB","GB-ENG","London","yes","EGLL","LHR","EGLL",,,"",""
