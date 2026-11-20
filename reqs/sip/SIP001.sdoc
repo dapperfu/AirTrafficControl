@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SIP001 Install one release on n airport computers and point them at the TOML file
+UID: DOC-SIP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SIP001
+TITLE: Install one release on n airport computers and point them at the TOML file
+STATEMENT: >>>
+Installation shall place the same Tower release on each of the n computers for one airport and shall point every computer at that airport TOML file. The installer shall not start control until the file passes the configuration check. Acceptance is a procedure a support engineer can follow for n equal to 1 and for n equal to 3, with a bad file leaving the computers stopped.
+<<<
+RATIONALE: >>>
+Installation is per airport and uses the same file the requirements already constrain.
+<<<
+DAL: D
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: No separate computer-center install is required.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
