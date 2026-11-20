@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-SDP001
 - TYPE: File
   PATH: apps/aircraft/src/aircraft/mission.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_mission.py

@@ -28,3 +28,5 @@ RELATIONS:
   VALUE: AC-SRS005
 - TYPE: File
   PATH: apps/aircraft/tests/scripted_tower.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_mission.py
