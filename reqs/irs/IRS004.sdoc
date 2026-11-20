@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: IRS004 Intra-airport log command for a single clearance decision
+UID: DOC-IRS004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: IRS004
+TITLE: Intra-airport log command for a single clearance decision
+STATEMENT: >>>
+The intra-airport interface shall submit one clearance decision as one log command containing the aircraft identity, the kind, and the runway when the kind uses a runway. Members shall apply a committed command at the same index to the same previous state. Acceptance is two members that apply one landing command and report the same resulting occupancy.
+<<<
+RATIONALE: >>>
+The replicated command is the unit of authority inside the airport.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: PropEr
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS009
