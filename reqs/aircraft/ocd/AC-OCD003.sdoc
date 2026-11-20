@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-OCD003 The spoken position matches the point-mass state
+UID: DOC-AC-OCD003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-OCD003
+TITLE: The spoken position matches the point-mass state
+STATEMENT: >>>
+When the pilot reports a position or includes a position in a call, the words shall describe the aircraft point-mass state at that moment, including the pattern leg when the aircraft is on one and the distance and direction when it is not. Acceptance is a concept in which a reader of the phrase log can tell the leg or the distance that the model occupied when the phrase was sent.
+<<<
+RATIONALE: >>>
+A phrase that names the wrong place is not a usable mock.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
