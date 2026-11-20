@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS002 Requests and readbacks shall cover the pattern set in AIM order
+UID: DOC-AC-SSS002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS002
+TITLE: Requests and readbacks shall cover the pattern set in AIM order
+STATEMENT: >>>
+The system shall be able to request or report ATIS, pattern entry, taxi, hold short, ready for takeoff, landing, go-around, frequency change, position, the option, touch-and-go, and stop-and-go, and shall read back runway assignment, sequence, hold short, line up and wait, takeoff, landing, go-around, frequency, the option, touch-and-go, and stop-and-go. A request shall be spoken as facility, full call sign, position when the call is initial or is a position report, then the request. A readback shall be spoken as the operative clearance and then the full call sign. Acceptance is one rendered request and one rendered readback in that order for runway 27 and N123AB.
+<<<
+RATIONALE: >>>
+The order is the FAA convention this mock is required to follow.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD002
