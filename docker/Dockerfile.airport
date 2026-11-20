@@ -1,0 +1,9 @@
+FROM erlang:27
+WORKDIR /opt/atc
+COPY rebar.config ./
+COPY apps/atc_tower ./apps/atc_tower
+COPY apps/atc_radio ./apps/atc_radio
+RUN rebar3 compile
+COPY docker/airport-start.sh /usr/local/bin/airport-start.sh
+RUN chmod +x /usr/local/bin/airport-start.sh
+ENTRYPOINT ["/usr/local/bin/airport-start.sh"]
