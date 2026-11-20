@@ -1,4 +1,6 @@
 //! Tower window for one running AirTrafficControl server.
+//! Implements: SRS020
+//! @relation(SRS020, scope=file)
 //!
 //! `make serve` binds 127.0.0.1:7878. This program attaches, draws the
 //! runway strips, and submits the same clearance commands the tower accepts.
@@ -259,6 +261,7 @@ impl eframe::App for AtcApp {
         self.top_bar(ctx);
         self.log_panel(ctx);
         self.pad(ctx);
+        self.exception_station(ctx);
         self.strips(ctx);
         ctx.request_repaint_after(Duration::from_millis(200));
     }
@@ -348,6 +351,74 @@ impl AtcApp {
                 )
             }
         }
+    }
+
+    fn exception_station(&self, ctx: &egui::Context) {
+        let picture = self.picture.clone();
+        SidePanel::left("exceptions")
+            .resizable(true)
+            .default_width(280.0)
+            .show(ctx, |ui| {
+                ScrollArea::vertical().id_salt("exceptions").show(ui, |ui| {
+                    ui.add_space(4.0);
+                    ui.label(RichText::new("Exception station").strong().size(16.0));
+                    ui.label(
+                        RichText::new("The guard still issues routine clearances. This list is the rest.")
+                            .small()
+                            .weak(),
+                    );
+                    let Some(picture) = picture else {
+                        ui.label(RichText::new("Waiting for the tower picture.").weak());
+                        return;
+                    };
+                    if let Some(weather) = &picture.weather {
+                        let gate = if weather.routine {
+                            "Routine issuance open"
+                        } else {
+                            "Routine issuance held"
+                        };
+                        ui.label(
+                            RichText::new(format!(
+                                "{gate}   ATIS {}   {}   ceiling {:.0} ft   vis {:.0} sm",
+                                weather.atis, weather.wind, weather.ceiling_ft, weather.visibility_sm
+                            ))
+                            .monospace(),
+                        );
+                    }
+                    if picture.vehicles.is_empty() {
+                        ui.label(RichText::new("No vehicles.").weak());
+                    } else {
+                        for vehicle in &picture.vehicles {
+                            let runway = vehicle.runway.as_deref().unwrap_or("-");
+                            ui.label(
+                                RichText::new(format!("{}  runway {}", vehicle.id, runway))
+                                    .monospace(),
+                            );
+                        }
+                    }
+                    ui.separator();
+                    if picture.exceptions.is_empty() {
+                        ui.label(RichText::new("No exceptions.").weak());
+                        return;
+                    }
+                    for item in &picture.exceptions {
+                        let aircraft = item.aircraft.as_deref().unwrap_or("-");
+                        let affected = if item.affected.is_empty() {
+                            String::new()
+                        } else {
+                            format!("  with {}", item.affected.join(", "))
+                        };
+                        ui.label(
+                            RichText::new(format!(
+                                "{}  {}  {}{}",
+                                item.reason, aircraft, item.summary, affected
+                            ))
+                            .monospace()
+                            .color(Color32::from_rgb(214, 164, 84)),
+                        );
+                    }
+                });
+            });
     }
 
     fn log_panel(&self, ctx: &egui::Context) {

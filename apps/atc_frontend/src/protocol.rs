@@ -39,6 +39,45 @@ pub struct Picture {
     pub links: Vec<LinkState>,
     pub issued: Vec<LogEntry>,
     pub audit: Vec<LogEntry>,
+    #[serde(default)]
+    pub exceptions: Vec<ExceptionItem>,
+    #[serde(default)]
+    pub weather: Option<WeatherView>,
+    #[serde(default)]
+    pub vehicles: Vec<VehicleView>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct ExceptionItem {
+    #[serde(default)]
+    pub reason: String,
+    #[serde(default)]
+    pub aircraft: Option<String>,
+    #[serde(default)]
+    pub summary: String,
+    #[serde(default)]
+    pub affected: Vec<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct WeatherView {
+    #[serde(default)]
+    pub routine: bool,
+    #[serde(default)]
+    pub ceiling_ft: f64,
+    #[serde(default)]
+    pub visibility_sm: f64,
+    #[serde(default)]
+    pub atis: String,
+    #[serde(default)]
+    pub wind: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct VehicleView {
+    pub id: String,
+    #[serde(default)]
+    pub runway: Option<String>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -250,5 +289,21 @@ mod tests {
         assert!(picture.aircraft[0].runway.is_none());
         assert!(picture.audit[0].aircraft.is_none());
         assert!(picture.links[0].stale);
+        assert!(picture.exceptions.is_empty());
+    }
+
+    #[test]
+    fn exception_station_parses_on_the_snapshot() {
+        let incoming = parse_line(
+            r#"{"type":"snapshot","aircraft":[],"queues":[],"links":[],"issued":[],"audit":[],"exceptions":[{"reason":"emergency","aircraft":"N1","summary":"N1 emergency","affected":["N2"]}],"weather":{"routine":false,"ceiling_ft":200,"visibility_sm":1,"atis":"B","wind":"270 at 10"},"vehicles":[{"id":"V1","runway":"27"}]}"#,
+        )
+        .unwrap();
+        let Incoming::Snapshot(picture) = incoming else {
+            panic!("snapshot");
+        };
+        assert_eq!(picture.exceptions[0].reason, "emergency");
+        assert_eq!(picture.exceptions[0].affected, vec!["N2".to_string()]);
+        assert!(!picture.weather.unwrap().routine);
+        assert_eq!(picture.vehicles[0].id, "V1");
     }
 }
