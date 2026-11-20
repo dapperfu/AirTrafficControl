@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS009 Keep arrival and departure sequence order
+UID: DOC-SRS009
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS009
+TITLE: Keep arrival and departure sequence order
+STATEMENT: >>>
+The Tower CSCI shall keep a sequence per runway and shall grant a landing or takeoff that uses that runway only to the aircraft at the head of the sequence, after any predecessor has left the protected volume. A new sequence request shall append the aircraft. Acceptance is two aircraft sequenced to one runway where the second takeoff or landing is refused until the first is airborne or clear, then granted.
+<<<
+RATIONALE: >>>
+Queue order is the in-trail rule this increment can check without a wake-turbulence model.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The in-trail gap is the predecessor leaving the protected volume. No time-based wake category is modeled.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS005
