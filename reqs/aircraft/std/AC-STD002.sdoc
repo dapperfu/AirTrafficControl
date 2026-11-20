@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-STP001
 - TYPE: Parent
   VALUE: AC-SRS002
+- TYPE: File
+  PATH: apps/aircraft/tests/test_callsign.py

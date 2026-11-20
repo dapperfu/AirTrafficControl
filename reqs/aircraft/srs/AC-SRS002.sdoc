@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-SSS003
 - TYPE: File
   PATH: apps/aircraft/src/aircraft/callsign.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_callsign.py
