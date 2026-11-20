@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SDD001 Objects and which one owns step, receive, and request
+UID: DOC-AC-SDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SDD001
+TITLE: Objects and which one owns step, receive, and request
+STATEMENT: >>>
+The Aircraft object shall own the call sign, the phase, the last clearance, the decision log, the phrase log, and the methods step, receive, and the request helpers. PointMass shall own the kinematic state and shall integrate only when Aircraft.step calls it. The phrase book shall render and parse. The link shall only store events and deliveries. A request or a receive shall not by itself change position. Acceptance is a taxi clearance that leaves position unchanged until step, and a later step that moves a taxiing aircraft.
+<<<
+RATIONALE: >>>
+The ownership split keeps motion out of the phrase methods.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
