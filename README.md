@@ -1,6 +1,6 @@
 # AirTrafficControl
 
-This repository holds two simulation programs and the requirements that describe them.
+This repository holds the tower and aircraft simulations, the requirements that describe those two programs, and the Oshkosh fly-in count.
 
 The tower is an Erlang/OTP service. It loads one airport from a TOML file, starts a small Raft group with Ra, and accepts or refuses clearances. The aircraft is a Python package. It speaks a closed set of FAA pattern phrases and flies a deterministic point-mass pattern. Both are mock software. Neither is connected to a real aircraft, a live tower, or a radio. Nothing in this repository is a certification claim.
 
@@ -9,6 +9,8 @@ The tower and the aircraft do not talk to each other. The tower's phrase set is 
 `apps/atc_frontend` is a third program. It is an egui window that attaches to a running tower and submits the tower's clearance commands.
 
 `apps/plane_frontend` is a fourth program. It is an egui instrument panel for one aircraft file. It flies that file's pattern on its own and keeps the radio transcript. It does not attach to the tower.
+
+`apps/oshkosh` is a fifth program. It counts how many aircraft in one AirVenture fly-in can land on the runways Wittman Regional keeps open.
 
 ## What you can run
 
@@ -23,6 +25,8 @@ From the repository root:
 | `make plane` | Builds the aircraft instrument window in `apps/plane_frontend`. |
 | `make test` | Runs the tower Common Test suites. The cluster suite also runs a short PropEr check. |
 | `make aircraft-test` | Creates the Python virtualenv if needed and runs the aircraft pytest suite. |
+| `make oshkosh` | Count one AirVenture fly-in against the runways Wittman keeps open. |
+| `make oshkosh-test` | Run the Oshkosh pytest suite. The first run creates the Python virtualenv. |
 | `make tla-check` | Model-checks `specs/tla/AtcTower.tla` with TLC. |
 | `make strictdoc-generate` | Writes the requirement HTML into `reqs/html`. |
 | `make strictdoc-validate` | Parses the requirements and checks their links. |
@@ -54,6 +58,7 @@ apps/atc_tower/     Erlang tower application, Ra machine, and tests
 apps/atc_frontend/  egui window that attaches to a running tower
 apps/plane_frontend/ egui instrument panel and radio transcript for one aircraft file
 apps/aircraft/      Python aircraft package and pytest suite
+apps/oshkosh/       AirVenture fly-in count for Wittman's open runways
 config/             Airport files and the example aircraft file
 reqs/               StrictDoc sources for both CSCIs, plus generated HTML
 specs/tla/          TLA+ model of the tower clearance rules
@@ -374,6 +379,23 @@ cargo run --manifest-path apps/plane_frontend/Cargo.toml -- config/n123ab.toml
 ```
 
 `make plane` builds that window and does not open it.
+
+## Oshkosh
+
+`apps/oshkosh` is a counting model of one arrival day at Wittman Regional (KOSH) during EAA AirVenture. The paved inventory is the FAA Chart Supplement: 18/36 is 8,002 by 150 feet, 09/27 is 6,179 by 150, 05/23 is 3,424 by 75, and 13/31 is 3,061 by 75. The show configuration follows the FAA domestic notice "EAA AIRVENTURE OSHKOSH 2026". Runways 05/23 and 13/31 are closed. The concrete north-south runway is shortened to 6,700 feet and flown as 36L or 18R. Taxiway A is a temporary runway, 36R, 6,300 by 60 feet. The named landing marks and the remaining distance at each mark are the figures in that notice.
+
+The default flow is `36-27`: 36L, 36R, and 27 together. Each flow uses one end of a pavement. Arrivals are accepted from 07:00 to 20:00 CDT except the afternoon airshow closure from 14:15 until 19:00. The default stream is 1,500 aircraft. That size uses half of the 3,072 flights the FAA published for the busiest AirVenture day in 2021, and that published total mixes arrivals with departures. The half is a scenario choice. The first two hours are the push.
+
+Under the AirVenture procedure a second aircraft may touch another mark on the same runway before the first aircraft has exited. The model uses a 15 second gap between touchdowns on one surface. One mark stays busy for the occupant's rollout: 40 seconds for a light single, 55 for a light twin, and 90 for a larger aircraft. Those times, the 85/12/3 mix, the 60 second sequencing window, and the two go-arounds are assumptions. An aircraft that still has no mark diverts. A closure holds up to 40 aircraft; further arrivals divert.
+
+The command also prints the same fly-in with one aircraft on a runway at a time, and again with only the two paved surfaces that stay open. The colored marks are why the limited pavement can accept the stream.
+
+```bash
+make oshkosh
+make oshkosh-test
+```
+
+`make oshkosh` is `python3 -m oshkosh` with `apps/oshkosh/src` on `PYTHONPATH`. `--arrivals`, `--seed`, and `--flow` select the stream. The flows are `36-27`, `36-09`, `18-27`, and `18-09`. This count is the Fisk arrival onto the show runways. The printed numbers are a model of these limits.
 
 ## Requirements
 
