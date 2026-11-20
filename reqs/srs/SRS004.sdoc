@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS004 Replicate clearance state as one ordered log
+UID: DOC-SRS004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS004
+TITLE: Replicate clearance state as one ordered log
+STATEMENT: >>>
+Issued clearances shall be the prefix of one ordered log replicated to the local group. A member shall apply the same command to the same log index as every other member that holds that index. A command that the guard rejects shall not extend the log. Acceptance is two members that, after the same committed prefix, report the same occupancy, and a rejected command that leaves both prefixes unchanged.
+<<<
+RATIONALE: >>>
+One ordered history is the software view of the single clearance authority.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: PropEr
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS009
