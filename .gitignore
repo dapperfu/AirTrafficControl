@@ -18,6 +18,9 @@
 
 # Python virtual environment
 .venv/
+__pycache__/
+*.pyc
+.pytest_cache/
 
 # StrictDoc cache
 reqs/_cache/
