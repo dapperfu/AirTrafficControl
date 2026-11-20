@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD005 ATIS and initial-call cases
+UID: DOC-AC-STD005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD005
+TITLE: ATIS and initial-call cases
+STATEMENT: >>>
+The pattern mission test shall show an ATIS request in the phrase log and a pattern-entry call that includes the information letter returned by the scripted peer. Acceptance is a completed mission whose first phrase parses as ATIS. The test file is apps/aircraft/tests/test_mission.py.
+<<<
+RATIONALE: >>>
+The scripted peer is the stand-in for the tower.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS005
