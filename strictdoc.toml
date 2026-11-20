@@ -23,4 +23,5 @@ exclude_source_paths = [
   ".tools/**",
   "_build/**",
   "reqs/html/**",
+  "apps/oshkosh/**",
 ]
