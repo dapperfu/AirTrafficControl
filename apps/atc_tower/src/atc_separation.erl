@@ -19,7 +19,9 @@
     occupancy/1,
     issued/1,
     audit/1,
-    stale/2
+    stale/2,
+    picture/1,
+    command_view/1
 ]).
 
 %% Implements: SRS013
@@ -427,3 +429,114 @@ command_runway({assign, _, Runway, _}) ->
     Runway;
 command_runway(_) ->
     none.
+
+%% Read-only projection for an attached front. Transitions do not call this.
+picture(State) ->
+    #{
+        <<"aircraft">> => aircraft_rows(State),
+        <<"queues">> => queue_rows(State),
+        <<"links">> => link_rows(State),
+        <<"issued">> => [entry(Rec) || Rec <- recent(maps:get(log, State))],
+        <<"audit">> => [entry(Rec) || Rec <- recent(maps:get(audit, State))]
+    }.
+
+aircraft_rows(State) ->
+    Rows = maps:fold(
+        fun(Id, Record, Acc) ->
+            [
+                #{
+                    <<"id">> => Id,
+                    <<"phase">> => atom_to_binary(maps:get(phase, Record)),
+                    <<"runway">> => maybe_id(maps:get(runway, Record)),
+                    <<"intent">> => maybe_id(maps:get(intent, Record))
+                }
+                | Acc
+            ]
+        end,
+        [],
+        maps:get(aircraft, State)
+    ),
+    lists:sort(fun(Left, Right) -> maps:get(<<"id">>, Left) =< maps:get(<<"id">>, Right) end, Rows).
+
+queue_rows(State) ->
+    Rows = maps:fold(
+        fun(Runway, Queue, Acc) ->
+            [#{<<"runway">> => Runway, <<"aircraft">> => Queue} | Acc]
+        end,
+        [],
+        maps:get(seq, State)
+    ),
+    lists:sort(
+        fun(Left, Right) -> maps:get(<<"runway">>, Left) =< maps:get(<<"runway">>, Right) end,
+        Rows
+    ).
+
+link_rows(State) ->
+    Rows = maps:fold(
+        fun(Icao, Up, Acc) ->
+            [
+                #{
+                    <<"icao">> => Icao,
+                    <<"up">> => Up =:= true,
+                    <<"stale">> => maps:get(Icao, maps:get(stale, State), false) =:= true
+                }
+                | Acc
+            ]
+        end,
+        [],
+        maps:get(links, State)
+    ),
+    lists:sort(fun(Left, Right) -> maps:get(<<"icao">>, Left) =< maps:get(<<"icao">>, Right) end, Rows).
+
+entry(Rec) ->
+    View = #{
+        <<"decision">> => atom_to_binary(maps:get(decision, Rec)),
+        <<"uid">> => maps:get(uid, Rec),
+        <<"aircraft">> => maybe_id(maps:get(aircraft, Rec)),
+        <<"runway">> => maybe_id(maps:get(runway, Rec)),
+        <<"command">> => command_view(maps:get(command, Rec))
+    },
+    case maps:find(reason, Rec) of
+        {ok, Reason} when is_atom(Reason) ->
+            View#{<<"reason">> => atom_to_binary(Reason)};
+        _ ->
+            View
+    end.
+
+maybe_id(none) ->
+    null;
+maybe_id(Value) when is_atom(Value) ->
+    atom_to_binary(Value);
+maybe_id(Value) when is_binary(Value) ->
+    Value.
+
+recent(List) ->
+    lists:nthtail(max(0, length(List) - 40), List).
+
+command_view({assign, Aircraft, Runway, Intent}) ->
+    text_view(<<"assign">>, ["assign ", Aircraft, " ", Runway, " ", atom_to_binary(Intent)]);
+command_view({hold_short, Aircraft}) ->
+    text_view(<<"hold_short">>, ["hold short ", Aircraft]);
+command_view({line_up, Aircraft}) ->
+    text_view(<<"line_up">>, ["line up ", Aircraft]);
+command_view({takeoff, Aircraft}) ->
+    text_view(<<"takeoff">>, ["takeoff ", Aircraft]);
+command_view({land, Aircraft}) ->
+    text_view(<<"land">>, ["land ", Aircraft]);
+command_view({go_around, Aircraft}) ->
+    text_view(<<"go_around">>, ["go around ", Aircraft]);
+command_view({vacate, Aircraft}) ->
+    text_view(<<"vacate">>, ["vacate ", Aircraft]);
+command_view({handoff, Aircraft, Neighbor, true}) ->
+    text_view(<<"handoff">>, ["handoff ", Aircraft, " ", Neighbor, " accept"]);
+command_view({handoff, Aircraft, Neighbor, false}) ->
+    text_view(<<"handoff">>, ["handoff ", Aircraft, " ", Neighbor, " reject"]);
+command_view({link, Neighbor, true}) ->
+    text_view(<<"link">>, ["link ", Neighbor, " up"]);
+command_view({link, Neighbor, false}) ->
+    text_view(<<"link">>, ["link ", Neighbor, " down"]);
+command_view(Other) ->
+    text_view(<<"unknown">>, io_lib:format("~p", [Other])).
+
+text_view(Kind, Pieces) ->
+    #{<<"kind">> => Kind, <<"text">> => iolist_to_binary(Pieces)}.
