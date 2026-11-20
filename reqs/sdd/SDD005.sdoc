@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SDD005 Fail-smart mode and the stale-neighbor rule
+UID: DOC-SDD005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDD005
+TITLE: Fail-smart mode and the stale-neighbor rule
+STATEMENT: >>>
+Neighbor state shall be a record with a link flag and a stale flag. When the link is down the stale flag shall be set and the handoff action shall be disabled. Local clearance actions shall ignore stale neighbor occupancy when deciding whether a local volume is free. Acceptance is a neighbor record that becomes stale on link loss and a local landing that is still decided only from local occupancy.
+<<<
+RATIONALE: >>>
+Stale data remains visible for the operator and unusable for reducing separation.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SRS007
