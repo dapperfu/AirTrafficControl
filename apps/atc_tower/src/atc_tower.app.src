@@ -3,7 +3,7 @@
     {vsn, "0.1.0"},
     {registered, [atc_tower_sup]},
     {mod, {atc_tower_app, []}},
-    {applications, [kernel, stdlib, ra]},
+    {applications, [kernel, stdlib, ra, tomerl]},
     {env, []},
     {modules, []}
 ]}.

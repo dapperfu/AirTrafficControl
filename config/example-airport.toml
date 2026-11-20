@@ -1,0 +1,33 @@
+# @relation(SSS006, IRS003, scope=file)
+[airport]
+icao = "KEXAMPLE"
+latitude = 40.0
+longitude = -75.0
+communications_distance_nm = 30.0
+computers = 1
+max_runways = 4
+max_aircraft = 8
+max_neighbors = 2
+wind = "270 at 10"
+
+[[runway]]
+id = "27"
+designation = "both"
+independent = true
+intersects = []
+
+[[runway]]
+id = "09"
+designation = "arrival"
+independent = true
+intersects = ["27"]
+
+[[neighbor]]
+icao = "KNEAR"
+latitude = 40.1
+longitude = -75.0
+
+[[neighbor]]
+icao = "KFAR"
+latitude = 42.0
+longitude = -75.0

@@ -24,3 +24,5 @@ ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 
 RELATIONS:
 - TYPE: Parent
   VALUE: OCD001
+- TYPE: File
+  PATH: config/example-airport.toml

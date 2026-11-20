@@ -24,3 +24,7 @@ ASSUMPTIONS: Designation is one of arrival, departure, both, or closed.
 RELATIONS:
 - TYPE: Parent
   VALUE: SSS006
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_config.erl
+- TYPE: File
+  PATH: config/example-airport.toml

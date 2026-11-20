@@ -24,3 +24,5 @@ ASSUMPTIONS: The file is TOML. Unknown keys may be ignored. Missing required key
 RELATIONS:
 - TYPE: Parent
   VALUE: SSS006
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_config.erl
