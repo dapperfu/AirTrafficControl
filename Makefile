@@ -1,4 +1,4 @@
-.PHONY: help clean build run serve frontend plane test aircraft-test physics scenario-test \
+.PHONY: help clean build run serve frontend plane test aircraft-test physics physics-nif scenario-test \
 	strictdoc-init strictdoc-generate strictdoc-validate strictdoc-export \
 	strictdoc-serve strictdoc-tree strictdoc-help tla-check install-hooks
 
@@ -18,6 +18,7 @@ help:
 	@echo "  make frontend              Build the egui tower front"
 	@echo "  make plane                 Build the aircraft instrument window"
 	@echo "  make test                  Run Common Test and PropEr"
+	@echo "  make physics-nif           Build the tower binding to the C physics model"
 	@echo "  make aircraft-test         Run the aircraft pytest suite"
 	@echo "  make scenario-test         Fly the pinned busy-flow scenario at max scale"
 	@echo "  make clean                 Remove build output"
@@ -79,7 +80,7 @@ frontend:
 plane:
 	cargo build --manifest-path $(ROOT)/apps/plane_frontend/Cargo.toml
 
-test:
+test: physics-nif
 	$(REBAR) as test ct
 
 apps/physics/libphysics.so: apps/physics/physics.c apps/physics/physics.h
@@ -87,6 +88,17 @@ apps/physics/libphysics.so: apps/physics/physics.c apps/physics/physics.h
 	TMPDIR=$(ROOT)/.tools/tmp gcc -std=c11 -Wall -Wextra -shared -fPIC -O2 -o $@ apps/physics/physics.c -lm
 
 physics: apps/physics/libphysics.so
+
+OTP_ROOT := $(ROOT)/.tools/otp/OTP-27.3.4.9
+NIF_INCLUDE := $(OTP_ROOT)/usr/include
+
+apps/atc_tower/priv/atc_physics.so: apps/physics/physics.c apps/physics/physics.h apps/atc_tower/c_src/atc_physics_nif.c
+	mkdir -p apps/atc_tower/priv $(ROOT)/.tools/tmp
+	TMPDIR=$(ROOT)/.tools/tmp gcc -std=c11 -Wall -Wextra -shared -fPIC -O2 \
+		-I apps/physics -I $(NIF_INCLUDE) \
+		-o $@ apps/atc_tower/c_src/atc_physics_nif.c apps/physics/physics.c -lm
+
+physics-nif: apps/atc_tower/priv/atc_physics.so
 
 # @relation(AC-SIP001, AC-STP001, scope=file)
 aircraft-test: $(STRICTDOC) apps/physics/libphysics.so

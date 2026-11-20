@@ -1,0 +1,38 @@
+[DOCUMENT]
+TITLE: SSS016 Plan an airborne course from physics projections
+UID: DOC-SSS016
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS016
+TITLE: Plan an airborne course from physics projections
+STATEMENT: >>>
+The system shall plan one aircraft's airborne course by projecting that aircraft and the surrounding aircraft with the C physics model. The plan shall satisfy the radar lateral minima, the vertical minima, and the classic wake minima, or it shall report the predicted loss. A course plan shall not be written to the issued runway clearance log. Acceptance is a same-altitude pair whose projection closes inside the lateral minimum and is given an altitude amendment, a pair already separated by 1,000 feet whose plan is to maintain, and a runway clearance log that stays empty.
+<<<
+RATIONALE: >>>
+The runway occupancy flag cannot see two airborne aircraft whose courses will close.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The minima are JO 7110.65BB Change 3, effective July 9, 2026, paragraphs 5-5-4 and 4-5-1. Notice N JO 7110.806 is not applied. The terminal antenna is the airport reference supplied with the flight. Fusion, STARS multi-sensor, an ERAM 3 NM area, MSSR out to 60 NM, MEARTS, and 2.5 NM on final are not selected. Wake uses super, heavy, B757, large, and small. Letters A through I are not assigned. A B757 follower uses the large-follower number where paragraph 5-5-4 names Large. Directly behind means aft of the leader and within 2,500 feet of its track. The check allows one foot and one thousandth of a mile for projection rounding. The planner amends only the subject aircraft and tries altitude, then heading, then speed. This is not a certification claim.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS001
+- TYPE: File
+  PATH: apps/physics/physics.c
+- TYPE: File
+  PATH: apps/physics/physics.h
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_course.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_faa.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_physics.erl
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_policy.erl

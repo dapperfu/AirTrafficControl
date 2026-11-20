@@ -1,11 +1,12 @@
 %%%-------------------------------------------------------------------
 %%% @doc Propose a routine command. Only the separation guard may commit it.
 %%% Implements: SRS019
-%%% @relation(SRS019, scope=file)
+%%% Implements: SRS026
+%%% @relation(SRS019, SRS026, scope=file)
 %%%-------------------------------------------------------------------
 -module(atc_policy).
 
--export([propose/3, aircraft_of/1]).
+-export([propose/3, propose_course/4, aircraft_of/1]).
 
 %% Implements: SRS019
 %% @relation(SRS019, scope=line)
@@ -38,6 +39,12 @@ propose(Sep, World, Request) ->
                     {defer, Package}
             end
     end.
+
+%% Implements: SRS026
+%% A course plan is not a runway clearance. The guard log is not written.
+%% @relation(SRS026, scope=line)
+propose_course(Sep, Subject, Others, Opts) ->
+    atc_course:plan(Sep, Subject, Others, Opts).
 
 aircraft_of(Command) ->
     atc_probe:aircraft_of(Command).

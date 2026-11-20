@@ -78,6 +78,138 @@ int phys_state_size(void) {
     return (int)sizeof(PhysState);
 }
 
+int phys_course_size(void) {
+    return (int)sizeof(PhysCourse);
+}
+
+static int natural_course(const PhysCourse *course) {
+    return course == 0 ||
+           (course->guidance == 0 && course->use_alt == 0 && course->use_tas == 0);
+}
+
+void phys_step_course(PhysState *state, const PhysRoute *route, const PhysCourse *course, double dt_s) {
+    double remaining;
+    double descent_nm;
+    double tas;
+    double step_nm;
+    double bearing;
+    double target_alt;
+    int tracking;
+
+    if (natural_course(course)) {
+        phys_step(state, route, dt_s);
+        return;
+    }
+    if (state->phase == PHASE_DONE || dt_s <= 0.0) {
+        return;
+    }
+    tracking = course->guidance == 0;
+    remaining = remaining_nm(state, route);
+    if (tracking && remaining <= 1.0e-9) {
+        snap(state, route, remaining);
+        return;
+    }
+    if (course->use_alt) {
+        target_alt = course->assigned_alt_ft;
+        if (state->alt_ft + 1.0 < target_alt) {
+            state->phase = PHASE_CLIMB;
+        } else if (state->alt_ft - 1.0 > target_alt) {
+            state->phase = PHASE_DESCENT;
+        } else {
+            state->phase = PHASE_CRUISE;
+            state->alt_ft = target_alt;
+        }
+    } else if (state->phase != PHASE_DESCENT &&
+               state->alt_ft + 1.0 < route->cruise_alt_ft) {
+        state->phase = PHASE_CLIMB;
+    } else if (state->phase != PHASE_DESCENT) {
+        tas = route->descent_tas_kt;
+        if (course->use_tas && course->assigned_tas_kt > 0.0) {
+            tas = course->assigned_tas_kt;
+        }
+        descent_nm = ((route->cruise_alt_ft - route->dest_alt_ft) / route->descent_fpm) *
+                     (tas / 60.0);
+        state->phase = remaining <= descent_nm ? PHASE_DESCENT : PHASE_CRUISE;
+    }
+    if (state->phase == PHASE_CLIMB) {
+        tas = route->climb_tas_kt;
+        state->vertical_fpm = route->climb_fpm;
+    } else if (state->phase == PHASE_DESCENT) {
+        tas = route->descent_tas_kt;
+        state->vertical_fpm = -route->descent_fpm;
+    } else {
+        tas = route->cruise_tas_kt;
+        state->vertical_fpm = 0.0;
+    }
+    if (course->use_tas && course->assigned_tas_kt > 0.0) {
+        tas = course->assigned_tas_kt;
+    }
+    state->tas_kt = tas;
+    step_nm = tas * dt_s / 3600.0;
+    if (tracking && step_nm >= remaining) {
+        snap(state, route, remaining);
+        return;
+    }
+    state->alt_ft += state->vertical_fpm * (dt_s / 60.0);
+    if (course->use_alt) {
+        if (state->phase == PHASE_CLIMB && state->alt_ft > course->assigned_alt_ft) {
+            state->alt_ft = course->assigned_alt_ft;
+            state->vertical_fpm = 0.0;
+            state->phase = PHASE_CRUISE;
+        }
+        if (state->phase == PHASE_DESCENT && state->alt_ft < course->assigned_alt_ft) {
+            state->alt_ft = course->assigned_alt_ft;
+            state->vertical_fpm = 0.0;
+            state->phase = PHASE_CRUISE;
+        }
+    } else {
+        if (state->phase == PHASE_CLIMB && state->alt_ft > route->cruise_alt_ft) {
+            state->alt_ft = route->cruise_alt_ft;
+        }
+        if (state->phase == PHASE_DESCENT && state->alt_ft < route->dest_alt_ft) {
+            state->alt_ft = route->dest_alt_ft;
+            state->vertical_fpm = 0.0;
+        }
+    }
+    if (tracking) {
+        bearing = bearing_rad(state, route);
+    } else {
+        bearing = deg2rad(course->heading_deg);
+    }
+    advance(state, bearing, step_nm);
+    state->distance_nm += step_nm;
+    state->distance_remaining_nm = remaining_nm(state, route);
+}
+
+int phys_project(const PhysState *start, const PhysRoute *route, const PhysCourse *course,
+                 double dt_s, int steps, PhysState *out) {
+    PhysState cursor;
+    PhysCourse natural;
+    const PhysCourse *plan;
+    int i;
+
+    if (start == 0 || route == 0 || out == 0 || steps <= 0 || dt_s <= 0.0) {
+        return 0;
+    }
+    cursor = *start;
+    plan = course;
+    if (plan == 0) {
+        natural.heading_deg = 0.0;
+        natural.assigned_alt_ft = 0.0;
+        natural.assigned_tas_kt = 0.0;
+        natural.guidance = 0;
+        natural.use_alt = 0;
+        natural.use_tas = 0;
+        natural.pad = 0;
+        plan = &natural;
+    }
+    for (i = 0; i < steps; i++) {
+        phys_step_course(&cursor, route, plan, dt_s);
+        out[i] = cursor;
+    }
+    return steps;
+}
+
 void phys_step(PhysState *state, const PhysRoute *route, double dt_s) {
     double remaining;
     double descent_nm;

@@ -557,7 +557,11 @@ window.StrictDoc.project.map = {
 
   {"UID":"DOC-SRS025","_LINK":"DOC-SRS025" },
 
-  {"UID":"SRS025","_LINK":"SRS025" }, ],
+  {"UID":"SRS025","_LINK":"SRS025" },
+
+  {"UID":"DOC-SRS026","_LINK":"DOC-SRS026" },
+
+  {"UID":"SRS026","_LINK":"SRS026" }, ],
  "reqs/ssdd/SSDD.html": [
 
 
@@ -629,7 +633,11 @@ window.StrictDoc.project.map = {
 
   {"UID":"DOC-SSS015","_LINK":"DOC-SSS015" },
 
-  {"UID":"SSS015","_LINK":"SSS015" }, ],
+  {"UID":"SSS015","_LINK":"SSS015" },
+
+  {"UID":"DOC-SSS016","_LINK":"DOC-SSS016" },
+
+  {"UID":"SSS016","_LINK":"SSS016" }, ],
  "reqs/std/STD.html": [
 
 

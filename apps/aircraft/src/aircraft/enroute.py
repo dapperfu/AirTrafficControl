@@ -72,6 +72,18 @@ class PhysRoute(ctypes.Structure):
     ]
 
 
+class PhysCourse(ctypes.Structure):
+    _fields_ = [
+        ("heading_deg", ctypes.c_double),
+        ("assigned_alt_ft", ctypes.c_double),
+        ("assigned_tas_kt", ctypes.c_double),
+        ("guidance", ctypes.c_int),
+        ("use_alt", ctypes.c_int),
+        ("use_tas", ctypes.c_int),
+        ("pad", ctypes.c_int),
+    ]
+
+
 def library_path() -> Path:
     return Path(__file__).resolve().parents[4] / "apps" / "physics" / "libphysics.so"
 
@@ -84,8 +96,20 @@ def load_library(path: Path | None = None) -> ctypes.CDLL:
         ctypes.POINTER(PhysRoute),
         ctypes.c_double,
     ]
+    lib.phys_course_size.restype = ctypes.c_int
+    lib.phys_project.argtypes = [
+        ctypes.POINTER(PhysState),
+        ctypes.POINTER(PhysRoute),
+        ctypes.POINTER(PhysCourse),
+        ctypes.c_double,
+        ctypes.c_int,
+        ctypes.POINTER(PhysState),
+    ]
+    lib.phys_project.restype = ctypes.c_int
     if lib.phys_state_size() != ctypes.sizeof(PhysState):
         raise RuntimeError("physics state layout does not match the C compiler")
+    if lib.phys_course_size() != ctypes.sizeof(PhysCourse):
+        raise RuntimeError("physics course layout does not match the C compiler")
     return lib
 
 
@@ -140,3 +164,32 @@ class EnrouteLeg:
         if self.state.distance_remaining_nm >= TERMINAL_NM:
             raise RuntimeError("enroute leg did not reach the arrival terminal area")
         return self.state
+
+    def project(self, course: PhysCourse, dt_s: float, steps: int) -> list[PhysState]:
+        """Copy this state forward. The live leg is left where it is."""
+        out = (PhysState * steps)()
+        wrote = self._lib.phys_project(
+            ctypes.byref(self.state),
+            ctypes.byref(self.route),
+            ctypes.byref(course),
+            dt_s,
+            steps,
+            out,
+        )
+        if wrote != steps:
+            raise RuntimeError("physics projection did not fill the sample buffer")
+        return [
+            PhysState(
+                lat_deg=out[i].lat_deg,
+                lon_deg=out[i].lon_deg,
+                alt_ft=out[i].alt_ft,
+                heading_deg=out[i].heading_deg,
+                tas_kt=out[i].tas_kt,
+                vertical_fpm=out[i].vertical_fpm,
+                distance_nm=out[i].distance_nm,
+                distance_remaining_nm=out[i].distance_remaining_nm,
+                phase=out[i].phase,
+                pad=out[i].pad,
+            )
+            for i in range(steps)
+        ]

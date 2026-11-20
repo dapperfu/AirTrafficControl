@@ -54,5 +54,6 @@ data/catalog/
 logs/
 apps/physics/*.so
 apps/physics/*.o
+apps/atc_tower/priv/*.so
 docker/scenario-compose.yml
 docker/scenario-compose.addresses.json
