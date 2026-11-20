@@ -34,8 +34,7 @@ strictdoc-init: $(STRICTDOC)
 	@echo "StrictDoc is installed in .venv"
 
 strictdoc-generate: $(STRICTDOC)
-	mkdir -p reqs/html
-	$(STRICTDOC) export reqs --output-dir reqs/html --formats html --config strictdoc.toml --included-documents --project-title AirTrafficControl
+	$(STRICTDOC) export reqs --output-dir reqs --formats html --config strictdoc.toml --included-documents --project-title AirTrafficControl
 
 strictdoc-validate: $(STRICTDOC)
 	mkdir -p $(VALIDATE_DIR)
