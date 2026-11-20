@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD004 Readback-order cases
+UID: DOC-AC-STD004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD004
+TITLE: Readback-order cases
+STATEMENT: >>>
+The test shall parse a takeoff clearance that includes wind and altimeter and shall render the readback Cleared for takeoff runway two seven, then the call sign. The readback shall contain neither wind nor altimeter. It shall also expect Going around as the readback of Go around. Acceptance is those two phrases. The test file is apps/aircraft/tests/test_phrasebook.py.
+<<<
+RATIONALE: >>>
+This is the example test for readback order.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS004
