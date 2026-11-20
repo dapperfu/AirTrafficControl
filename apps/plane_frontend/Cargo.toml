@@ -1,0 +1,10 @@
+[package]
+name = "plane_frontend"
+version = "0.1.0"
+edition = "2021"
+description = "Instrument panel and radio transcript for one configured aircraft"
+publish = false
+
+[dependencies]
+eframe = "0.33"
+toml = "0.8"
