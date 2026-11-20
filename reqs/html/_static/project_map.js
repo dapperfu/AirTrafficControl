@@ -46,26 +46,22 @@ window.StrictDoc.project.map = {
   {"UID":"DOC-AC-OCD005","_LINK":"DOC-AC-OCD005" },
 
   {"UID":"AC-OCD005","_LINK":"AC-OCD005" }, ],
- "reqs/aircraft/sdd/AC-SDD001.html": [
+ "reqs/aircraft/sdd/SDD.html": [
 
+
+  {"UID":"DOC-AC-SDD","_LINK":"DOC-AC-SDD" },
 
   {"UID":"DOC-AC-SDD001","_LINK":"DOC-AC-SDD001" },
 
-  {"UID":"AC-SDD001","_LINK":"AC-SDD001" }, ],
- "reqs/aircraft/sdd/AC-SDD002.html": [
-
+  {"UID":"AC-SDD001","_LINK":"AC-SDD001" },
 
   {"UID":"DOC-AC-SDD002","_LINK":"DOC-AC-SDD002" },
 
-  {"UID":"AC-SDD002","_LINK":"AC-SDD002" }, ],
- "reqs/aircraft/sdd/AC-SDD003.html": [
-
+  {"UID":"AC-SDD002","_LINK":"AC-SDD002" },
 
   {"UID":"DOC-AC-SDD003","_LINK":"DOC-AC-SDD003" },
 
-  {"UID":"AC-SDD003","_LINK":"AC-SDD003" }, ],
- "reqs/aircraft/sdd/AC-SDD004.html": [
-
+  {"UID":"AC-SDD003","_LINK":"AC-SDD003" },
 
   {"UID":"DOC-AC-SDD004","_LINK":"DOC-AC-SDD004" },
 
