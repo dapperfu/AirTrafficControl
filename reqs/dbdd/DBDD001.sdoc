@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: DBDD001 The replicated clearance log is the operational store and TOML is configuration read at startup
+UID: DOC-DBDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: DBDD001
+TITLE: The replicated clearance log is the operational store and TOML is configuration read at startup
+STATEMENT: >>>
+The operational store shall be the replicated clearance log, not a separate database. Each committed entry shall hold the command, the resulting decision, and the requirement UID recorded in the audit. The TOML file shall be read at startup and shall not be written by the clearance path. Acceptance is a committed landing whose log entry contains the aircraft and SRS011, and a running node that does not modify the TOML file.
+<<<
+RATIONALE: >>>
+MIL-STD-498 includes a database description. This CSCI has a log rather than a database management system, and the log schema is that description.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SRS004
+- TYPE: Parent
+  VALUE: SRS016
