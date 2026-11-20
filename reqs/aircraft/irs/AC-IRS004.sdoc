@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-IRS004 Phrase text is the notation and byte encoding is not selected
+UID: DOC-AC-IRS004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-IRS004
+TITLE: Phrase text is the notation and byte encoding is not selected
+STATEMENT: >>>
+The normative external notation of a transmission shall be the rendered phrase string. The in-memory port shall pass the transmission object and that phrase. No radio modulation, socket framing, or line encoding shall be selected in this increment. Acceptance is a round trip of a rendered request back to the same kind, runway, and registration, with the phrase unchanged.
+<<<
+RATIONALE: >>>
+A later plan can choose a carriage without rewriting the phrase set.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS008
