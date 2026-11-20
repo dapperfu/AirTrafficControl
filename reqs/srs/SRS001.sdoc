@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS001 Reject invalid TOML and do not control traffic
+UID: DOC-SRS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS001
+TITLE: Reject invalid TOML and do not control traffic
+STATEMENT: >>>
+Before the Tower CSCI controls traffic it shall read the airport TOML file and shall refuse to start control when the file is missing, unreadable, or lacks a required airport identity, position, communications distance, computer count, or runway list. A runway entry that lacks an identifier or a designation shall also prevent control. Acceptance is an empty file and a file with a runway and no designation, both of which leave the node with no authority to issue a clearance.
+<<<
+RATIONALE: >>>
+A bad configuration is not a safe airport, so the node must not become a clearance authority.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The file is TOML. Unknown keys may be ignored. Missing required keys are errors.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS006
