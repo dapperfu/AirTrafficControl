@@ -76,6 +76,12 @@ window.StrictDoc.project.map = {
   {"UID":"DOC-AC-SRS003","_LINK":"DOC-AC-SRS003" },
 
   {"UID":"AC-SRS003","_LINK":"AC-SRS003" }, ],
+ "reqs/aircraft/srs/AC-SRS004.html": [
+
+
+  {"UID":"DOC-AC-SRS004","_LINK":"DOC-AC-SRS004" },
+
+  {"UID":"AC-SRS004","_LINK":"AC-SRS004" }, ],
  "reqs/aircraft/sss/SSS.html": [
 
 
