@@ -1,0 +1,32 @@
+[DOCUMENT]
+TITLE: IDD001 Concrete schemas for IRS001 through IRS004
+UID: DOC-IDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: IDD001
+TITLE: Concrete schemas for IRS001 through IRS004
+STATEMENT: >>>
+The design shall represent a pilot clearance as a map with aircraft, runway, sequence, kind, wind, and text fields. A neighbor message shall be a tuple of request, accept, reject, or stale with the aircraft identity. The TOML schema shall match IRS003. A log command shall be a tuple of the clearance kind and its arguments. Acceptance is a round trip that encodes one landing clearance and one handoff accept and decodes them to the same fields.
+<<<
+RATIONALE: >>>
+The interface requirements need one concrete representation so tests can construct messages.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Erlang maps and tuples are the concrete syntax. They are not a wire standard beyond this CSCI.
+RELATIONS:
+- TYPE: Parent
+  VALUE: IRS001
+- TYPE: Parent
+  VALUE: IRS002
+- TYPE: Parent
+  VALUE: IRS003
+- TYPE: Parent
+  VALUE: IRS004
