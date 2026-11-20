@@ -1,0 +1,23 @@
+[DOCUMENT]
+TITLE: SDP001 Lifecycle, Wikipedia DID set, tailoring, DAL, Erlang, TLA+, and trace rules
+UID: DOC-SDP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDP001
+TITLE: Lifecycle, Wikipedia DID set, tailoring, DAL, Erlang, TLA+, and trace rules
+STATEMENT: >>>
+The software development plan shall follow DO-178C objectives for the Tower CSCI and shall record lifecycle data with the MIL-STD-498 data item descriptions: Software development plan (SDP), Software installation plan (SIP), Software transition plan (STrP), Operational concept description (OCD), System/subsystem specification (SSS), Software requirements specification (SRS), Interface requirements specification (IRS), System/subsystem design description (SSDD), Software design description (SDD), Database design description (DBDD), Interface design description (IDD), Software test plan (STP), Software test description (STD), Software test report (STR), Software user manual (SUM), Software input/output manual (SIOM), Software center operator manual (SCOM), Computer operation manual (COM), Computer programming manual (CPM), Firmware support manual (FSM), Software product specification (SPS), and Software version description (SVD). SSS is the system specification and SRS is the software specification. Separation, an unsafe clearance, and fail-smart behavior are DAL A. The implementation language is Erlang and the formal model is TLA+. Each requirement fragment names its parents, and each implementing source file names the requirement UID in a comment and in the commit that adds it. This repository records that evidence and does not claim certification authority approval.
+<<<
+RATIONALE: >>>
+The plan is the contract for which documents exist and how a change points back at a requirement.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: DO-178C supplement DO-333 is the formal-methods guide for the TLA+ evidence. No authority finding is claimed.
