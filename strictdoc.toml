@@ -9,11 +9,12 @@ features = [
   "SOURCE_FILE_LANGUAGE_PARSERS",
   "PROJECT_STATISTICS_SCREEN",
 ]
-source_root_path = "."
+source_root_path = ".."
 include_source_paths = [
   "apps/**",
   "specs/**",
   "config/**",
+  "rebar.config",
 ]
 exclude_source_paths = [
   ".venv/**",
