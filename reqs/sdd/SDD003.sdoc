@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SDD003 Refinement mapping from Erlang state to TLA+ state, including open obligations
+UID: DOC-SDD003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDD003
+TITLE: Refinement mapping from Erlang state to TLA+ state, including open obligations
+STATEMENT: >>>
+The design shall include a refinement mapping from the Erlang clearance state to the TLA+ variables for phase, runway, sequence, and link status. The mapping shall list the Raft ordered-log assumption and every obligation that TLC and PropEr do not discharge, and those obligations shall remain labeled open. Acceptance is a mapping document linked from this requirement that a reader can use to find each Erlang field in the spec, and that does not describe an open obligation as proved.
+<<<
+RATIONALE: >>>
+The mapping is derived design evidence. It is not a completed machine-checked refinement proof.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Derived
+VERIFICATION: Refinement
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved. Open obligations stay open until a later proof discharges them.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS008
+- TYPE: Parent
+  VALUE: SRS013
