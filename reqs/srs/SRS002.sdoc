@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS002 Use runway designation and independence when assigning a runway
+UID: DOC-SRS002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS002
+TITLE: Use runway designation and independence when assigning a runway
+STATEMENT: >>>
+The Tower CSCI shall assign a runway only when its designation allows the intended operation: arrival for landing, departure for takeoff, both for either, and closed for neither. A runway marked not independent shall conflict with every other runway that is not independent, and a runway listed as intersecting another shall conflict with that runway. Acceptance is a closed runway that cannot be assigned, a departure-only runway that rejects a landing, and two non-independent runways that cannot be occupied together.
+<<<
+RATIONALE: >>>
+Designation is the policy in the TOML file. The clearance code must not invent a use the file does not allow.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS005
+- TYPE: Parent
+  VALUE: SSS006
