@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS003 Render requests as facility, call sign, position, request
+UID: DOC-AC-SRS003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS003
+TITLE: Render requests as facility, call sign, position, request
+STATEMENT: >>>
+A request shall be rendered as the facility, the full call sign, the position when the call is an initial contact or a position report, and then the request, separated by commas and ended with a period. An ATIS request shall omit the position. A pattern-entry request that already has the information letter shall include with information and the phonetic letter. Acceptance is the ATIS request for Example Tower and N123AB, and the pattern-entry request from the ramp with information alpha, both parsing back to the same kind and registration.
+<<<
+RATIONALE: >>>
+One renderer is the source of the request order.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
