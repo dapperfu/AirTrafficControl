@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS015 Restart a failed local computer without a second clearance authority
+UID: DOC-SRS015
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS015
+TITLE: Restart a failed local computer without a second clearance authority
+STATEMENT: >>>
+When a local computer stops and later restarts, it shall rejoin the group by receiving the committed log before it may issue clearances. It shall not issue from a log prefix that the surviving authority has already superseded. Acceptance is a restarted member that matches the survivor occupancy after replay, and that refuses a command while it is still catching up.
+<<<
+RATIONALE: >>>
+Recovery must not create a second authority with a stale history.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: PropEr
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS009
