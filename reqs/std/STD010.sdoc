@@ -1,0 +1,32 @@
+[DOCUMENT]
+TITLE: STD010 PropEr state machine for concurrency, crash, recovery, and agreement
+UID: DOC-STD010
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD010
+TITLE: PropEr state machine for concurrency, crash, recovery, and agreement
+STATEMENT: >>>
+The PropEr state machine shall generate sequences of clearance commands, concurrent submissions, a member crash, and a restart that replays the log. Every accepted sequence shall preserve the exclusive-volume invariant, and every crashed member that restarts shall match the surviving log prefix before it accepts a new command. A failing property shall fail the build. Acceptance is a PropEr run of this module that passes, and a deliberate invariant break that fails the property.
+<<<
+RATIONALE: >>>
+These samples are conformance evidence. They are not a proof that the Erlang code refines the TLA+ spec.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: PropEr
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS004
+- TYPE: Parent
+  VALUE: SRS013
+- TYPE: Parent
+  VALUE: SRS015
