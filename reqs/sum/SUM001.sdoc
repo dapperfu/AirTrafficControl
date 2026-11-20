@@ -24,3 +24,5 @@ ASSUMPTIONS: The manual does not restate FAA JO 7110.65.
 RELATIONS:
 - TYPE: Parent
   VALUE: SDP001
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_tower_cli.erl
