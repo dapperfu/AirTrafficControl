@@ -1,0 +1,38 @@
+# @relation(AC-SRS001, AC-IRS003, scope=file)
+[aircraft]
+n_number = "N123AB"
+facility = "Example Tower"
+next_facility = "Departure"
+next_frequency_mhz = 124.5
+
+[performance]
+taxi_speed_kt = 15
+rotation_speed_kt = 60
+pattern_speed_kt = 90
+pattern_altitude_ft = 1000
+takeoff_distance_ft = 1500
+landing_distance_ft = 1500
+turn_rate_deg_s = 15
+accel_kt_s = 4
+vertical_speed_fpm = 2500
+low_approach_ft = 200
+
+[airport]
+name = "Example"
+elevation_ft = 0
+
+[runway]
+id = "27"
+heading_deg = 270
+length_ft = 5000
+pattern = "left"
+hold_short_ft = 200
+pattern_offset_ft = 5000
+upwind_ft = 7000
+
+[ramp]
+north_ft = 0
+east_ft = 1000
+
+[option]
+choice = "full_stop"
