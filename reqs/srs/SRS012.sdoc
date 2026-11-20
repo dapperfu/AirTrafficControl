@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS012 Issue hold short, line up and wait, and go-around when needed to keep the runway exclusive
+UID: DOC-SRS012
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS012
+TITLE: Issue hold short, line up and wait, and go-around when needed to keep the runway exclusive
+STATEMENT: >>>
+The Tower CSCI shall issue hold short when an aircraft may approach a runway but may not enter it, line up and wait when the aircraft may enter and must not roll, and go-around when an aircraft on approach must leave the protected volume without landing. Line up and wait shall be refused when the volume or a conflicting volume is already occupied. Go-around shall remove the aircraft from the protected volume. Acceptance is a held aircraft that is not occupying, a line-up that is refused while the runway is occupied, and a go-around that frees the runway for the next aircraft.
+<<<
+RATIONALE: >>>
+These three clearances are the control the tower needs to keep the exclusive-volume invariant enforceable.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS001
