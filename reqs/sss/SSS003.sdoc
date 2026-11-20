@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS003 Airports inside communications distance shall exchange the state a handoff requires
+UID: DOC-SSS003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS003
+TITLE: Airports inside communications distance shall exchange the state a handoff requires
+STATEMENT: >>>
+An airport shall treat another airport as a neighbor only when the distance between their configured positions is within the configured communications distance, and it shall exchange handoff requests with such a neighbor. Airports farther apart shall not be offered a handoff. Acceptance is three airports where only the pair inside the distance can complete a handoff.
+<<<
+RATIONALE: >>>
+Communications distance is the policy that decides who is in the cluster.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment. Positions are the configured latitude and longitude.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD002
