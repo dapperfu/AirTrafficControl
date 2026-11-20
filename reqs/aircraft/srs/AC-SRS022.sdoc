@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS022 Record the UID that authorized a decision
+UID: DOC-AC-SRS022
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS022
+TITLE: Record the UID that authorized a decision
+STATEMENT: >>>
+The aircraft shall append an in-memory decision record for each accepted clearance, refusal, link-down transition, garble response, blocked repeat, emergency declaration, and automatic phase change. The record shall name the requirement UID and a one-line summary. A step that does not change phase shall not add a record. The log shall not be written to disk. Acceptance is a takeoff sequence whose log contains AC-SRS021 after a phase change, and an Unable decision whose log contains AC-SRS016.
+<<<
+RATIONALE: >>>
+The log is the in-memory trace from a decision back to a requirement.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
