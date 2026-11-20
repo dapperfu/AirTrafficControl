@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS020 Declare Mayday or Pan-Pan with nature, position, and intention
+UID: DOC-AC-SRS020
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS020
+TITLE: Declare Mayday or Pan-Pan with nature, position, and intention
+STATEMENT: >>>
+declare_emergency shall send Mayday three times or Pan-Pan three times, then the facility, the full call sign, the nature, the current position, and the intention. The phase and speed shall stay as they were. Acceptance is the ramp Mayday for engine failure and landing runway two seven, a Pan-Pan that starts with the word three times, and a ramp phase that is still stopped.
+<<<
+RATIONALE: >>>
+The declaration is a phrase. It is not a new maneuver.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS007
