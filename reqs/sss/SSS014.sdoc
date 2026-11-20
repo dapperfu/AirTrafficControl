@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SSS014 A case that is not routine and proven safe shall wait on the exception queue
+UID: DOC-SSS014
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS014
+TITLE: A case that is not routine and proven safe shall wait on the exception queue
+STATEMENT: >>>
+The system shall place every request that is not routine and proven safe on an exception queue. Each entry shall carry the aircraft state, the conflict or deferral reason, the last clearance, and the other aircraft affected. An emergency or a weather gate shall freeze routine clearances that would conflict and shall leave other aircraft separable by the probe and the guard. Acceptance is an emergency on one runway whose conflicting routine request is queued, while a separate runway still receives a routine clearance both checks accept.
+<<<
+RATIONALE: >>>
+The controller handles judgment. The software keeps that case on a strip instead of dropping it or issuing it.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. The controller chooses runway configuration. The software does not choose a runway because of weather. This is not a certification claim.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS010
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_exception.erl
