@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-OCD001 One configured civil aircraft flies a local pattern at one configured airport
+UID: DOC-AC-OCD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-OCD001
+TITLE: One configured civil aircraft flies a local pattern at one configured airport
+STATEMENT: >>>
+The operational concept shall be one fictional civil aircraft, identified by one configured N-number, operating at one airport that has one runway and one pattern direction. The aircraft shall be able to move from the ramp through taxi, hold short, line up and wait, takeoff, a closed pattern, and a landing, option, touch-and-go, stop-and-go, or low approach chosen by configuration. Acceptance is a concept in which that single aircraft completes the pattern without a second aircraft, a second runway, LAHSO, or an intersection departure.
+<<<
+RATIONALE: >>>
+The mock exists to practice one pattern, not to simulate a fleet or a metroplex.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
