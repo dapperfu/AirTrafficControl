@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: AC-SVD001 Version 0.1.0 of the aircraft CSCI
+UID: DOC-AC-SVD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SVD001
+TITLE: Version 0.1.0 of the aircraft CSCI
+STATEMENT: >>>
+The version description shall identify aircraft 0.1.0, dated 2026-11-20, as the Python package under apps/aircraft together with config/n123ab.toml, the StrictDoc sources, and the HTML generated under reqs/html. It shall record that make aircraft-test printed 22 passed in 0.05s. The tower link encoding remains unselected. Acceptance is a version record that names those artifacts and that result and does not claim certification authority approval.
+<<<
+RATIONALE: >>>
+The version description freezes the evidence that belongs to package 0.1.0.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: reqs/html is produced by make strictdoc-generate from the StrictDoc sources. The Aircraft CSCI is a simulation and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
+- TYPE: File
+  PATH: apps/aircraft/pyproject.toml
+- TYPE: File
+  PATH: Makefile
