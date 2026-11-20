@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS001 Aircraft shall not occupy the same runway protected volume
+UID: DOC-SSS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS001
+TITLE: Aircraft shall not occupy the same runway protected volume
+STATEMENT: >>>
+While an aircraft occupies a runway protected volume, the system shall refuse every other clearance that would place a second aircraft in that volume or in a volume configured as intersecting or dependent. Independent parallel runways are separate volumes. Acceptance is two aircraft and one runway where the second line-up, landing, or takeoff is refused until the first aircraft is airborne or clear, and the same refusal across a configured conflict pair.
+<<<
+RATIONALE: >>>
+Loss of runway separation is the catastrophic condition this increment exists to prevent.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Formal
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
