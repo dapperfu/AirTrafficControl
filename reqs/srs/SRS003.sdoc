@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS003 Form the local group of size n, including n equals 1
+UID: DOC-SRS003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS003
+TITLE: Form the local group of size n, including n equals 1
+STATEMENT: >>>
+On startup the Tower CSCI shall form a local computer group whose size is the configured n, including a group of one. Each member shall know the group size and its own identity. A node shall not issue clearances until it has joined that group. Acceptance is a one-member group that becomes the authority, and a three-member group that does not issue a clearance from a member that has not joined.
+<<<
+RATIONALE: >>>
+The group is the unit of local redundancy. One member is the rural case and is still a group.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS002
