@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SUM001 Step one pattern scenario and read the phrase log
+UID: DOC-AC-SUM001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SUM001
+TITLE: Step one pattern scenario and read the phrase log
+STATEMENT: >>>
+An operator shall create the virtualenv, run make aircraft-test, and read apps/aircraft/tests/test_mission.py as the worked pattern. That scenario requests ATIS, enters the pattern with the information letter, taxis, reports ready, flies the closed pattern, requests landing when the option is full stop, and then requests the frequency change. Sent phrases are kept on the aircraft phrase log. The tower method is not selected. The peer in the test is an in-memory script, not the Erlang tower. Acceptance is an operator who can point to the ATIS request and the takeoff readback in that log after a passing test.
+<<<
+RATIONALE: >>>
+The user of this CSCI is the engineer running the mock.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
