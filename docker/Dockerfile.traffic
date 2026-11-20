@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+WORKDIR /opt/atc
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc \
+    && rm -rf /var/lib/apt/lists/*
+COPY apps/physics /opt/atc/apps/physics
+RUN gcc -std=c11 -Wall -Wextra -shared -fPIC -O2 \
+    -o /opt/atc/apps/physics/libphysics.so /opt/atc/apps/physics/physics.c -lm
+COPY apps/aircraft /opt/atc/apps/aircraft
+COPY tools /opt/atc/tools
+ENV PYTHONPATH=/opt/atc/apps/aircraft/src
+ENTRYPOINT ["python3", "/opt/atc/tools/traffic/run_scenario.py"]
