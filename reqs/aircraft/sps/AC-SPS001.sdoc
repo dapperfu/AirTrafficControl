@@ -1,0 +1,36 @@
+[DOCUMENT]
+TITLE: AC-SPS001 Delivered aircraft sources, example, and requirements
+UID: DOC-AC-SPS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SPS001
+TITLE: Delivered aircraft sources, example, and requirements
+STATEMENT: >>>
+The product specification shall list the Aircraft CSCI artifacts delivered in this version: the Python package under apps/aircraft, the example file config/n123ab.toml, the closed phrase set in the phrase book, the StrictDoc sources under reqs/aircraft and reqs/grammar.sgra, and the make aircraft-test target. The byte encoding of the tower link remains unselected. Acceptance is a reader finding each of those paths in the version that this specification describes.
+<<<
+RATIONALE: >>>
+The product specification is the inventory of what this version contains.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
+- TYPE: File
+  PATH: apps/aircraft/pyproject.toml
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/aircraft.py
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/phrasebook.py
+- TYPE: File
+  PATH: config/n123ab.toml
+- TYPE: File
+  PATH: Makefile
