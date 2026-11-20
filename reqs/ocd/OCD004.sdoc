@@ -1,0 +1,23 @@
+[DOCUMENT]
+TITLE: OCD004 Pilots receive FAA tower clearances for runway, sequence, landing, and takeoff
+UID: DOC-OCD004
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: OCD004
+TITLE: Pilots receive FAA tower clearances for runway, sequence, landing, and takeoff
+STATEMENT: >>>
+Clearances issued to a pilot shall carry the information content required by FAA JO 7110.65 for the tower clearances in this increment: aircraft identity, runway, sequence position when the aircraft is queued, clearance kind, and wind when the clearance kind uses wind. The kinds are runway assignment, sequence, hold short, line up and wait, takeoff, landing, and go-around. Acceptance is a clearance record that contains those fields and a readable phrase that states the same facts without claiming phraseology outside this set.
+<<<
+RATIONALE: >>>
+The operational authority for wording and runway separation is FAA JO 7110.65, limited to the tower clearances this increment offers.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Review
+ASSUMPTIONS: Phraseology is described by the information it must carry. The order itself is not copied into the requirement.
