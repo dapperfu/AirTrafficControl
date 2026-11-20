@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS019 On a blocked transmission, repeat it once
+UID: DOC-AC-SRS019
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS019
+TITLE: On a blocked transmission, repeat it once
+STATEMENT: >>>
+When the port reports that a send was blocked, the aircraft shall send the same transmission one more time. If that repeat is also blocked, the aircraft shall stop. The peer shall receive only the copy that was not blocked. Acceptance is one delivered ATIS request after a single block, and a taxi request that is absent from the peer queue when two consecutive sends are blocked.
+<<<
+RATIONALE: >>>
+One repeat is the bound. A second block ends the attempt.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS006
