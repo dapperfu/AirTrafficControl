@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS007 Mayday and Pan-Pan shall be declared in standard form
+UID: DOC-AC-SSS007
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS007
+TITLE: Mayday and Pan-Pan shall be declared in standard form
+STATEMENT: >>>
+On request, the aircraft shall declare Mayday or Pan-Pan by repeating the word three times and then speaking the facility, the full call sign, the nature, the current position, and the intention. The declaration shall not change phase, speed, or the accepted maneuver. No tower reply shall be required. Acceptance is a Mayday from the ramp whose phrase carries the nature and intention and whose phase remains ramp.
+<<<
+RATIONALE: >>>
+The declaration is speech only in this increment.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD005
