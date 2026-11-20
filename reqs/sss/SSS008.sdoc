@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS008 The Erlang service shall be tied to that model by a refinement argument
+UID: DOC-SSS008
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS008
+TITLE: The Erlang service shall be tied to that model by a refinement argument
+STATEMENT: >>>
+The Erlang clearance state shall be related to the TLA+ state by a written refinement mapping that names the corresponding variables and the assumptions it depends on, including the single ordered log. PropEr state-machine tests shall sample the Erlang transitions, including concurrent requests, process failure, recovery, and replica agreement, and those tests shall be recorded as conformance evidence rather than as a proof. Any obligation the mapping does not discharge shall stay labeled open. Acceptance is a mapping that a reader can check against the module and the spec, plus a test run that fails the build when a sampled transition breaks the invariant.
+<<<
+RATIONALE: >>>
+Testing does not establish implementation correctness. The mapping is the separate argument that connects the two descriptions.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Refinement
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
