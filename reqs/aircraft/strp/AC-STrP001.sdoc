@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-STrP001 Hand over the package, the TOML, the phrase set, and the unselected transport
+UID: DOC-AC-STrP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STrP001
+TITLE: Hand over the package, the TOML, the phrase set, and the unselected transport
+STATEMENT: >>>
+Transition shall give a support engineer the Python package under apps/aircraft, config/n123ab.toml, the closed phrase set in the phrase book, the requirement HTML, and the open decision that no wire encoding is selected. Acceptance is that set of artifacts with the transport still described as unselected.
+<<<
+RATIONALE: >>>
+The next engineer needs the open decision as clearly as the code.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
