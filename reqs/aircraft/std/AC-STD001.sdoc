@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD001 TOML accept and reject cases
+UID: DOC-AC-STD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD001
+TITLE: TOML accept and reject cases
+STATEMENT: >>>
+The test shall load config/n123ab.toml and expect N123AB, runway 27, and the full-stop option. It shall then reject an empty file, a file missing the registration, a pattern value of sideways, a frequency of 100.0, and a missing file. Acceptance is those results and no aircraft object for the rejected files. The test file is apps/aircraft/tests/test_config.py.
+<<<
+RATIONALE: >>>
+This is the example test for the configuration requirement.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS001
