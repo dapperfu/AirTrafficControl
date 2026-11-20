@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS015 Request and fly the option, touch-and-go, and stop-and-go
+UID: DOC-AC-SRS015
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS015
+TITLE: Request and fly the option, touch-and-go, and stop-and-go
+STATEMENT: >>>
+The aircraft shall request the option, touch-and-go, or stop-and-go and shall read back the matching clearance with the runway and the call sign last. Touch-and-go shall touch and become airborne again. Stop-and-go shall land, slow, and then roll for takeoff. A cleared-for-the-option clearance shall fly the configured choice, and low approach shall descend only to the configured height above the field and then climb without landing. A landing clearance shall full-stop. Acceptance is a touch-and-go that reaches the surface and rolls again, a stop-and-go that slows below 5 knots and then accelerates, and a low approach that stays at or above 150 feet.
+<<<
+RATIONALE: >>>
+The option outcome is configured so the flight is repeatable.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
