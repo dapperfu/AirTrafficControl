@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS022 Sequence closed traffic and check the readback
+UID: DOC-SRS022
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS022
+TITLE: Sequence closed traffic and check the readback
+STATEMENT: >>>
+The Tower CSCI shall build general-aviation closed-traffic demand and IFR straight-in demand, sequence those aircraft by a time interval, produce a traffic call, compare a readback with the clearance phrase, and put a go-around back into the sequence. Acceptance is three closed-traffic aircraft with distinct slots, a mismatched readback that fails the check, and a go-around identity placed back in the order.
+<<<
+RATIONALE: >>>
+Most tower memory is the pattern, not a single scripted city pair.
+<<<
+DAL: B
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: Helicopters are outside this increment. VFR closed traffic and IFR straight-in are the two routine local patterns. Phraseology is a project-owned grammar.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS013
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_pattern.erl
