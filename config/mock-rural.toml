@@ -1,0 +1,18 @@
+# @relation(SSS006, IRS003, scope=file)
+# One computer, no neighbor. Local service continues with the outside link down.
+[airport]
+icao = "KFIELD"
+latitude = 46.9
+longitude = -114.1
+communications_distance_nm = 25.0
+computers = 1
+max_runways = 1
+max_aircraft = 4
+max_neighbors = 0
+wind = "260 at 6"
+
+[[runway]]
+id = "26"
+designation = "both"
+independent = true
+intersects = []
