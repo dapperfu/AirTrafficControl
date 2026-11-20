@@ -1,0 +1,38 @@
+[DOCUMENT]
+TITLE: STD013 Training picture, probe, and exception queue
+UID: DOC-STD013
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD013
+TITLE: Training picture, probe, and exception queue
+STATEMENT: >>>
+The test shall publish a truth track, refuse a routine clearance the probe reports as a conflict, place a non-routine case on the exception queue, and run a training picture of more than 8 aircraft while the checked limits stay 4 runways, 8 aircraft, and 2 neighbors. Acceptance is those four outcomes in the training suite, with no issued clearance for the conflict or the deferred case.
+<<<
+RATIONALE: >>>
+The new picture, probe, policy, and queue need a test that does not weaken the checked envelope.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The suite uses fixtures and in-memory state. It does not require a live NAS connection.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS017
+- TYPE: Parent
+  VALUE: SRS018
+- TYPE: Parent
+  VALUE: SRS019
+- TYPE: Parent
+  VALUE: SRS020
+- TYPE: Parent
+  VALUE: SRS021
+- TYPE: File
+  PATH: apps/atc_tower/test/atc_training_SUITE.erl
