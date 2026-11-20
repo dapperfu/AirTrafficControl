@@ -1,0 +1,9 @@
+[project]
+name = "oshkosh"
+version = "0.1.0"
+description = "Count how many AirVenture arrivals Wittman's open runways can land"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
