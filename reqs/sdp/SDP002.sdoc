@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SDP002 SIOM, SCOM, COM, CPM, and FSM tailored out, with reasons
+UID: DOC-SDP002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDP002
+TITLE: SIOM, SCOM, COM, CPM, and FSM tailored out, with reasons
+STATEMENT: >>>
+The project shall tailor out the Software input/output manual (SIOM), the Software center operator manual (SCOM), the Computer operation manual (COM), the Computer programming manual (CPM), and the Firmware support manual (FSM). SIOM and SCOM describe a batch or interactive system installed in a computer center, and this tower is not that system. COM and CPM describe operating and programming a general-purpose computer, which is outside the Tower CSCI. FSM describes firmware devices, and this CSCI has no firmware. Acceptance is this requirement stating those five acronyms and the reason each is absent, with the delivered set limited to the remaining descriptions.
+<<<
+RATIONALE: >>>
+MIL-STD-498 expects the contract to say which descriptions were not ordered. These five do not match the product.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: Tailoring is recorded here so the five acronyms are not forgotten and not replaced by empty manuals.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
