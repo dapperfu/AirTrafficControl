@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS014 Build position reports from the dynamics state
+UID: DOC-AC-SRS014
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS014
+TITLE: Build position reports from the dynamics state
+STATEMENT: >>>
+A position clause shall come from the current phase and point-mass state. On the ramp it shall say at the ramp. While taxiing, holding short, lined up, on the runway, or stopped, it shall name that condition and the runway. In climb or go-around it shall say upwind. Crosswind, downwind, and base shall include the pattern side. Final shall say final. Altitude shall be rounded to the nearest 100 feet and spoken as thousands and hundreds, with 9 as niner. A distance under 100 feet from the threshold shall be at the field. A distance that rounds to zero nautical miles shall be less than one mile. Other distances shall be individual digits and miles or mile, plus the eight-point compass. Pattern altitude shall be joined with at. Acceptance is upwind runway two seven at one thousand, left downwind at one thousand five hundred, and one zero miles east at one thousand.
+<<<
+RATIONALE: >>>
+The rounding rules make the phrase testable.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
