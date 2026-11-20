@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS002 Speak the full N-number on every transmission
+UID: DOC-AC-SRS002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS002
+TITLE: Speak the full N-number on every transmission
+STATEMENT: >>>
+The CSCI shall speak the configured registration on every transmission it sends. N123AB shall be November one two three alpha bravo. Digit 9 shall be niner and digit 0 shall be zero. A registration with a leading zero, the letters I or O, or lowercase letters shall be rejected. Acceptance is that spoken form and the rejection of N0123, N123I, and n123ab.
+<<<
+RATIONALE: >>>
+The full form is the only call sign this increment sends.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS003
