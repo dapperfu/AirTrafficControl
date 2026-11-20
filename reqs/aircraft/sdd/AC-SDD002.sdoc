@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-SDD002 Phase machine and the clearance that enables each transition
+UID: DOC-AC-SDD002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SDD002
+TITLE: Phase machine and the clearance that enables each transition
+STATEMENT: >>>
+The phases shall be ramp, taxi, hold short, line up, takeoff roll, climb, crosswind, downwind, base, final, rollout, stopped, and go-around. Taxi shall be accepted from ramp or taxi. Hold short shall be accepted from taxi, hold short, or line up. Line up and wait shall be accepted from hold short. Takeoff shall be accepted only from line up after alignment. Landing, the option, touch-and-go, stop-and-go, and go-around shall be accepted only while airborne. Sequence, runway assignment, and frequency change shall be accepted in any phase and shall not change the phase by themselves. Any other combination shall be Unable. Acceptance is a takeoff clearance refused on the ramp's legal successor hold-short until the aircraft has lined up, and accepted once it has.
+<<<
+RATIONALE: >>>
+The legal phase is what keeps a clearance from skipping the pattern.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
+- TYPE: Parent
+  VALUE: AC-SRS016
