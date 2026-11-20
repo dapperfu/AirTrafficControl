@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS007 Report holding short and read back a hold-short instruction
+UID: DOC-AC-SRS007
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS007
+TITLE: Report holding short and read back a hold-short instruction
+STATEMENT: >>>
+When the aircraft is holding short it shall be able to report that fact with the runway. A hold-short instruction addressed to this runway shall be read back as Hold short runway and the spoken runway, then the call sign. If the aircraft is lined up and is then told to hold short, it shall return to the hold-short point and stop. Acceptance is the report Example Tower, the call sign, holding short runway two seven.
+<<<
+RATIONALE: >>>
+Hold short is both a report and a readback, and the runway is part of both.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
