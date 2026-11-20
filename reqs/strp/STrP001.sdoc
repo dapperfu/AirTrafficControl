@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: STrP001 Hand the release, the TOML, the model, and the open proof obligations to a support engineer
+UID: DOC-STrP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STrP001
+TITLE: Hand the release, the TOML, the model, and the open proof obligations to a support engineer
+STATEMENT: >>>
+Transition to support shall hand over the release, the airport TOML file, the TLA+ model and its TLC result, the refinement mapping, and the list of open proof obligations. Support shall not be told that PropEr or TLC discharged an obligation the mapping still marks open. Acceptance is a handover list that contains those items and that repeats each open obligation in the same words as the mapping.
+<<<
+RATIONALE: >>>
+The support engineer needs the limit of the evidence, not only the binaries.
+<<<
+DAL: D
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: STrP is the MIL-STD-498 software transition plan. It is not the software test report.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
