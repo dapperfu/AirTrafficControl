@@ -24,3 +24,5 @@ ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real ai
 RELATIONS:
 - TYPE: Parent
   VALUE: AC-SSS007
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/aircraft.py

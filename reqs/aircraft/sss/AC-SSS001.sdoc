@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-OCD001
 - TYPE: Parent
   VALUE: AC-OCD003
+- TYPE: File
+  PATH: apps/aircraft/src/aircraft/aircraft.py
