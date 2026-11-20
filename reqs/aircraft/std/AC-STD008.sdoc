@@ -1,0 +1,32 @@
+[DOCUMENT]
+TITLE: AC-STD008 Landing, go-around, and sequence cases
+UID: DOC-AC-STD008
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD008
+TITLE: Landing, go-around, and sequence cases
+STATEMENT: >>>
+The aircraft test shall read back a sequence and a runway assignment without moving, shall say Going around for a pilot go-around and for a controller Go around, and shall climb. The mission test shall include the landing request and the landing readback. Acceptance is the sequence phrase, both go-around phrases, a go-around phase, and a mission phrase log that contains the landing clearance. The test files are apps/aircraft/tests/test_aircraft.py and apps/aircraft/tests/test_mission.py.
+<<<
+RATIONALE: >>>
+These cases share the airborne and sequence checks.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS010
+- TYPE: Parent
+  VALUE: AC-SRS011
+- TYPE: Parent
+  VALUE: AC-SRS012
