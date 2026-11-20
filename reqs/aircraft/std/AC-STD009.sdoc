@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: AC-STD009 Frequency and position cases
+UID: DOC-AC-STD009
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD009
+TITLE: Frequency and position cases
+STATEMENT: >>>
+The aircraft test shall read back one two four point five, address Departure on the next request, and leave the maneuver unchanged. The phrase test shall expect the upwind, downwind, field, less-than-one-mile, and one-zero-miles forms. Acceptance is the frequency readback, the Departure prefix, and those position strings. The test files are apps/aircraft/tests/test_aircraft.py and apps/aircraft/tests/test_phrasebook.py.
+<<<
+RATIONALE: >>>
+Frequency and position are speech checks that do not depend on a new maneuver.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS013
+- TYPE: Parent
+  VALUE: AC-SRS014
