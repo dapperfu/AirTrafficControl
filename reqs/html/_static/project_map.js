@@ -2,14 +2,14 @@
 window.StrictDoc = window.StrictDoc || {};
 window.StrictDoc.project = window.StrictDoc.project || {};
 window.StrictDoc.project.map = {
- "reqs/aircraft/sdp/AC-SDP001.html": [
+ "reqs/aircraft/sdp/SDP.html": [
 
+
+  {"UID":"DOC-AC-SDP","_LINK":"DOC-AC-SDP" },
 
   {"UID":"DOC-AC-SDP001","_LINK":"DOC-AC-SDP001" },
 
-  {"UID":"AC-SDP001","_LINK":"AC-SDP001" }, ],
- "reqs/aircraft/sdp/AC-SDP002.html": [
-
+  {"UID":"AC-SDP001","_LINK":"AC-SDP001" },
 
   {"UID":"DOC-AC-SDP002","_LINK":"DOC-AC-SDP002" },
 
