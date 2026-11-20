@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-STP001 Pytest discharges every aircraft software requirement
+UID: DOC-AC-STP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STP001
+TITLE: Pytest discharges every aircraft software requirement
+STATEMENT: >>>
+The test plan shall discharge every AC-SRS item by pytest examples named in the software test description. This CSCI has no formal proof and no property-based campaign. A failing pytest shall fail the aircraft-test make target. Acceptance is a trace from each AC-SRS item to one AC-STD item.
+<<<
+RATIONALE: >>>
+The verification method is named before the test report treats a run as evidence.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
