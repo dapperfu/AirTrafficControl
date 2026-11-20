@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: SSS008
 - TYPE: Parent
   VALUE: SRS013
+- TYPE: File
+  PATH: specs/refinement/Mapping.md
