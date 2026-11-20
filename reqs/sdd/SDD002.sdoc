@@ -1,0 +1,34 @@
+[DOCUMENT]
+TITLE: SDD002 Clearance state machine and the TLA+ actions that match it
+UID: DOC-SDD002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDD002
+TITLE: Clearance state machine and the TLA+ actions that match it
+STATEMENT: >>>
+The clearance state machine shall use the phases out, queued, hold, occupying, and air. The actions shall be assign, sequence, hold short, line up and wait, takeoff, land, go-around, and handoff, and each action shall match a TLA+ action of the same name in AtcTower. Occupying means the aircraft is inside the protected volume. Acceptance is a review that every Erlang action name appears in the TLA+ spec and that a sampled transition produces the same phase change in both descriptions.
+<<<
+RATIONALE: >>>
+The design keeps one action vocabulary so the refinement mapping has something to point at.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Refinement
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SRS008
+- TYPE: Parent
+  VALUE: SRS009
+- TYPE: Parent
+  VALUE: SRS010
+- TYPE: Parent
+  VALUE: SRS011
+- TYPE: Parent
+  VALUE: SRS012
