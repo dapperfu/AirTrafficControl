@@ -173,7 +173,7 @@ request({ok, _}) ->
 snapshot_map() ->
     case atc_service:picture() of
         {ok, Picture} ->
-            Picture#{<<"type">> => <<"snapshot">>};
+            (merge_overlay(Picture))#{<<"type">> => <<"snapshot">>};
         {error, Reason} ->
             error_map(reason_bin(Reason))
     end.
@@ -215,9 +215,19 @@ refused_map(Command, Reason) ->
 attach_snapshot(Map) ->
     case atc_service:picture() of
         {ok, Picture} ->
-            Map#{<<"snapshot">> => Picture};
+            Map#{<<"snapshot">> => merge_overlay(Picture)};
         {error, Reason} ->
             Map#{<<"snapshot_error">> => reason_bin(Reason)}
+    end.
+
+%% Implements: SRS020
+%% @relation(SRS020, scope=line)
+merge_overlay(Picture) ->
+    case persistent_term:get(atc_world_overlay, undefined) of
+        Overlay when is_map(Overlay) ->
+            maps:merge(Picture, Overlay);
+        _ ->
+            Picture
     end.
 
 commit(Command) ->
