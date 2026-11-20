@@ -24,3 +24,5 @@ ASSUMPTIONS: Distance is great-circle distance in nautical miles from the config
 RELATIONS:
 - TYPE: Parent
   VALUE: SSS003
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_neighbors.erl

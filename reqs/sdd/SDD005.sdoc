@@ -24,3 +24,5 @@ ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 
 RELATIONS:
 - TYPE: Parent
   VALUE: SRS007
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_neighbors.erl
