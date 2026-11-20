@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SDD003 Point-mass integration and the rectangular pattern
+UID: DOC-AC-SDD003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SDD003
+TITLE: Point-mass integration and the rectangular pattern
+STATEMENT: >>>
+The local frame shall put the runway threshold at the origin. Heading zero shall be north and shall increase clockwise. The hold-short point shall be the configured distance before the threshold. Line up shall be 100 feet past the threshold. The crosswind corner shall be the upwind distance ahead and the pattern offset to the pattern side. The downwind end and the final intercept shall be one pattern offset before the threshold. Capture inside a step shall place the aircraft on a reached waypoint. On final, target altitude shall follow a straight glide from pattern altitude to field elevation, except a low approach whose target is the configured height. Acceptance is a deterministic one-second step and a pattern mission that reaches the downwind and then the new facility.
+<<<
+RATIONALE: >>>
+The geometry is simple so the phrase and the position stay tied together.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SRS021
