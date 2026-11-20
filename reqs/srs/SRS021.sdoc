@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: SRS021 Keep the checked envelope when a training profile is larger
+UID: DOC-SRS021
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS021
+TITLE: Keep the checked envelope when a training profile is larger
+STATEMENT: >>>
+The Tower CSCI shall keep the checked envelope at 4 runways, 8 aircraft, and 2 neighbors. Training scenarios shall use a separate limit set. The checked startup path shall still refuse a picture outside 4, 8, and 2. Acceptance is a checked refusal of 9 aircraft and a training run of more than 8 aircraft that leaves the checked limits unchanged.
+<<<
+RATIONALE: >>>
+Denver-scale training must not be loaded as if TLC had checked it.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. The TLA+ model stays on that envelope.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS015
+- TYPE: Parent
+  VALUE: SRS014
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_profile.erl
