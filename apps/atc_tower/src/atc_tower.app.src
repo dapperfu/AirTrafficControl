@@ -1,0 +1,9 @@
+{application, atc_tower, [
+    {description, "Airport tower control service"},
+    {vsn, "0.1.0"},
+    {registered, [atc_tower_sup]},
+    {mod, {atc_tower_app, []}},
+    {applications, [kernel, stdlib, ra]},
+    {env, []},
+    {modules, []}
+]}.
