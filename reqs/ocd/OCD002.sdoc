@@ -1,0 +1,23 @@
+[DOCUMENT]
+TITLE: OCD002 Neighbor airports coordinate aircraft that cross a shared communications boundary
+UID: DOC-OCD002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: OCD002
+TITLE: Neighbor airports coordinate aircraft that cross a shared communications boundary
+STATEMENT: >>>
+When two airports are inside each other's configured communications distance, they shall exchange the aircraft identity, runway intent, and acceptance state needed to hand an aircraft from one protected volume to the other. A handoff shall complete only after the receiving airport accepts it. Acceptance is a pair of airports inside the configured distance where the sender stops controlling the aircraft only after the receiver has accepted the handoff.
+<<<
+RATIONALE: >>>
+Coordination is limited to airports that can actually exchange state, which is the boundary between a cluster and a rural field.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
