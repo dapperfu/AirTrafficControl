@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS008 The port shall carry content and phrase text and shall not select an encoding
+UID: DOC-AC-SSS008
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS008
+TITLE: The port shall carry content and phrase text and shall not select an encoding
+STATEMENT: >>>
+The port between the aircraft and a peer shall carry the transmission fields and the rendered phrase. It shall also carry the events delivered, blocked, garbled, down, and up. It shall not select a radio, socket, line format, or other byte encoding. Acceptance is an in-memory delivery of one phrase that a peer can read, with no encoded frame around it.
+<<<
+RATIONALE: >>>
+The encoding is an open decision recorded here so a later plan can choose it.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD002
