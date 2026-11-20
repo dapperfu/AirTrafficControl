@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: IRS002 Neighbor handoff request, accept, reject, and stale marker
+UID: DOC-IRS002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: IRS002
+TITLE: Neighbor handoff request, accept, reject, and stale marker
+STATEMENT: >>>
+The inter-airport interface shall carry a handoff request with aircraft identity and runway intent, an accept, a reject, and a stale marker when the link is down. A receiver shall answer accept or reject. A sender shall treat a down link as stale and shall not send a new request on it. Acceptance is a request followed by accept that transfers control, a reject that does not, and a down link that produces a stale marker and no request.
+<<<
+RATIONALE: >>>
+The neighbor protocol is the only channel whose loss triggers fail-smart behavior.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS003
