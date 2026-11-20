@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS008 Assign a runway only when designation, independence, and occupancy allow it
+UID: DOC-SRS008
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS008
+TITLE: Assign a runway only when designation, independence, and occupancy allow it
+STATEMENT: >>>
+The Tower CSCI shall assign a runway to an aircraft only when the designation allows the requested operation, the runway is not closed, and the assignment does not conflict with an aircraft already occupying that runway or a conflicting runway. The assignment shall record the aircraft, the runway, and the operation. Acceptance is a successful assignment onto an empty both-use runway and a refusal onto that runway while another aircraft occupies a conflicting runway.
+<<<
+RATIONALE: >>>
+Assignment is the first occupancy decision and it has to obey the same exclusion as a takeoff or landing.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS001
+- TYPE: Parent
+  VALUE: SSS005
