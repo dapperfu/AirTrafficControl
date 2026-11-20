@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SDD001 OTP supervision tree for one airport group
+UID: DOC-SDD001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SDD001
+TITLE: OTP supervision tree for one airport group
+STATEMENT: >>>
+The Tower CSCI shall start under an OTP application and a one-for-one supervisor. The supervisor shall own the configuration loader, the local log, the neighbor monitor, and the clearance service. A child crash shall restart that child without creating a second log. Acceptance is an application start that registers one supervisor, and a killed child that is restarted while the committed log prefix is unchanged.
+<<<
+RATIONALE: >>>
+Supervision is how a local computer returns a worker without inventing a new authority.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: Erlang process isolation is not claimed as DO-178C robust partitioning.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SRS003
