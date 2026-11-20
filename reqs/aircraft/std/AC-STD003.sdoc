@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-STD003 Request-order cases
+UID: DOC-AC-STD003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-STD003
+TITLE: Request-order cases
+STATEMENT: >>>
+The test shall render the ATIS request, the taxi request, the pattern-entry request with information alpha, and a landing request, and shall expect the facility and the full call sign before the request. It shall parse each phrase back to the same kind and registration. Acceptance is the exact ATIS sentence and the exact pattern-entry sentence for N123AB. The test file is apps/aircraft/tests/test_phrasebook.py.
+<<<
+RATIONALE: >>>
+This is the example test for request order.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-STP001
+- TYPE: Parent
+  VALUE: AC-SRS003
