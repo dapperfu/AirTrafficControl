@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-IRS002 Link events for delivery and faults
+UID: DOC-AC-IRS002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-IRS002
+TITLE: Link events for delivery and faults
+STATEMENT: >>>
+The link shall report delivered when a transmission reaches the peer, blocked when an outbound transmission does not, garbled when an inbound transmission cannot be used, and down and up when the link changes state. A garble shall say whether it was addressed to this aircraft. Acceptance is a blocked send that is absent from the peer queue and an addressed garble that produces Say again.
+<<<
+RATIONALE: >>>
+The events are how the aircraft learns the port state without a radio model.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS005
+- TYPE: Parent
+  VALUE: AC-SSS006
