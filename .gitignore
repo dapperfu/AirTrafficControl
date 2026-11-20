@@ -44,8 +44,9 @@ states/
 *~
 .DS_Store
 
-# Rust front end
+# Rust front ends
 apps/atc_frontend/target/
+apps/plane_frontend/target/
 
 # National radio simulation inputs and generated output
 data/raw/
