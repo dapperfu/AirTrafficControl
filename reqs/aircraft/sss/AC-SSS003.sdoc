@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS003 Every transmission shall use the one full spoken N-number
+UID: DOC-AC-SSS003
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS003
+TITLE: Every transmission shall use the one full spoken N-number
+STATEMENT: >>>
+Every transmission the aircraft sends shall contain the full spoken form of its one configured civil N-number. Digits shall be spoken individually, with 9 spoken as niner and 0 spoken as zero, and letters shall use the ICAO radiotelephony alphabet. The aircraft shall not shorten the call sign. Acceptance is N123AB spoken as November one two three alpha bravo on a request and on a readback.
+<<<
+RATIONALE: >>>
+Abbreviation waits until a later increment that has a tower using the short form.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD002
