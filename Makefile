@@ -1,4 +1,5 @@
 .PHONY: help clean build run serve frontend plane test aircraft-test physics physics-nif scenario-test \
+	oshkosh oshkosh-test \
 	strictdoc-init strictdoc-generate strictdoc-validate strictdoc-export \
 	strictdoc-serve strictdoc-tree strictdoc-help tla-check install-hooks
 
@@ -21,6 +22,8 @@ help:
 	@echo "  make physics-nif           Build the tower binding to the C physics model"
 	@echo "  make aircraft-test         Run the aircraft pytest suite"
 	@echo "  make scenario-test         Fly the pinned busy-flow scenario at max scale"
+	@echo "  make oshkosh               Count AirVenture arrivals the open runways can land"
+	@echo "  make oshkosh-test          Run the Oshkosh pytest suite"
 	@echo "  make clean                 Remove build output"
 	@echo "  make strictdoc-init        Create the StrictDoc virtualenv"
 	@echo "  make strictdoc-generate    Write HTML into reqs/html"
@@ -103,6 +106,12 @@ physics-nif: apps/atc_tower/priv/atc_physics.so
 # @relation(AC-SIP001, AC-STP001, scope=file)
 aircraft-test: $(STRICTDOC) apps/physics/libphysics.so
 	cd $(ROOT)/apps/aircraft && $(PYTHON) -m pytest -q
+
+oshkosh:
+	cd $(ROOT)/apps/oshkosh && PYTHONPATH=src python3 -m oshkosh
+
+oshkosh-test: $(STRICTDOC)
+	cd $(ROOT)/apps/oshkosh && $(PYTHON) -m pytest -q
 
 scenario-test: build physics $(STRICTDOC)
 	$(PYTHON) tools/navdata/import_navdata.py --download $(ROOT)/data/raw --out $(ROOT)/data/catalog
