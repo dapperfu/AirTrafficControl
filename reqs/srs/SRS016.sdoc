@@ -24,3 +24,5 @@ ASSUMPTIONS: Audit loss is not itself a separation failure. The record is still 
 RELATIONS:
 - TYPE: Parent
   VALUE: SDP001
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_audit.erl
