@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SSS011 Each simulated aircraft shall publish a truth track
+UID: DOC-SSS011
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS011
+TITLE: Each simulated aircraft shall publish a truth track
+STATEMENT: >>>
+The system shall publish a truth track for each simulated aircraft at every motion step. The track shall carry the aircraft identity, position, velocity, altitude, wake class, and time. Publishing a track shall not by itself issue a clearance. Acceptance is two aircraft whose tracks update on the same step and stay distinct, with the issued-clearance log unchanged by the publication.
+<<<
+RATIONALE: >>>
+Routine prediction needs one shared picture of where each aircraft is. The picture is not a clearance.
+<<<
+DAL: B
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. A training profile may publish tracks for a larger picture and does not change the checked envelope. This is simulation software, with no live NAS connection and no certification claim.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_tracks.erl
