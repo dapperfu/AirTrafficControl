@@ -24,3 +24,5 @@ ASSUMPTIONS: Erlang process isolation is not claimed as DO-178C robust partition
 RELATIONS:
 - TYPE: Parent
   VALUE: SRS003
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_tower_sup.erl

@@ -22,5 +22,14 @@ init([]) ->
         intensity => 5,
         period => 10
     },
-    ChildSpecs = [],
+    ChildSpecs = [
+        #{
+            id => atc_monitor,
+            start => {atc_monitor, start_link, []},
+            restart => permanent,
+            shutdown => 5000,
+            type => worker,
+            modules => [atc_monitor]
+        }
+    ],
     {ok, {SupFlags, ChildSpecs}}.
