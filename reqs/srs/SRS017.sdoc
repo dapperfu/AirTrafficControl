@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SRS017 Publish a truth track without issuing a clearance
+UID: DOC-SRS017
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS017
+TITLE: Publish a truth track without issuing a clearance
+STATEMENT: >>>
+The Tower CSCI shall accept a truth track for an aircraft and shall retain the latest position, velocity, altitude, wake class, and time for that identity. A later publication for the same identity shall replace the earlier one. Publishing a track shall not append an issued clearance. Acceptance is two publications for one aircraft, with the second retained and the issued log unchanged.
+<<<
+RATIONALE: >>>
+The predictive picture sits beside the phase machine. It is not a second clearance log.
+<<<
+DAL: B
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Training tracks may exceed that count and do not change the checked envelope.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS011
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_tracks.erl
