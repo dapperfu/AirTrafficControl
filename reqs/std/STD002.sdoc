@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: STD002 Runway designation selection cases
+UID: DOC-STD002
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: STD002
+TITLE: Runway designation selection cases
+STATEMENT: >>>
+The test shall attempt a landing on a departure-only runway, a takeoff on an arrival-only runway, an assignment to a closed runway, and a dual occupancy of two non-independent runways. Each attempt shall be refused. A landing on an empty both-use runway shall be accepted. Acceptance is those five outcomes.
+<<<
+RATIONALE: >>>
+Designation and independence are data, so the test supplies the data and checks the decision.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: Low-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: STP001
+- TYPE: Parent
+  VALUE: SRS002
