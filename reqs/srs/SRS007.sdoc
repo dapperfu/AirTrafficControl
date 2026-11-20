@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SRS007 On a dead neighbor link, continue local service and refuse dependent clearances
+UID: DOC-SRS007
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS007
+TITLE: On a dead neighbor link, continue local service and refuse dependent clearances
+STATEMENT: >>>
+When a neighbor link is down, the Tower CSCI shall keep serving aircraft in the local volume and shall refuse a handoff or any clearance whose safety would depend on that neighbor. State last received from that neighbor shall be marked stale and shall not be used to permit a tighter local operation. Acceptance is a down link during which a local landing is still granted when the local guard allows it, a handoff is refused, and stale neighbor occupancy is not treated as empty sky.
+<<<
+RATIONALE: >>>
+This is the software statement of fail-smart behavior for a partitioned airport.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Visual separation, LAHSO, radar vectoring, TRACON, enroute control, and wake RECAT are outside this increment.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS004
