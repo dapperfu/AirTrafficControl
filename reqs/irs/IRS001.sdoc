@@ -24,3 +24,5 @@ ASSUMPTIONS: Wind is optional in the TOML file. When it is absent, a takeoff phr
 RELATIONS:
 - TYPE: Parent
   VALUE: SSS005
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_phraseology.erl
