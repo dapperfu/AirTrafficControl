@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS005 A lost link shall preserve the last accepted clearance
+UID: DOC-AC-SSS005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS005
+TITLE: A lost link shall preserve the last accepted clearance
+STATEMENT: >>>
+When the link is down, the aircraft shall not originate a request, a readback, a repeat, or an emergency call. It shall keep the last clearance it had already accepted and shall continue that maneuver. A clearance offered while the link is down shall not become accepted. With no accepted taxi or takeoff clearance, the aircraft shall remain stopped on the ground. Acceptance is a taxi already in progress that continues after the link goes down, and a new request that adds no phrase.
+<<<
+RATIONALE: >>>
+Silence is not a new instruction.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD004
