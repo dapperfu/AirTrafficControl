@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SSS009 When n is greater than 1, one local computer failure shall leave a single clearance authority
+UID: DOC-SSS009
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS009
+TITLE: When n is greater than 1, one local computer failure shall leave a single clearance authority
+STATEMENT: >>>
+When more than one computer is configured, clearances shall be appended to one ordered log and only a majority member that is the elected authority may append. After one computer fails, a surviving majority shall keep exactly one authority and the failed computer shall not issue clearances. For two computers the majority is both, so one failure stops clearances instead of leaving two authorities. Acceptance is a group of three where killing one leaves one authority, and a partition into one and two where only the side of two issues a clearance.
+<<<
+RATIONALE: >>>
+The safety claim is a single authority. Two computers cannot survive a failure without risking a split brain, so they stop.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
+RELATIONS:
+- TYPE: Parent
+  VALUE: OCD001
