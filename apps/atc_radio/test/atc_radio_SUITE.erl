@@ -38,7 +38,9 @@ phrase(_Config) ->
         atc_radio_phrase:classify(<<"N123">>, <<"link Center up">>),
     scripted =
         atc_radio_phrase:classify(<<"N123">>, <<"request IFR clearance to Chicago">>),
-    <<"cleared as filed">> =
+    {routine, {ifr, <<"N123">>, <<"Chicago">>}} =
+        atc_radio_phrase:interpret(<<"N123">>, <<"request IFR clearance to Chicago">>),
+    <<"stand by">> =
         atc_radio_phrase:reply(scripted, <<"request IFR clearance to Chicago">>),
     <<"climb and maintain">> =
         atc_radio_phrase:reply(scripted, <<"climb and maintain flight level three five zero">>),

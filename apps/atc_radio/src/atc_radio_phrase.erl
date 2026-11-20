@@ -1,6 +1,6 @@
 -module(atc_radio_phrase).
 
--export([port/1, decode/1, classify/2, reply/2]).
+-export([port/1, decode/1, classify/2, interpret/2, reply/2]).
 
 port(Mhz) when is_integer(Mhz) ->
     port(Mhz * 1.0);
@@ -15,6 +15,8 @@ decode(Packet) when is_binary(Packet) ->
     case Lines of
         [<<"clock ", Rest/binary>>] ->
             {clock, seconds(Rest)};
+        [<<"track ", Rest/binary>>] ->
+            {track, Rest};
         [Line1, Line2 | _] ->
             case binary:split(Line1, <<" ">>, [global, trim_all]) of
                 [<<"flight">>, Uuid, Chapter, Callsign] ->
@@ -38,8 +40,21 @@ classify(Callsign, English) when is_binary(Callsign), is_binary(English) ->
             {command, Command}
     end.
 
+%% A routine request is not a clearance until the guard accepts the proposal.
+interpret(Callsign, English) when is_binary(Callsign), is_binary(English) ->
+    case classify(Callsign, English) of
+        {command, Command} ->
+            {command, Command};
+        scripted ->
+            routine_or_script(Callsign, English)
+    end.
+
 reply(scripted, English) ->
     scripted_reply(English);
+reply(standby, _Package) ->
+    <<"stand by">>;
+reply(flight_data, Phrase) when is_binary(Phrase) ->
+    Phrase;
 reply({command, {takeoff, _}}, ok) ->
     <<"cleared for takeoff">>;
 reply({command, {land, _}}, ok) ->
@@ -197,17 +212,48 @@ scripted_from(Lower) ->
         lists:member(<<"approach">>, Lower)
     } of
         {true, _, _, _, _} ->
-            <<"cleared as filed">>;
+            <<"stand by">>;
         {_, true, _, _, _} ->
-            <<"taxi to the runway">>;
+            <<"stand by">>;
         {_, _, true, _, _} ->
             <<"climb and maintain">>;
         {_, _, _, true, _} ->
             <<"descend and maintain">>;
         {_, _, _, _, true} ->
-            <<"cleared for the approach">>;
+            <<"stand by">>;
         _ ->
             <<"roger">>
+    end.
+
+routine_or_script(Callsign, English) ->
+    Tokens = tokens(English),
+    Lower = [string:lowercase(Token) || Token <- Tokens],
+    case lists:member(<<"mayday">>, Lower) orelse lists:member(<<"pan">>, Lower) of
+        true ->
+            {routine, {emergency, Callsign}};
+        false ->
+            case lists:member(<<"taxi">>, Lower) of
+                true ->
+                    {routine, {taxi, Callsign}};
+                false ->
+                    case ifr_destination(Tokens, Lower) of
+                        none ->
+                            scripted;
+                        Dest ->
+                            {routine, {ifr, Callsign, Dest}}
+                    end
+            end
+    end.
+
+ifr_destination(Tokens, Lower) ->
+    case lists:member(<<"ifr">>, Lower) orelse lists:member(<<"clearance">>, Lower) of
+        false ->
+            none;
+        true ->
+            case after_word(Tokens, <<"to">>) of
+                none -> <<"unknown">>;
+                Dest -> Dest
+            end
     end.
 
 reason_text(Reason) when is_atom(Reason) ->
