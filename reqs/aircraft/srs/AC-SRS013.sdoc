@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS013 Read back a frequency change and address the new facility
+UID: DOC-AC-SRS013
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS013
+TITLE: Read back a frequency change and address the new facility
+STATEMENT: >>>
+The aircraft shall be able to request a frequency change. A contact instruction shall be read back as the spoken frequency and then the call sign, without the wind or the facility name in the readback. Subsequent transmissions shall address the new facility. The maneuver shall not change. Acceptance is the readback one two four point five followed by the call sign, and a later request that begins with Departure.
+<<<
+RATIONALE: >>>
+The frequency is the readback. The new facility is the next call.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
