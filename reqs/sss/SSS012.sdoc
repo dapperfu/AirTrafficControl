@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: SSS012 A conflict probe shall see collisions the occupancy flag cannot
+UID: DOC-SSS012
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SSS012
+TITLE: A conflict probe shall see collisions the occupancy flag cannot
+STATEMENT: >>>
+The system shall predict surface and runway conflicts from truth tracks before a routine clearance is proposed. The prediction shall cover a synthetic taxi graph, runway incursion, classic wake categories heavy, B757, large, and small, and same-runway time separation. LAHSO, visual separation, opposite direction, and intersection departures shall be detected and shall not be proposed as routine. Acceptance is a departure whose predicted runway time overlaps an arrival, with no routine clearance proposed, and an intersection departure that is deferred.
+<<<
+RATIONALE: >>>
+Exclusive occupancy does not see two aircraft on the same pavement in time, or a vehicle on the runway.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: System
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Wake RECAT, PRM, full approach control, enroute separation, and a live NAS connection are outside this increment. The probe proposes. It does not write an issued clearance.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS001
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_probe.erl
