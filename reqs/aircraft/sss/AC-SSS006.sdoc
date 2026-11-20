@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SSS006 A garbled transmission is queried and a blocked one is repeated once
+UID: DOC-AC-SSS006
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS006
+TITLE: A garbled transmission is queried and a blocked one is repeated once
+STATEMENT: >>>
+An addressed garbled transmission shall not be accepted. The aircraft shall say Say again followed by the full call sign. A garbled transmission that is not addressed to this aircraft shall be ignored. When the port reports that an outbound transmission was blocked, the aircraft shall send that same transmission once more and shall not continue repeating if the repeat is also blocked. Acceptance is one Say again phrase and one delivered copy of a transmission whose first send was blocked.
+<<<
+RATIONALE: >>>
+The fault behavior is bounded so a blocked port cannot loop.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD004
