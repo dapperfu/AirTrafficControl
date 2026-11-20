@@ -26,3 +26,5 @@ RELATIONS:
   VALUE: AC-SRS021
 - TYPE: File
   PATH: apps/aircraft/src/aircraft/dynamics.py
+- TYPE: File
+  PATH: apps/aircraft/tests/test_dynamics.py
