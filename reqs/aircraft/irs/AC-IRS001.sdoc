@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-IRS001 Transmission content for a pattern exchange
+UID: DOC-AC-IRS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-IRS001
+TITLE: Transmission content for a pattern exchange
+STATEMENT: >>>
+A transmission shall be able to carry the facility, the full call sign, the registration, an optional position, the phrase kind, the runway identifier, a sequence number, an ATIS letter, a frequency in megahertz, the next facility, the emergency nature, the intention, and whether a taxi clearance includes hold short. Wind and altimeter may arrive on an inbound clearance and shall not be copied into the readback. Acceptance is a landing clearance whose runway and kind survive parsing and whose readback contains neither wind nor altimeter.
+<<<
+RATIONALE: >>>
+The fields are the information content. The phrase is their spoken form.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Interface
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
+- TYPE: Parent
+  VALUE: AC-SSS008
