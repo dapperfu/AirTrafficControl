@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS009 Report ready, read back takeoff, and fly the roll and climb
+UID: DOC-AC-SRS009
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS009
+TITLE: Report ready, read back takeoff, and fly the roll and climb
+STATEMENT: >>>
+The aircraft shall be able to report holding short and ready for takeoff. After it is lined up and stopped, a takeoff clearance shall be read back as Cleared for takeoff runway and the spoken runway, then the call sign. The aircraft shall accelerate, rotate at the configured rotation speed, and climb on runway heading toward pattern altitude. Acceptance is that readback, a climb phase, and a takeoff roll that stays on the runway centerline.
+<<<
+RATIONALE: >>>
+Takeoff is accepted only after the aircraft is lined up and waiting.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
