@@ -1,0 +1,30 @@
+[DOCUMENT]
+TITLE: SRS019 Propose a routine clearance only when the guard can accept it
+UID: DOC-SRS019
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SRS019
+TITLE: Propose a routine clearance only when the guard can accept it
+STATEMENT: >>>
+The Tower CSCI shall auto-issue a routine taxi, hold-short, line-up, takeoff, landing, or vacate only by proposing a command that the separation guard accepts. The proposal shall be made only after the conflict probe reports safe. A scripted radio reply shall not be a second writer of that clearance. Acceptance is a taxi request that becomes an assign or hold-short only through the guard, and a conflicting request that is absent from the issued log.
+<<<
+RATIONALE: >>>
+Routine issuance is a suggestion the occupancy guard still has to commit.
+<<<
+DAL: A
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The checked envelope is 4 runways, 8 aircraft under control, and 2 neighbor airports. Commands the guard does not know are not issued.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SSS013
+- TYPE: Parent
+  VALUE: SRS013
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_policy.erl
