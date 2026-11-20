@@ -19,6 +19,10 @@
 # Python virtual environment
 .venv/
 
+# StrictDoc cache
+reqs/_cache/
+_cache/
+
 # Local toolchain (OTP, rebar3, TLC)
 .tools/
 

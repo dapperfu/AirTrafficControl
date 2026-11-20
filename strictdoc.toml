@@ -10,6 +10,7 @@ features = [
   "PROJECT_STATISTICS_SCREEN",
 ]
 source_root_path = ".."
+cache_dir = ".tools/strictdoc-cache"
 include_source_paths = [
   "apps/**",
   "specs/**",
