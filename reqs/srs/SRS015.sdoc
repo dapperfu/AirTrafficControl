@@ -24,3 +24,5 @@ ASSUMPTIONS: Raft is assumed to deliver one ordered log and is not re-proved.
 RELATIONS:
 - TYPE: Parent
   VALUE: SSS009
+- TYPE: File
+  PATH: apps/atc_tower/src/atc_cluster.erl
