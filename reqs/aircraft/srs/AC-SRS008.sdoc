@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS008 Read back line up and wait, align, and wait
+UID: DOC-AC-SRS008
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS008
+TITLE: Read back line up and wait, align, and wait
+STATEMENT: >>>
+From hold short, a line-up-and-wait clearance shall be read back as Line up and wait runway and the spoken runway, then the call sign. The aircraft shall taxi onto the runway to 100 feet past the threshold, align with the runway heading, and stop. It shall not begin the takeoff roll until a takeoff clearance. Acceptance is that readback and a stopped, aligned aircraft still in the line-up phase.
+<<<
+RATIONALE: >>>
+Line up and wait is not a takeoff clearance.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS001
