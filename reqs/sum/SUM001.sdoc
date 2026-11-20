@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: SUM001 Start, stop, and edit runway designations for one airport
+UID: DOC-SUM001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: SUM001
+TITLE: Start, stop, and edit runway designations for one airport
+STATEMENT: >>>
+The operator manual shall tell an operator how to edit runway designations in the airport TOML file, start the n local computers, and stop them. It shall state that a closed runway will not be assigned and that a file outside the checked envelope will not start. Acceptance is a manual section that names the TOML keys for designation and the start and stop commands, and an operator who can close a runway by editing the file and restarting.
+<<<
+RATIONALE: >>>
+The user of this CSCI is the airport operator who maintains the TOML file, not a pilot.
+<<<
+DAL: C
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The manual does not restate FAA JO 7110.65.
+RELATIONS:
+- TYPE: Parent
+  VALUE: SDP001
