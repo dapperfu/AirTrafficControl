@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SRS012 Read back the sequence number
+UID: DOC-AC-SRS012
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SRS012
+TITLE: Read back the sequence number
+STATEMENT: >>>
+A sequence instruction shall be read back as Number and the spoken digits, including the runway when the instruction names one, and then the call sign. The sequence shall be stored and shall not change phase, position, or speed. Acceptance is Number two, runway two seven, followed by the call sign, with the maneuver unchanged.
+<<<
+RATIONALE: >>>
+Sequence is information. It is not a clearance to move.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: High-Level
+VERIFICATION: Test
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SSS002
