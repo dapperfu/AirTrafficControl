@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-OCD005 The pilot may declare Mayday or Pan-Pan without an answer
+UID: DOC-AC-OCD005
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-OCD005
+TITLE: The pilot may declare Mayday or Pan-Pan without an answer
+STATEMENT: >>>
+The pilot shall be able to declare Mayday or Pan-Pan in the standard repeated form, including the facility, the call sign, the nature, the current position, and the intention. The concept shall not require the tower to answer, and the declaration itself shall not change the maneuver. Acceptance is a declaration that can be read from the phrase log with no following tower transmission.
+<<<
+RATIONALE: >>>
+This increment declares the emergency and stops there.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Operational
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
