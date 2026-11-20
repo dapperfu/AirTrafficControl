@@ -1,0 +1,26 @@
+[DOCUMENT]
+TITLE: AC-SIP001 Create the virtualenv and run one configured aircraft
+UID: DOC-AC-SIP001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SIP001
+TITLE: Create the virtualenv and run one configured aircraft
+STATEMENT: >>>
+Installation shall create the project virtualenv from requirements.txt, which pins StrictDoc and pytest, and shall run make aircraft-test from the repository root. The example aircraft is config/n123ab.toml. A rejected TOML file shall not produce a flying aircraft. Acceptance is a support engineer who can run that make target and see the pytest summary.
+<<<
+RATIONALE: >>>
+Installation is a userspace virtualenv. It does not need elevated privileges.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: Plan
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-SDP001
