@@ -1,0 +1,28 @@
+[DOCUMENT]
+TITLE: AC-SSS001 Accepted clearances shall drive the point-mass maneuver
+UID: DOC-AC-SSS001
+OPTIONS:
+  MARKUP: Text
+  VIEW_STYLE: Narrative
+
+[GRAMMAR]
+IMPORT_FROM_FILE: grammar.sgra
+
+[REQUIREMENT]
+UID: AC-SSS001
+TITLE: Accepted clearances shall drive the point-mass maneuver
+STATEMENT: >>>
+When the aircraft accepts a clearance that authorizes taxi, hold short, line up and wait, takeoff, landing, go-around, the option, touch-and-go, or stop-and-go, the point-mass model shall fly that maneuver and shall not begin it before acceptance. A request alone shall not move the aircraft. Acceptance is a taxi clearance whose position is unchanged until the next time step and whose later steps follow the taxi path to the hold-short point.
+<<<
+RATIONALE: >>>
+The maneuver and the clearance have to be the same story.
+<<<
+DAL: E
+REQUIREMENT_LEVEL: System
+VERIFICATION: Review
+ASSUMPTIONS: The Aircraft CSCI is a simulation. It is not connected to a real aircraft or a live facility, and this record does not claim certification authority approval.
+RELATIONS:
+- TYPE: Parent
+  VALUE: AC-OCD001
+- TYPE: Parent
+  VALUE: AC-OCD003
