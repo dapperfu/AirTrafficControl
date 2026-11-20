@@ -1,0 +1,35 @@
+# @relation(SSS006, IRS003, scope=file)
+# Three computers. One failure leaves a majority of two and one clearance authority.
+[airport]
+icao = "KMETR"
+latitude = 33.9
+longitude = -118.4
+communications_distance_nm = 40.0
+computers = 3
+max_runways = 4
+max_aircraft = 8
+max_neighbors = 1
+wind = "250 at 9"
+
+[[runway]]
+id = "25L"
+designation = "both"
+independent = true
+intersects = []
+
+[[runway]]
+id = "25R"
+designation = "departure"
+independent = true
+intersects = []
+
+[[runway]]
+id = "07"
+designation = "closed"
+independent = true
+intersects = []
+
+[[neighbor]]
+icao = "KSAT"
+latitude = 34.05
+longitude = -118.4
