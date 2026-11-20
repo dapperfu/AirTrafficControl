@@ -28,3 +28,5 @@ RELATIONS:
   VALUE: AC-SRS013
 - TYPE: Parent
   VALUE: AC-SRS014
+- TYPE: File
+  PATH: apps/aircraft/tests/test_phrasebook.py
